@@ -1,0 +1,32 @@
+# Environment / secrets
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Model weights / dataset caches (fetched by scripts, not committed)
+data/raw/
+data/oxford_flowers/
+*.pt
+*.pth
+*.ckpt
+.cache/
+
+# Qdrant local storage
+qdrant_storage/
+qdrant_data/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Reference screenshots from the source tutorial (not ours to redistribute)
+Screenshot *.png
