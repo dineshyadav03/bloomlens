@@ -20,28 +20,35 @@ See [docs/RESEARCH.md](docs/RESEARCH.md) for the full writeup with sources, and 
 ## Planned architecture
 
 ```
-Flower photo (Streamlit upload)
+Flower photo(s) (single, or a "lot" of several)
         │
         ▼
 BioCLIP 2 embedding ──► Qdrant vector search ──► top-k candidate species
-        │                                             + taxonomy context
+        │                                             + confidence gate
         ▼
-Gemini (current multimodal Flash model)
-  prompt = photo + candidates + retrieved taxonomy text
-  → refined species/common name, confidence, freshness/quality note
+LangChain agent (Gemini) with tools:
+  lookup_taxonomy · assess_quality · check_price
+  → species/common name, confidence, quality note, price, summary
         │
-        ▼
-Simulated pricing lookup (species + grade → price/stem, trend)
-        │
-        ▼
-Streamlit results panel: species, taxonomy, quality note, simulated price
+        ▼ (lot mode aggregates across photos)
+Streamlit UI  /  FastAPI JSON endpoint
 ```
 
-Full breakdown in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+Full breakdown, including the evaluation harness, confidence handling, and Docker/CI setup, in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+## Planned features
+
+- **Species ID** via BioCLIP 2 zero-shot classification against a curated taxonomy vector index (Qdrant) — 91.4% zero-shot accuracy on the PlantNet benchmark in the original paper.
+- **Agentic reasoning layer**: a LangChain agent (not a fixed pipeline) gives Gemini tools to look up taxonomy, assess quality, and check price — matching the "AI Agent System" framing from the original tutorial this project was inspired by.
+- **Confidence handling**: a close call between top candidates surfaces a "did you mean X or Y?" instead of a silently wrong guess.
+- **Lot/batch mode**: upload several photos as one lot and get a consensus ID, aggregated quality, and a price trend chart — closer to how auction buying actually works.
+- **Evaluation harness**: measured top-1/top-3 accuracy and a confusion matrix on a held-out test set, not just "it seems to work."
+- **Both a UI and an API**: a Streamlit demo and a FastAPI `/identify` endpoint share the same core pipeline.
+- **One-command setup**: Docker Compose for the app + Qdrant, with CI running the evaluation harness on every push.
 
 ## Tech stack (planned)
 
-Streamlit · BioCLIP 2 (open-source vision foundation model) · Qdrant (vector search) · Google Gemini (current multimodal model) · LangChain (RAG orchestration)
+Streamlit · FastAPI · BioCLIP 2 (open-source vision foundation model) · Qdrant (vector search) · Google Gemini (current multimodal model) · LangChain (agentic RAG orchestration) · Docker Compose · GitHub Actions
 
 ## Important disclaimers
 
@@ -49,6 +56,10 @@ Streamlit · BioCLIP 2 (open-source vision foundation model) · Qdrant (vector s
 - **Quality assessment is a heuristic**, not a calibrated agronomic grading system.
 - **Species coverage is a curated demo-sized subset** (~30–50 common cut-flower species), not the full biodiversity scale of the underlying research models.
 - This project is not affiliated with Royal FloraHolland, the Museum of the Future, or the Imageomics Institute — all are credited as inspiration/research sources only.
+
+## Future work
+
+Not part of this build, but noted for later: a Grad-CAM-style interpretability overlay showing which part of a photo drove the species call, and a persistent inventory/traceability log across scans — closer to the original tutorial's "Inventory Scanner" concept for a greenhouse, deferred because it turns this from a stateless demo into a stateful application.
 
 ## Status
 
