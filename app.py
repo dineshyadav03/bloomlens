@@ -3,7 +3,7 @@
 from PIL import Image
 
 import streamlit as st
-from src.identify import IdentifyError, identify
+from src.identify import IdentifyError, identify, resolve_candidate
 
 st.set_page_config(page_title="BloomLens", page_icon="🌸")
 
@@ -39,9 +39,31 @@ if image_source is not None:
             st.error(f"Something went wrong: {exc}")
             st.stop()
 
-    st.subheader(f"🌷 {result.species}")
-    if result.scientific_name:
-        st.caption(f"*{result.scientific_name}*")
+    display_species = result.species
+    display_scientific = result.scientific_name
+    display_price = result.price_per_stem
+    display_trend = result.price_trend
+
+    if result.confidence_tier == "low":
+        st.warning(
+            f"⚠️ Not confidently any of BloomLens's known species — closest guess: **{result.species}**"
+        )
+    elif result.confidence_tier == "ambiguous":
+        candidate_names = [c["common_name"] for c in result.top_candidates[:2]]
+        default_index = candidate_names.index(result.species) if result.species in candidate_names else 0
+        st.caption("⚠️ Close call between two visually similar candidates — pick the right one:")
+        chosen = st.radio("Which is it?", candidate_names, index=default_index, label_visibility="collapsed")
+        if chosen != result.species:
+            resolved = resolve_candidate(chosen, result.top_candidates, result.quality_grade)
+            display_species = chosen
+            display_scientific = resolved["scientific_name"]
+            display_price = resolved["price_per_stem"]
+            display_trend = resolved["price_trend"]
+
+    if result.confidence_tier != "low":
+        st.subheader(f"🌷 {display_species}")
+    if display_scientific:
+        st.caption(f"*{display_scientific}*")
     st.write(result.summary)
 
     _TREND_ICON = {"up": "📈 up", "down": "📉 down", "flat": "➡️ flat", "unknown": "n/a"}
@@ -50,9 +72,9 @@ if image_source is not None:
     col1.metric("Quality grade", result.quality_grade)
     col2.metric(
         "Simulated price/stem",
-        f"€{result.price_per_stem:.2f}" if result.price_per_stem is not None else "n/a",
+        f"€{display_price:.2f}" if display_price is not None else "n/a",
     )
-    st.caption(f"Price trend: {_TREND_ICON.get(result.price_trend, result.price_trend)}")
+    st.caption(f"Price trend: {_TREND_ICON.get(display_trend, display_trend)}")
 
     st.write("**Confidence:**", result.confidence_note)
     st.write("**Quality note:**", result.quality_note)

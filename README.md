@@ -79,7 +79,7 @@ Not part of this build, but noted for later: a Grad-CAM-style interpretability o
 
 - ✅ **Phase A** — research, architecture, and this documentation.
 - ✅ **Milestone 1** — core pipeline: camera scan → BioCLIP 2 species ID → Gemini quality read → simulated price, in a working Streamlit app. Verified end-to-end on real flower photos.
-- ⬜ Milestone 2 — confidence gating ("did you mean X or Y?")
+- ✅ **Milestone 2** — confidence gating: three tiers from Qdrant's top-1/top-2 score gap (`high`/`ambiguous`/`low`, thresholds in `src/identify.py`). Ambiguous scans show a visible switcher between the top-2 candidates (updates species/price with no extra Gemini call); low-confidence scans get a hedged message instead of a confident species name.
 - ⬜ Milestone 3 — agentic layer (LangChain tool-calling agent)
 - ⬜ Milestone 4 — lot/batch mode + price trend chart
 - ⬜ Milestone 5 — evaluation harness

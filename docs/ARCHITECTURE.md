@@ -75,10 +75,11 @@ The LangChain agent gets three tools rather than a hardcoded call order:
 
 The agent's system prompt makes explicit that pricing is simulated and quality is a heuristic read, so those caveats show up in whatever the agent generates — not just in a UI label that a JSON API consumer would never see.
 
-## Confidence handling
+## Confidence handling — implemented (Milestone 2)
 
 - BioCLIP/Qdrant returns similarity scores, not calibrated probabilities — so "confidence" is relative (top-1 vs top-2 gap), not an absolute percentage claim.
-- Three tiers: **clear winner** (proceed normally), **close call** (surface top-2 as a "did you mean X or Y?" choice for the user to resolve), **no confident match** (say so, don't force an answer). Thresholds are tuned empirically once the evaluation harness (below) is running, not guessed upfront.
+- Three tiers, computed purely from Qdrant scores in `src/identify._classify_confidence` (no extra Gemini call): **`high`** (top-1 ≥ 0.55 and gap to top-2 ≥ 0.05) — proceeds normally; **`ambiguous`** (everything in between) — `app.py` shows a visible `st.radio` switcher between the top-2 candidates, defaulting to Gemini's pick, that re-derives species/scientific-name/price via `src/identify.resolve_candidate` on change, no second Gemini call; **`low`** (top-1 < 0.45) — the confident species title is replaced with a hedged "not confidently a known species" message.
+- The specific thresholds (0.55/0.05/0.45) are a heuristic starting point from Milestone 1's handful of real test photos, not tuned against a labeled dataset — they're module-level constants specifically so Milestone 5's evaluation harness can revisit them with real accuracy data.
 
 ## Lot/batch mode
 

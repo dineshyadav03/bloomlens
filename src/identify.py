@@ -1,13 +1,14 @@
 """Core identification pipeline: scan -> BioCLIP 2 -> Qdrant -> Gemini -> result.
 
-Milestone 1: a single linear pass (no agent, no confidence gating, no lot
-mode yet — see docs/ARCHITECTURE.md for where those land in later milestones).
+Milestone 1: a single linear pass. Milestone 2: confidence gating (this file).
+No agent or lot mode yet — see docs/ARCHITECTURE.md for where those land later.
 """
 
 import io
 import json
 import os
 import time
+from typing import Literal
 
 from dotenv import load_dotenv
 from google import genai
@@ -32,6 +33,16 @@ _GEMINI_MODEL = "gemini-3.6-flash"
 _MAX_RETRIES = 4
 _RETRY_BASE_DELAY_SECONDS = 2
 
+# Confidence tiers, from Qdrant's top-1/top-2 cosine-similarity gap. These are a
+# heuristic starting point from Milestone 1's handful of real test photos (correct
+# matches scored 0.64-0.69 with 0.06-0.14 gaps) — not yet tuned against a labeled
+# dataset. Revisit once Milestone 5's evaluation harness exists.
+_HIGH_CONFIDENCE_MIN_SCORE = 0.55
+_HIGH_CONFIDENCE_MIN_GAP = 0.05
+_LOW_CONFIDENCE_MAX_SCORE = 0.45
+
+ConfidenceTier = Literal["high", "ambiguous", "low"]
+
 
 class _GeminiAnswer(BaseModel):
     species: str
@@ -53,6 +64,7 @@ class IdentifyResult(BaseModel):
     price_as_of: str | None
     price_simulated: bool = True
     top_candidates: list[dict]
+    confidence_tier: ConfidenceTier
 
 
 class IdentifyError(Exception):
@@ -139,6 +151,20 @@ def _match_candidate(species_text: str, candidates: list[dict]) -> str:
     return names[0]
 
 
+def _classify_confidence(candidates: list[dict]) -> ConfidenceTier:
+    """Derive a confidence tier from Qdrant's top-1/top-2 similarity scores alone
+    (no Gemini involvement) — see the threshold constants above for rationale."""
+    top_score = candidates[0]["score"]
+    if top_score < _LOW_CONFIDENCE_MAX_SCORE:
+        return "low"
+
+    gap = top_score - candidates[1]["score"] if len(candidates) > 1 else top_score
+    if top_score >= _HIGH_CONFIDENCE_MIN_SCORE and gap >= _HIGH_CONFIDENCE_MIN_GAP:
+        return "high"
+
+    return "ambiguous"
+
+
 def _generate_with_retries(client: genai.Client, image: Image.Image, candidates: list[dict]) -> _GeminiAnswer:
     last_error = None
     for attempt in range(_MAX_RETRIES):
@@ -150,19 +176,25 @@ def _generate_with_retries(client: genai.Client, image: Image.Image, candidates:
                     types.Part.from_bytes(data=_image_to_jpeg_bytes(image), mime_type="image/jpeg"),
                 ],
                 config=types.GenerateContentConfig(
-                    http_options=types.HttpOptions(timeout=30_000)  # milliseconds; avoid an indefinite hang
+                    http_options=types.HttpOptions(timeout=45_000)  # milliseconds; avoid an indefinite hang
                 ),
             )
             return _GeminiAnswer.model_validate(_extract_json(response.text))
         except genai_errors.ClientError as exc:
-            if getattr(exc, "code", None) == 429:
+            code = getattr(exc, "code", None)
+            if code == 429:
                 raise IdentifyError(
                     "Gemini's free-tier rate limit was reached for this key. Wait a minute and try "
                     "again, or check your quota at https://ai.dev/rate-limit."
                 ) from exc
+            if code == 499:
+                # Our own request timeout (45s) firing under high demand — retry like any
+                # other transient failure rather than treating it as a bad request.
+                last_error = exc
+                if attempt < _MAX_RETRIES - 1:
+                    time.sleep(_RETRY_BASE_DELAY_SECONDS * (attempt + 1))
+                continue
             raise IdentifyError(f"Gemini rejected the request: {exc}") from exc
-        except genai_errors.ClientError:
-            raise
         except Exception as exc:  # noqa: BLE001 — includes ServerError, timeouts, and any parsing failure; all retryable
             last_error = exc
             if attempt < _MAX_RETRIES - 1:
@@ -202,6 +234,28 @@ def identify(image: Image.Image) -> IdentifyResult:
         price_trend=price["trend"],
         price_as_of=price["as_of_date"],
         top_candidates=[
-            {"common_name": c["payload"]["common_name"], "score": round(c["score"], 3)} for c in candidates
+            {
+                "common_name": c["payload"]["common_name"],
+                "scientific_name": c["payload"]["scientific_name"],
+                "score": round(c["score"], 3),
+            }
+            for c in candidates
         ],
+        confidence_tier=_classify_confidence(candidates),
     )
+
+
+def resolve_candidate(species: str, top_candidates: list[dict], quality_grade: str) -> dict:
+    """Re-derive scientific_name/price for a different candidate the user picked in the
+    'ambiguous' tier's switcher — no new Gemini call, just fresh lookups (app.py)."""
+    scientific_name = next(
+        (c["scientific_name"] for c in top_candidates if c["common_name"] == species),
+        None,
+    )
+    price = lookup_price(species, grade=quality_grade)
+    return {
+        "scientific_name": scientific_name,
+        "price_per_stem": price["price_per_stem"],
+        "price_trend": price["trend"],
+        "price_as_of": price["as_of_date"],
+    }
