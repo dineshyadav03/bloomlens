@@ -5,7 +5,7 @@ Status: **design only** — nothing below is implemented yet. This is the Phase 
 ## Pipeline
 
 ```
-Flower photo(s) (Streamlit upload — one photo, or several as a "lot")
+Flower photo(s) (Streamlit camera scan — one photo, or several as a "lot"; a file-upload fallback exists for dev/testing without a camera)
         │
         ▼
 BioCLIP 2: embed photo (ViT-B/16 vision encoder)

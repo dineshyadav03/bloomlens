@@ -1,0 +1,182 @@
+[
+  {
+    "common_name": "Rose",
+    "scientific_name": "Rosa chinensis",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Rosales Rosaceae Rosa chinensis",
+    "description": "Ancestor of most modern cultivated roses; layered, fragrant blooms in shades from white to deep red, one of the most widely traded cut flowers worldwide."
+  },
+  {
+    "common_name": "Tulip",
+    "scientific_name": "Tulipa gesneriana",
+    "taxonomy_string": "Plantae Tracheophyta Liliopsida Liliales Liliaceae Tulipa gesneriana",
+    "description": "Cup-shaped single bloom on a smooth upright stem; a Dutch auction staple, sold by color and bulb-grown for a short spring season."
+  },
+  {
+    "common_name": "Chrysanthemum",
+    "scientific_name": "Chrysanthemum morifolium",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Asterales Asteraceae Chrysanthemum morifolium",
+    "description": "Dense, many-petaled flower heads on branching stems; long vase life makes it a high-volume auction flower."
+  },
+  {
+    "common_name": "Easter lily",
+    "scientific_name": "Lilium longiflorum",
+    "taxonomy_string": "Plantae Tracheophyta Liliopsida Liliales Liliaceae Lilium longiflorum",
+    "description": "Large trumpet-shaped white blooms with prominent stamens and a strong fragrance."
+  },
+  {
+    "common_name": "Moth orchid",
+    "scientific_name": "Phalaenopsis amabilis",
+    "taxonomy_string": "Plantae Tracheophyta Liliopsida Asparagales Orchidaceae Phalaenopsis amabilis",
+    "description": "Flat, broad-petaled blooms arranged along an arching spray; a premium potted and cut-stem orchid."
+  },
+  {
+    "common_name": "Carnation",
+    "scientific_name": "Dianthus caryophyllus",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Caryophyllales Caryophyllaceae Dianthus caryophyllus",
+    "description": "Ruffled, densely-petaled bloom on a jointed stem; prized for very long vase life and easy dyeing."
+  },
+  {
+    "common_name": "Sunflower",
+    "scientific_name": "Helianthus annuus",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Asterales Asteraceae Helianthus annuus",
+    "description": "Large flower head with yellow ray florets around a dark central disc, on a thick upright stem."
+  },
+  {
+    "common_name": "Oxeye daisy",
+    "scientific_name": "Leucanthemum vulgare",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Asterales Asteraceae Leucanthemum vulgare",
+    "description": "Classic white-petaled, yellow-centered daisy on a slender stem, often used as filler in mixed bouquets."
+  },
+  {
+    "common_name": "Bearded iris",
+    "scientific_name": "Iris germanica",
+    "taxonomy_string": "Plantae Tracheophyta Liliopsida Asparagales Iridaceae Iris germanica",
+    "description": "Distinctive three-part falls-and-standards bloom, usually purple or blue, on a tall straight stem."
+  },
+  {
+    "common_name": "Gerbera daisy",
+    "scientific_name": "Gerbera jamesonii",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Asterales Asteraceae Gerbera jamesonii",
+    "description": "Large single daisy-like bloom in saturated colors on a bare, leafless stem; a bouquet-filler favorite."
+  },
+  {
+    "common_name": "Peony",
+    "scientific_name": "Paeonia lactiflora",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Saxifragales Paeoniaceae Paeonia lactiflora",
+    "description": "Large, densely-layered bloom, often fragrant, with a short but highly sought-after seasonal auction window."
+  },
+  {
+    "common_name": "Bigleaf hydrangea",
+    "scientific_name": "Hydrangea macrophylla",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Cornales Hydrangeaceae Hydrangea macrophylla",
+    "description": "A dense rounded cluster of small florets forming one large mophead bloom, sold as a single stem."
+  },
+  {
+    "common_name": "Freesia",
+    "scientific_name": "Freesia refracta",
+    "taxonomy_string": "Plantae Tracheophyta Liliopsida Asparagales Iridaceae Freesia refracta",
+    "description": "Small trumpet-shaped, strongly fragrant flowers arranged along one side of a wiry arching stem."
+  },
+  {
+    "common_name": "Gladiolus",
+    "scientific_name": "Gladiolus communis",
+    "taxonomy_string": "Plantae Tracheophyta Liliopsida Asparagales Iridaceae Gladiolus communis",
+    "description": "Tall spike lined with many funnel-shaped blooms that open sequentially from bottom to top."
+  },
+  {
+    "common_name": "Daffodil",
+    "scientific_name": "Narcissus pseudonarcissus",
+    "taxonomy_string": "Plantae Tracheophyta Liliopsida Asparagales Amaryllidaceae Narcissus pseudonarcissus",
+    "description": "Yellow trumpet-shaped central corona surrounded by a ring of petals; an early-spring bulb flower."
+  },
+  {
+    "common_name": "Poppy anemone",
+    "scientific_name": "Anemone coronaria",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Ranunculales Ranunculaceae Anemone coronaria",
+    "description": "Bold, poppy-like bloom, often with a dark central eye, on a smooth slender stem."
+  },
+  {
+    "common_name": "Persian buttercup",
+    "scientific_name": "Ranunculus asiaticus",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Ranunculales Ranunculaceae Ranunculus asiaticus",
+    "description": "Tightly layered, paper-thin petals forming a rose-like rounded bloom in bright saturated colors."
+  },
+  {
+    "common_name": "Peruvian lily",
+    "scientific_name": "Alstroemeria aurea",
+    "taxonomy_string": "Plantae Tracheophyta Liliopsida Liliales Alstroemeriaceae Alstroemeria aurea",
+    "description": "Small speckled, lily-like blooms in clusters on branching stems; known for exceptionally long vase life."
+  },
+  {
+    "common_name": "Snapdragon",
+    "scientific_name": "Antirrhinum majus",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Lamiales Plantaginaceae Antirrhinum majus",
+    "description": "Tall spike of tubular two-lipped blooms that open sequentially up the stem."
+  },
+  {
+    "common_name": "Dahlia",
+    "scientific_name": "Dahlia pinnata",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Asterales Asteraceae Dahlia pinnata",
+    "description": "Geometrically layered petals in a wide range of forms and colors, on a sturdy upright stem."
+  },
+  {
+    "common_name": "Lisianthus",
+    "scientific_name": "Eustoma grandiflorum",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Gentianales Gentianaceae Eustoma grandiflorum",
+    "description": "Rose-like, ruffled bloom on a slender branching stem, popular as a rose alternative in bouquets."
+  },
+  {
+    "common_name": "Marigold",
+    "scientific_name": "Tagetes erecta",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Asterales Asteraceae Tagetes erecta",
+    "description": "Dense, ruffled pompom-like bloom in yellow to deep orange, on a sturdy branching stem."
+  },
+  {
+    "common_name": "Zinnia",
+    "scientific_name": "Zinnia elegans",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Asterales Asteraceae Zinnia elegans",
+    "description": "Bright, sturdy multi-petaled bloom on a stiff stem, common in summer cutting-garden mixes."
+  },
+  {
+    "common_name": "Hyacinth",
+    "scientific_name": "Hyacinthus orientalis",
+    "taxonomy_string": "Plantae Tracheophyta Liliopsida Asparagales Asparagaceae Hyacinthus orientalis",
+    "description": "Dense spike of small, intensely fragrant star-shaped florets, an early-spring bulb flower."
+  },
+  {
+    "common_name": "Amaryllis",
+    "scientific_name": "Hippeastrum hybridum",
+    "taxonomy_string": "Plantae Tracheophyta Liliopsida Asparagales Amaryllidaceae Hippeastrum hybridum",
+    "description": "Very large trumpet-shaped blooms, usually several per thick hollow stem, a winter-season showpiece flower."
+  },
+  {
+    "common_name": "King protea",
+    "scientific_name": "Protea cynaroides",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Proteales Proteaceae Protea cynaroides",
+    "description": "Large, architectural bloom with broad stiff bracts around a dense central head; a premium exotic/tropical stem."
+  },
+  {
+    "common_name": "Calla lily",
+    "scientific_name": "Zantedeschia aethiopica",
+    "taxonomy_string": "Plantae Tracheophyta Liliopsida Alismatales Araceae Zantedeschia aethiopica",
+    "description": "Smooth funnel-shaped white spathe wrapped around a central yellow spadix, on a bare curved stem."
+  },
+  {
+    "common_name": "Sweet pea",
+    "scientific_name": "Lathyrus odoratus",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Fabales Fabaceae Lathyrus odoratus",
+    "description": "Ruffled, butterfly-shaped fragrant blooms in clusters on thin climbing stems."
+  },
+  {
+    "common_name": "Statice",
+    "scientific_name": "Limonium sinuatum",
+    "taxonomy_string": "Plantae Tracheophyta Magnoliopsida Caryophyllales Plumbaginaceae Limonium sinuatum",
+    "description": "Clusters of small papery, long-lasting florets on winged stems; a common dried/filler flower."
+  },
+  {
+    "common_name": "Bird of paradise",
+    "scientific_name": "Strelitzia reginae",
+    "taxonomy_string": "Plantae Tracheophyta Liliopsida Zingiberales Strelitziaceae Strelitzia reginae",
+    "description": "Bird-head-shaped bloom with vivid orange and blue pointed bracts, on a stiff upright stem; a signature tropical stem."
+  }
+]

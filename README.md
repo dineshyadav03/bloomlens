@@ -2,7 +2,7 @@
 
 Point a camera at a flower, get its **species, quality, and price** back — instantly.
 
-BloomLens is a portfolio project for the cut-flower supply chain, inspired by the scale of the world's largest flower auction and the "scan to learn" interaction from Dubai's Museum of the Future. It is in the **documentation/planning stage** — no application code has been written yet. This README, and the docs it links to, are the output of that planning pass.
+BloomLens is a portfolio project for the cut-flower supply chain, inspired by the scale of the world's largest flower auction and the "scan to learn" interaction from Dubai's Museum of the Future. The core scan → species → quality → price pipeline (Milestone 1) is built and working; the agentic layer, lot mode, evaluation harness, API, and Docker/CI are planned but not yet built — see [Status](#status) below.
 
 ## The problem
 
@@ -46,9 +46,23 @@ Full breakdown, including the evaluation harness, confidence handling, and Docke
 - **Both a UI and an API**: a Streamlit demo and a FastAPI `/identify` endpoint share the same core pipeline.
 - **One-command setup**: Docker Compose for the app + Qdrant, with CI running the evaluation harness on every push.
 
-## Tech stack (planned)
+## Tech stack
 
-Streamlit · FastAPI · BioCLIP 2 (open-source vision foundation model) · Qdrant (vector search) · Google Gemini (current multimodal model) · LangChain (agentic RAG orchestration) · Docker Compose · GitHub Actions
+**Built (Milestone 1):** Streamlit · BioCLIP 2 (open-source vision foundation model, `open_clip`) · Qdrant (local vector search) · Google Gemini (`gemini-3.6-flash` via `google-genai`)
+
+**Planned (later milestones):** FastAPI · LangChain (agentic layer) · Docker Compose · GitHub Actions
+
+## Running it
+
+```bash
+python -m venv .venv
+.venv\Scripts\pip install -r requirements.txt   # Windows; use .venv/bin/pip on macOS/Linux
+cp .env.example .env   # then add your GEMINI_API_KEY (free tier: https://aistudio.google.com/apikey)
+python scripts/build_index.py                    # builds the local Qdrant species index + simulated prices
+streamlit run app.py
+```
+
+First run downloads BioCLIP 2 weights (public, no auth needed). If you ever see `Storage folder ... is already accessed by another instance of Qdrant client`, another Python process from a previous run is still holding the local index — close it and retry.
 
 ## Important disclaimers
 
@@ -63,7 +77,16 @@ Not part of this build, but noted for later: a Grad-CAM-style interpretability o
 
 ## Status
 
-📋 Planning & documentation complete. Implementation (Phase B) is planned but not yet built — see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the file-by-file plan.
+- ✅ **Phase A** — research, architecture, and this documentation.
+- ✅ **Milestone 1** — core pipeline: camera scan → BioCLIP 2 species ID → Gemini quality read → simulated price, in a working Streamlit app. Verified end-to-end on real flower photos.
+- ⬜ Milestone 2 — confidence gating ("did you mean X or Y?")
+- ⬜ Milestone 3 — agentic layer (LangChain tool-calling agent)
+- ⬜ Milestone 4 — lot/batch mode + price trend chart
+- ⬜ Milestone 5 — evaluation harness
+- ⬜ Milestone 6 — FastAPI endpoint
+- ⬜ Milestone 7 — Docker Compose + CI
+
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full plan.
 
 ## License
 

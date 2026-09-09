@@ -47,9 +47,13 @@ Having gone back and read the full BioCLIP paper (not just the abstract and Figu
 - **Ablations show the CLIP contrastive objective matters a lot**: a plain cross-entropy classifier over taxonomy got 16.7% mean 1-shot accuracy vs. 45.1% for the CLIP-style objective — a >2x gap. This is why "just fine-tune a classifier" is a materially worse approach than using BioCLIP's own embedding space.
 - **Known limitation relevant to cut flowers**: the paper flags that common names don't map 1:1 to species, and that its source data (iNat21, EOL, BIOSCAN-1M) skews toward wild/citizen-science-photographed organisms. It says nothing about performance on cultivated ornamental *cultivars* (e.g. distinguishing a specific commercial rose variety) — that's an untested gap, not a claim either way. Practically: expect BioCLIP to nail genus/species (e.g. "this is a rose, *Rosa*") reliably, but treat cultivar-level distinctions as beyond what's been validated.
 
-## Correction: Gemini model naming
+## Correction: Gemini model naming and quota, and API key format
 
-The tutorial's tech-stack diagram names `gemini-pro-vision` as the image-recognition model. That model name is long deprecated — Gemini has moved through the 1.5, 2.x, and (as of September 2026) 3.x Flash generations. BloomLens will target whichever current Gemini Flash multimodal model alias is live at build time rather than hardcoding a retired model ID.
+The tutorial's tech-stack diagram names `gemini-pro-vision` as the image-recognition model. That model name is long deprecated — Gemini has moved through the 1.5, 2.x, and (as of September 2026) 3.x Flash generations. Two things learned building Milestone 1, worth recording since they cost real debugging time:
+
+- **The `-latest` alias is not always the safe choice.** `gemini-flash-latest` currently resolves to `gemini-3.8-flash`, a model released days before this was built, whose free tier is capped at **20 requests/day per project** — far below the ~1,500/day of established Flash models. BloomLens pins to `gemini-3.6-flash` instead (`src/identify.py`), which has real headroom for a demo/dev workflow. Worth re-checking periodically as models age out of their introductory quota.
+- **API keys changed format in 2026.** Keys now start with `AQ.` rather than the historical `AIzaSy...` — the SDK (`google-genai>=2.22.0`) handles this transparently, but anything assuming the old prefix (including outdated advice, possibly including earlier turns of this very project's own planning) will incorrectly reject a valid key.
+- **Gemini's structured-output feature (`response_schema`/`response_json_schema`) returned intermittent 503s** in testing — a known, currently-open SDK issue ([googleapis/python-genai#1378](https://github.com/googleapis/python-genai/issues/1378)). Plain-text generation with a prompt-requested JSON format, parsed manually, was reliable; see `src/identify.py`.
 
 ## Open questions carried into Phase B
 
