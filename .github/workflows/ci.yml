@@ -26,6 +26,13 @@ jobs:
       - name: Lint
         run: ruff check .
 
+      - name: Build the local Qdrant index
+        # eval/run_eval.py queries a pre-built collection -- locally this was
+        # masked by an already-populated qdrant_data/ from earlier milestones
+        # (correctly gitignored, so absent on a fresh checkout). Caught by
+        # actually running this workflow, not assumed.
+        run: python scripts/build_index.py
+
       - name: Run evaluation harness
         # eval/test_images/ is committed (small, ~15MB) specifically so this
         # needs no network access to the slow external Oxford 102 server --
