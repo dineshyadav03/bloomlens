@@ -268,7 +268,8 @@ def _invoke_agent_with_retries(message: dict) -> _GeminiAnswer:
             if attempt < _MAX_RETRIES - 1:
                 time.sleep(_RETRY_BASE_DELAY_SECONDS * (attempt + 1))
     raise IdentifyError(
-        f"Gemini didn't return a usable answer after {_MAX_RETRIES} attempts — please try again in a moment. ({last_error})"
+        f"Gemini didn't return a usable answer after {_MAX_RETRIES} attempts — "
+        f"please try again in a moment. ({last_error})"
     )
 
 

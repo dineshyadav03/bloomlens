@@ -1,0 +1,8 @@
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "BLE"]
+ignore = [
+    "B008",  # function-call-in-default-argument -- FastAPI's own idiom (e.g. `= File(...)`)
+]

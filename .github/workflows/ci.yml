@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt
+          pip install ruff==0.16.7
+
+      - name: Lint
+        run: ruff check .
+
+      - name: Run evaluation harness
+        # eval/test_images/ is committed (small, ~15MB) specifically so this
+        # needs no network access to the slow external Oxford 102 server --
+        # see docs/RESEARCH.md for why that call was reversed from Milestone 5.
+        run: python eval/run_eval.py
+
+  docker-smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate compose file
+        run: docker compose config
+
+      - name: Build images
+        run: docker compose build
+
+      - name: Start the stack
+        # No .env / GEMINI_API_KEY needed for this smoke test -- /health on
+        # both services responds without touching the identify() pipeline,
+        # so there's nothing here that needs a secret.
+        run: docker compose up -d
+
+      - name: Wait for build-index to finish, then check both services' health
+        run: |
+          for i in $(seq 1 60); do
+            status=$(docker inspect -f '{{.State.Status}}' "$(docker compose ps -q build-index)" 2>/dev/null || echo "starting")
+            [ "$status" = "exited" ] && break
+            sleep 5
+          done
+          docker compose logs build-index
+
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:8000/health && break
+            sleep 3
+          done
+          curl -sf http://localhost:8000/health
+
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:8501/_stcore/health && break
+            sleep 3
+          done
+          curl -sf http://localhost:8501/_stcore/health
+
+      - name: Show logs on failure
+        if: failure()
+        run: docker compose logs
+
+      - name: Tear down
+        if: always()
+        run: docker compose down -v

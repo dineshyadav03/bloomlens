@@ -214,8 +214,23 @@ def write_report(df: pd.DataFrame) -> None:
     RESULTS_PATH.write_text("\n".join(lines), encoding="utf-8")
     print(f"\nWrote {RESULTS_PATH}")
     print(f"Top-1: {top1_acc:.1%}  Top-3: {top3_acc:.1%}")
+    return top1_acc
+
+
+# CI regression gate: this pipeline is deterministic (fixed images, fixed model,
+# fixed code), so top-1 accuracy shouldn't drift run to run -- a drop below this
+# means something in the identification pipeline actually broke, not noise.
+# Set meaningfully below the measured 87.2% baseline for headroom, not right at it.
+MIN_ACCEPTABLE_TOP1_ACCURACY = 0.80
 
 
 if __name__ == "__main__":
     results_df = run()
-    write_report(results_df)
+    accuracy = write_report(results_df)
+
+    if accuracy < MIN_ACCEPTABLE_TOP1_ACCURACY:
+        print(
+            f"\nFAIL: top-1 accuracy {accuracy:.1%} is below the "
+            f"{MIN_ACCEPTABLE_TOP1_ACCURACY:.0%} regression threshold."
+        )
+        sys.exit(1)

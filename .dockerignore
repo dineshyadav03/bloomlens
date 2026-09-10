@@ -1,0 +1,11 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.git/
+.cache/
+qdrant_data/
+eval/raw/
+.env
+.env.local
+.claude/

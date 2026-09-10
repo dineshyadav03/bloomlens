@@ -1,8 +1,10 @@
 # BloomLens
 
+[![CI](https://github.com/dineshyadav03/bloomlens/actions/workflows/ci.yml/badge.svg)](https://github.com/dineshyadav03/bloomlens/actions/workflows/ci.yml)
+
 Point a camera at a flower, get its **species, quality, and price** back — instantly. **Measured 87.2% top-1 / 96.1% top-3 species-ID accuracy** on 360 held-out test images ([eval/results.md](eval/results.md)) — not just "it seems to work."
 
-BloomLens is a portfolio project for the cut-flower supply chain, inspired by the scale of the world's largest flower auction and the "scan to learn" interaction from Dubai's Museum of the Future. The core pipeline is built and working — including an agentic reasoning layer (Milestone 3): a LangChain tool-calling agent, not a fixed call order — plus lot/batch mode and a measured evaluation harness. An API and Docker/CI are planned but not yet built — see [Status](#status) below.
+BloomLens is a portfolio project for the cut-flower supply chain, inspired by the scale of the world's largest flower auction and the "scan to learn" interaction from Dubai's Museum of the Future. All 7 planned milestones are built and working: the core pipeline, an agentic reasoning layer (a real LangChain tool-calling agent, not a fixed call order), lot/batch mode, a measured evaluation harness, a FastAPI endpoint alongside the Streamlit UI, and a one-command Docker Compose setup with CI — see [Status](#status) below.
 
 ## The problem
 
@@ -43,15 +45,15 @@ Full breakdown, including the evaluation harness and Docker/CI setup, in [docs/A
 - **Confidence handling**: a close call between top candidates surfaces a visible switcher instead of a silently wrong guess; a clear non-match gets a hedged message instead of a confident species name. The tier thresholds were checked against real held-out data (not just guessed) and confirmed well-calibrated — see [eval/results.md](eval/results.md)'s calibration section for what was tried and why they were kept as-is.
 - **Lot/batch mode**: scan or upload up to 10 photos as one lot and get a consensus species, agreement fraction, flagged mismatches, and a price trend chart — one agent call for the whole lot, not one per photo.
 - **FastAPI endpoint** (`api/main.py`) alongside the Streamlit UI: `POST /identify`, `POST /identify-lot`, `GET /health` — sharing `src/identify.py`'s pipeline directly (no second implementation), with interactive docs at `/docs`.
-- **Planned**: Docker Compose + CI.
+- **One-command setup**: `docker compose up` runs Qdrant (a real server, not local mode — see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for why that distinction matters once two services share one index), the Streamlit UI, and the FastAPI service together. CI (`.github/workflows/ci.yml`) lints, runs the evaluation harness with a real regression gate (fails under 80% top-1 accuracy), and smoke-tests the full Docker stack on every push.
 
 ## Tech stack
 
-**Built:** Streamlit · BioCLIP 2 (open-source vision foundation model, `open_clip`) · Qdrant (local vector search) · Google Gemini (`gemini-3.1-flash-lite` via `google-genai`) · LangChain (`langchain` + `langchain-google-genai`, agentic tool-calling)
-
-**Planned (later milestones):** FastAPI · Docker Compose · GitHub Actions
+**Built:** Streamlit · FastAPI · BioCLIP 2 (open-source vision foundation model, `open_clip`) · Qdrant (local embedded mode for dev, a real server under Docker Compose) · Google Gemini (`gemini-3.1-flash-lite` via `google-genai`) · LangChain (`langchain` + `langchain-google-genai`, agentic tool-calling) · Docker Compose · GitHub Actions · ruff
 
 ## Running it
+
+**Locally:**
 
 ```bash
 python -m venv .venv
@@ -61,9 +63,18 @@ python scripts/build_index.py                    # builds the local Qdrant speci
 streamlit run app.py
 ```
 
-First run downloads BioCLIP 2 weights (public, no auth needed). If you ever see `Storage folder ... is already accessed by another instance of Qdrant client`, another Python process from a previous run is still holding the local index — close it and retry.
+First run downloads BioCLIP 2 weights (public, no auth needed). If you ever see `Storage folder ... is already accessed by another instance of Qdrant client`, another Python process from a previous run is still holding the local index — close it and retry (this is exactly why Docker Compose uses a real Qdrant server instead, see below).
 
 To run the API instead of (or alongside) the Streamlit app: `uvicorn api.main:app --reload`, then browse `http://localhost:8000/docs` for interactive Swagger docs, or `POST` a photo directly: `curl -X POST http://localhost:8000/identify -F "photo=@your-flower.jpg"`.
+
+**With Docker Compose** (runs Qdrant + the Streamlit app + the API together):
+
+```bash
+cp .env.example .env   # add your GEMINI_API_KEY first
+docker compose up
+```
+
+Streamlit at `http://localhost:8501`, the API at `http://localhost:8000/docs`. First run downloads BioCLIP 2 weights into a shared volume (a real download — this project's dev network measured ~150KB/s, so expect it to take a while the first time; cached for every run after).
 
 ## Important disclaimers
 
@@ -85,9 +96,9 @@ Not part of this build, but noted for later: a Grad-CAM-style interpretability o
 - ✅ **Milestone 4** — lot/batch mode: scan or upload up to 10 photos as one lot in the new "Lot mode" tab. Redesigned from the original plan for a real reason found in Milestone 3 — running the full agent per photo would cost 40+ Gemini calls for a 10-photo lot, so retrieval runs per-photo (free/local) for a majority-vote consensus + agreement fraction, while the agent runs **once** for the whole lot given all photos in one multi-image message. Mismatched photos are flagged individually; a price trend chart uses `src/pricing.price_history`. Verified with a real mixed lot (2 roses + 1 sunflower): correct 2/3 consensus, correct flag, and the agent's own summary independently corroborated the mismatch.
 - ✅ **Milestone 5** — evaluation harness: **87.2% top-1 / 96.1% top-3 accuracy** on 360 held-out Oxford 102 Flowers images across 18 of the 30 curated species ([eval/results.md](eval/results.md); species chosen via individually-verified alternate common names, not string matches — see `eval/species_mapping.py`). Zero API cost — evaluates only BioCLIP 2 + Qdrant retrieval, same as `identify()` uses. Also swept alternative confidence-tier thresholds against the real data (the "revisit" Milestone 2 promised) and found the current ones are already well-calibrated — loosening them would trade meaningful precision for coverage, not a free win — so they were kept as-is, backed by data instead of the original guess.
 - ✅ **Milestone 6** — FastAPI endpoint: `GET /health`, `POST /identify`, `POST /identify-lot` (`api/main.py`), returning the exact same `IdentifyResult`/`LotResult` Pydantic models the Streamlit app renders — no second implementation. Verified end-to-end with real photos (identical results to calling the pipeline directly), plus the error paths: oversized lot → `400`, missing API key → `503` with a clear message (not a raw traceback), and the auto-generated Swagger UI at `/docs`.
-- ⬜ Milestone 7 — Docker Compose + CI
+- ✅ **Milestone 7** — Docker Compose + CI, the last planned milestone: `docker compose up` runs Qdrant (a real server), the Streamlit app, and the FastAPI service together. Qdrant had to become a real server specifically because two containers can genuinely run at once — local/embedded mode's file lock is the exact bug hit in Milestone 1; `get_client()` now branches on a `QDRANT_URL` env var, invisibly to every caller. `eval/test_images/` (15MB) is now committed, reversing a Milestone 5 call, so CI's evaluation job needs no external network access. CI runs `ruff` (checked first — nearly clean already, one real line-length fix applied) and the evaluation harness with an actual regression gate (fails under 80% top-1 accuracy, verified by testing it actually trips), plus a Docker smoke test that builds and health-checks the full stack on GitHub's network rather than this machine's slow one.
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full plan.
+All 7 planned milestones are complete. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full history, and the "Future work" section below for ideas beyond the original plan.
 
 ## License
 

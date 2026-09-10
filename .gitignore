@@ -22,10 +22,11 @@ data/oxford_flowers/
 qdrant_storage/
 qdrant_data/
 
-# Evaluation dataset (fetched by eval/build_test_set.py, not source) --
-# eval/results.md and the mapping/scripts themselves ARE committed.
+# Full Oxford 102 Flowers dump (~679MB, fetched by eval/build_test_set.py) --
+# but NOT eval/test_images/, the small (~15MB) derived sample: that one IS
+# committed (Milestone 7 decision, reversing an earlier Milestone 5 call) so
+# CI can run the evaluation harness without a slow external dependency.
 eval/raw/
-eval/test_images/
 
 # IDE / OS
 .vscode/

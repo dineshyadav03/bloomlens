@@ -1,0 +1,63 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    # No curl/wget in this image by design (a deliberate security choice upstream) --
+    # a bare TCP check is qdrant's own documented healthcheck pattern for compose.
+    healthcheck:
+      test: ["CMD", "bash", "-c", ":> /dev/tcp/127.0.0.1/6333"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  build-index:
+    build: .
+    command: python scripts/build_index.py
+    environment:
+      QDRANT_URL: http://qdrant:6333
+    volumes:
+      - hf_cache:/root/.cache/huggingface
+    depends_on:
+      qdrant:
+        condition: service_healthy
+
+  web:
+    build: .
+    command: streamlit run app.py --server.address 0.0.0.0 --server.headless true
+    ports:
+      - "8501:8501"
+    environment:
+      QDRANT_URL: http://qdrant:6333
+    env_file:
+      # optional: so a missing .env fails via identify()'s own clear
+      # "GEMINI_API_KEY is not set" error, not a Compose-level file error
+      - path: .env
+        required: false
+    volumes:
+      - hf_cache:/root/.cache/huggingface
+    depends_on:
+      build-index:
+        condition: service_completed_successfully
+
+  api:
+    build: .
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      QDRANT_URL: http://qdrant:6333
+    env_file:
+      # optional: so a missing .env fails via identify()'s own clear
+      # "GEMINI_API_KEY is not set" error, not a Compose-level file error
+      - path: .env
+        required: false
+    volumes:
+      - hf_cache:/root/.cache/huggingface
+    depends_on:
+      build-index:
+        condition: service_completed_successfully
+
+volumes:
+  qdrant_storage:
+  hf_cache:
