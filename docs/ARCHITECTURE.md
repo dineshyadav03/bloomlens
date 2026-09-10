@@ -1,6 +1,6 @@
 # Architecture (planned)
 
-Status: **design only** — nothing below is implemented yet. This is the Phase B plan, written up now so it's committed alongside the research, per the project's research-first approach. See [RESEARCH.md](RESEARCH.md) for the sources behind each design choice. Updated after a review pass that added the agentic layer, evaluation harness, lot mode, confidence handling, API layer, and DevOps — this document is kept current as decisions change, not just written once.
+Status: Milestones 1–3 implemented (core pipeline, confidence gating, agentic layer) — see each section below for what's built vs. still planned. See [RESEARCH.md](RESEARCH.md) for the sources behind each design choice; this document is kept current as decisions change, not just written once.
 
 ## Pipeline
 
@@ -8,7 +8,7 @@ Status: **design only** — nothing below is implemented yet. This is the Phase 
 Flower photo(s) (Streamlit camera scan — one photo, or several as a "lot"; a file-upload fallback exists for dev/testing without a camera)
         │
         ▼
-BioCLIP 2: embed photo (ViT-B/16 vision encoder)
+BioCLIP 2: embed photo (ViT-L/14 vision encoder)
         │
         ▼
 Qdrant: cosine similarity vs. taxonomy-string text embeddings
@@ -22,10 +22,11 @@ Confidence gate:
   all scores low       → "not confidently a known species" (no false match)
         │
         ▼
-LangChain **agent** (Gemini as the reasoning model), given tools:
-  - lookup_taxonomy(species)   → description/context from species_reference.json
-  - assess_quality(image)      → Gemini vision read of bloom stage/wilting/blemishes
-  - check_price(species, grade) → simulated pricing module
+LangChain **agent** (Gemini as the reasoning model — sees the photo directly
+in its own multimodal context), given tools:
+  - lookup_taxonomy(species)              → description/context from species_reference.json
+  - assess_quality(quality_grade, quality_note) → validates + records the agent's own visual read
+  - check_price(species, grade)           → simulated pricing module
   The agent decides which tools to call and composes the final answer:
   species/common name, confidence, quality note, price, plain-language summary
         │
@@ -65,15 +66,19 @@ Streamlit results panel (and/or FastAPI JSON response):
 - **Pricing**: a generated CSV (species × grade × date) with a small random walk so it feels "live," explicitly labeled simulated everywhere it's shown.
 - **Lot mode**: capped at a small number of photos per lot (e.g. up to 10) for the demo — no need to engineer for real auction lot sizes.
 
-## Agent tools
+## Agent tools — implemented (Milestone 3)
 
-The LangChain agent gets three tools rather than a hardcoded call order:
+`src/tools.py` gives the agent (`src/identify._get_agent`, built with `langchain.agents.create_agent` + `ChatGoogleGenerativeAI`) three tools rather than a hardcoded call order:
 
 - `lookup_taxonomy(species: str) -> str` — pulls the description/taxonomy text for a species out of `species_reference.json`. Used to ground the agent's answer instead of letting the LLM invent botanical facts.
-- `assess_quality(image) -> str` — sends the photo to Gemini's vision input with a quality-focused prompt (bloom stage, wilting, blemishes) and returns a short quality note.
-- `check_price(species: str, grade: str) -> dict` — looks up the simulated price table, returns price/stem and a short trend description.
+- `assess_quality(quality_grade: str, quality_note: str) -> dict` — **not** a second vision call. The agent already sees the photo directly in its own multimodal message (LangChain's `{"type": "image", "source_type": "base64", ...}` content block, confirmed working alongside tool-calling), so it forms the visual judgment itself; this tool is where it formally records that judgment. It validates the grade is A/B/C and runs a sentence-level negation-aware check flagging e.g. "some browning visible" paired with grade A, while correctly *not* flagging "completely free of wilting, discoloration, or damage" (a naive keyword match without negation handling was tried first and produced exactly that false positive in testing).
+- `check_price(species: str, grade: str) -> dict` — thin wrapper around `src/pricing.lookup_price`.
 
-The agent's system prompt makes explicit that pricing is simulated and quality is a heuristic read, so those caveats show up in whatever the agent generates — not just in a UI label that a JSON API consumer would never see.
+The final answer is still parsed as prompt-requested JSON (not Gemini's `response_schema`/`response_json_schema` structured-output parameter — same reliability issue as Milestone 1) from whichever message the agent graph returns last; that message's `.content` can be a plain string or a list of `{"type": "text", "text": ...}` blocks depending on model/SDK version, so `src/identify._extract_final_text` handles both.
+
+Confirmed by inspecting the agent's actual message trace (not just its final answer) that it genuinely calls all three tools in a normal run, in the order `lookup_taxonomy → assess_quality → check_price`. Retrieval (BioCLIP + Qdrant) and confidence gating stay deterministic pre-steps outside the agent, exactly as originally planned — `identify()` still calls `lookup_price` itself unconditionally after the agent responds, so the displayed price never depends on whether the agent chose to call `check_price`.
+
+**Real operational finding**: an agentic identify() call makes 4+ Gemini calls (one per reasoning/tool step), not one — this multiplies free-tier quota usage severalfold versus Milestone 1's single-call design and was enough to exhaust `gemini-3.6-flash`'s 20-requests/day cap in normal testing. See [RESEARCH.md's Gemini correction section](RESEARCH.md#correction-gemini-model-naming-and-quota-and-api-key-format) — `_GEMINI_MODEL` is now `gemini-3.1-flash-lite`, which tracks separate, more generous quota.
 
 ## Confidence handling — implemented (Milestone 2)
 

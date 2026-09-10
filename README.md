@@ -2,7 +2,7 @@
 
 Point a camera at a flower, get its **species, quality, and price** back — instantly.
 
-BloomLens is a portfolio project for the cut-flower supply chain, inspired by the scale of the world's largest flower auction and the "scan to learn" interaction from Dubai's Museum of the Future. The core scan → species → quality → price pipeline (Milestone 1) is built and working; the agentic layer, lot mode, evaluation harness, API, and Docker/CI are planned but not yet built — see [Status](#status) below.
+BloomLens is a portfolio project for the cut-flower supply chain, inspired by the scale of the world's largest flower auction and the "scan to learn" interaction from Dubai's Museum of the Future. The core pipeline is built and working — including an agentic reasoning layer (Milestone 3): a LangChain tool-calling agent, not a fixed call order. Lot mode, an evaluation harness, an API, and Docker/CI are planned but not yet built — see [Status](#status) below.
 
 ## The problem
 
@@ -17,7 +17,7 @@ At that volume and speed, a buyer looking at a lot on the auction floor has no r
 
 See [docs/RESEARCH.md](docs/RESEARCH.md) for the full writeup with sources, and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the planned system design.
 
-## Planned architecture
+## Architecture
 
 ```
 Flower photo(s) (single, or a "lot" of several)
@@ -26,31 +26,28 @@ Flower photo(s) (single, or a "lot" of several)
 BioCLIP 2 embedding ──► Qdrant vector search ──► top-k candidate species
         │                                             + confidence gate
         ▼
-LangChain agent (Gemini) with tools:
+LangChain tool-calling agent (Gemini), deciding which tools to use:
   lookup_taxonomy · assess_quality · check_price
   → species/common name, confidence, quality note, price, summary
         │
-        ▼ (lot mode aggregates across photos)
-Streamlit UI  /  FastAPI JSON endpoint
+        ▼ (lot mode aggregates across photos — planned)
+Streamlit UI  /  FastAPI JSON endpoint (API planned)
 ```
 
-Full breakdown, including the evaluation harness, confidence handling, and Docker/CI setup, in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+Full breakdown, including the evaluation harness and Docker/CI setup, in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-## Planned features
+## Features
 
 - **Species ID** via BioCLIP 2 zero-shot classification against a curated taxonomy vector index (Qdrant) — 91.4% zero-shot accuracy on the PlantNet benchmark in the original paper.
-- **Agentic reasoning layer**: a LangChain agent (not a fixed pipeline) gives Gemini tools to look up taxonomy, assess quality, and check price — matching the "AI Agent System" framing from the original tutorial this project was inspired by.
-- **Confidence handling**: a close call between top candidates surfaces a "did you mean X or Y?" instead of a silently wrong guess.
-- **Lot/batch mode**: upload several photos as one lot and get a consensus ID, aggregated quality, and a price trend chart — closer to how auction buying actually works.
-- **Evaluation harness**: measured top-1/top-3 accuracy and a confusion matrix on a held-out test set, not just "it seems to work."
-- **Both a UI and an API**: a Streamlit demo and a FastAPI `/identify` endpoint share the same core pipeline.
-- **One-command setup**: Docker Compose for the app + Qdrant, with CI running the evaluation harness on every push.
+- **Agentic reasoning layer**: a LangChain agent (not a fixed pipeline) — confirmed via its own message trace to genuinely call `lookup_taxonomy`, `assess_quality`, and `check_price` on a normal run, deciding for itself when to use each. Matches the "AI Agent System" framing from the original tutorial this project was inspired by.
+- **Confidence handling**: a close call between top candidates surfaces a visible switcher instead of a silently wrong guess; a clear non-match gets a hedged message instead of a confident species name.
+- **Planned**: lot/batch mode with a price trend chart, a measured evaluation harness (top-1/top-3 accuracy + confusion matrix), a FastAPI endpoint alongside the Streamlit UI, and Docker Compose + CI.
 
 ## Tech stack
 
-**Built (Milestone 1):** Streamlit · BioCLIP 2 (open-source vision foundation model, `open_clip`) · Qdrant (local vector search) · Google Gemini (`gemini-3.6-flash` via `google-genai`)
+**Built:** Streamlit · BioCLIP 2 (open-source vision foundation model, `open_clip`) · Qdrant (local vector search) · Google Gemini (`gemini-3.1-flash-lite` via `google-genai`) · LangChain (`langchain` + `langchain-google-genai`, agentic tool-calling)
 
-**Planned (later milestones):** FastAPI · LangChain (agentic layer) · Docker Compose · GitHub Actions
+**Planned (later milestones):** FastAPI · Docker Compose · GitHub Actions
 
 ## Running it
 
@@ -80,7 +77,7 @@ Not part of this build, but noted for later: a Grad-CAM-style interpretability o
 - ✅ **Phase A** — research, architecture, and this documentation.
 - ✅ **Milestone 1** — core pipeline: camera scan → BioCLIP 2 species ID → Gemini quality read → simulated price, in a working Streamlit app. Verified end-to-end on real flower photos.
 - ✅ **Milestone 2** — confidence gating: three tiers from Qdrant's top-1/top-2 score gap (`high`/`ambiguous`/`low`, thresholds in `src/identify.py`). Ambiguous scans show a visible switcher between the top-2 candidates (updates species/price with no extra Gemini call); low-confidence scans get a hedged message instead of a confident species name.
-- ⬜ Milestone 3 — agentic layer (LangChain tool-calling agent)
+- ✅ **Milestone 3** — agentic layer: a LangChain (`create_agent`) tool-calling agent over Gemini replaces the fixed call, with `lookup_taxonomy`/`assess_quality`/`check_price` as real tools (`src/tools.py`). Verified via the agent's own message trace, not just its output, that it genuinely calls all three. Found along the way that an agentic `identify()` call costs 4+ Gemini calls instead of 1, which exhausted `gemini-3.6-flash`'s daily free quota — switched to `gemini-3.1-flash-lite`, which tracks separate, more generous quota (see [docs/RESEARCH.md](docs/RESEARCH.md)).
 - ⬜ Milestone 4 — lot/batch mode + price trend chart
 - ⬜ Milestone 5 — evaluation harness
 - ⬜ Milestone 6 — FastAPI endpoint

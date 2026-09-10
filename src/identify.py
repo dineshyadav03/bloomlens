@@ -1,37 +1,70 @@
-"""Core identification pipeline: scan -> BioCLIP 2 -> Qdrant -> Gemini -> result.
+"""Core identification pipeline: scan -> BioCLIP 2 -> Qdrant -> agent -> result.
 
-Milestone 1: a single linear pass. Milestone 2: confidence gating (this file).
-No agent or lot mode yet — see docs/ARCHITECTURE.md for where those land later.
+Milestone 1: a single linear pass. Milestone 2: confidence gating. Milestone 3
+(this file): the fixed Gemini call is replaced by a LangChain tool-calling
+agent (src/tools.py) — see docs/ARCHITECTURE.md's "Why an agent, not a fixed
+chain" for the reasoning. Lot mode isn't built yet.
 """
 
+import base64
 import io
 import json
 import os
+import re
+import threading
 import time
 from typing import Literal
 
 from dotenv import load_dotenv
-from google import genai
-from google.genai import errors as genai_errors
-from google.genai import types
+from langchain.agents import create_agent
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_google_genai.chat_models import GoogleAPIError, GoogleGenerativeAIError, GoogleRateLimitError
 from PIL import Image
 from pydantic import BaseModel
 
 from src.embeddings import embed_image
 from src.pricing import lookup_price
+from src.tools import assess_quality, check_price, lookup_taxonomy
 from src.vector_store import get_client, search
 
 load_dotenv()
 
-_GEMINI_MODEL = "gemini-3.6-flash"
+_GEMINI_MODEL = "gemini-3.1-flash-lite"
 
-# Both response_json_schema and response_schema (Gemini's constrained-decoding
-# structured-output feature) returned intermittent 503s in testing — a known,
-# currently-open issue: https://github.com/googleapis/python-genai/issues/1378.
-# Plain generation (no response_mime_type/response_schema) was reliable, so we
-# ask for JSON via the prompt instead and parse the text ourselves.
+# Gemini's constrained-decoding structured-output feature (response_json_schema /
+# response_schema) returned intermittent 503s in testing — a known, currently-open
+# issue: https://github.com/googleapis/python-genai/issues/1378. Plain generation
+# was reliable, so both the agent's system prompt and this retry logic target
+# prompt-requested JSON, parsed manually, rather than that feature.
 _MAX_RETRIES = 4
 _RETRY_BASE_DELAY_SECONDS = 2
+
+_SYSTEM_PROMPT = """\
+You are helping a flower-auction buyer identify a flower from a photo. You will be shown a \
+photo plus a short list of candidate species that a vision similarity search already narrowed \
+things down to.
+
+Use your tools as needed:
+- lookup_taxonomy(species): get botanical context for a candidate before committing to it.
+- assess_quality(quality_grade, quality_note): after looking at the photo yourself, use this to \
+formally record your visual quality read (bloom stage, wilting, discoloration, blemishes). Grade \
+A=excellent, B=good, C=fair. This is a heuristic visual read, not a calibrated agronomic grading \
+system — keep the note honest about what you can and can't tell from one photo.
+- check_price(species, grade): look up the simulated auction price for your chosen species/grade \
+to inform your summary. (Pricing shown to the user is always simulated demo data.)
+
+The 'species' field in your final answer must be ONLY a candidate's common_name exactly as given \
+to you (e.g. 'Rose') — no scientific name, no parentheses, no other text. If the photo clearly \
+isn't any of the candidates or isn't a flower at all, still pick the closest candidate but say so \
+plainly in confidence_note.
+
+Once you're done reasoning and have called the tools you need, respond with ONLY a single JSON \
+object, no markdown code fences and no other text, with exactly these string keys: species, \
+confidence_note, quality_grade, quality_note, summary.
+"""
+
+_agent_lock = threading.Lock()
+_agent_singleton = None
 
 # Confidence tiers, from Qdrant's top-1/top-2 cosine-similarity gap. These are a
 # heuristic starting point from Milestone 1's handful of real test photos (correct
@@ -71,14 +104,30 @@ class IdentifyError(Exception):
     pass
 
 
-def _client() -> genai.Client:
+def _require_api_key() -> str:
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise IdentifyError(
             "GEMINI_API_KEY is not set. Copy .env.example to .env and add your key "
             "from https://aistudio.google.com/apikey, then restart the app."
         )
-    return genai.Client(api_key=api_key)
+    return api_key
+
+
+def _get_agent():
+    """Build (once) and return the tool-calling agent. Cached like the embeddings
+    model and Qdrant client — construction wires up the model + tools, no network
+    call happens until .invoke()."""
+    global _agent_singleton
+    with _agent_lock:
+        if _agent_singleton is None:
+            model = ChatGoogleGenerativeAI(model=_GEMINI_MODEL, google_api_key=_require_api_key(), timeout=45)
+            _agent_singleton = create_agent(
+                model=model,
+                tools=[lookup_taxonomy, assess_quality, check_price],
+                system_prompt=_SYSTEM_PROMPT,
+            )
+        return _agent_singleton
 
 
 def _image_to_jpeg_bytes(image: Image.Image) -> bytes:
@@ -87,34 +136,31 @@ def _image_to_jpeg_bytes(image: Image.Image) -> bytes:
     return buf.getvalue()
 
 
-def _build_prompt(candidates: list[dict]) -> str:
-    lines = [
-        "You are helping a flower-auction buyer identify a flower from a photo.",
-        "A vision similarity search has already narrowed the species down to these candidates:",
-        "",
-    ]
+def _build_candidates_message(image: Image.Image, candidates: list[dict]) -> dict:
+    lines = ["Candidates from the vision similarity search:", ""]
     for c in candidates:
         p = c["payload"]
         lines.append(f"- {p['common_name']} ({p['scientific_name']}): {p['description']}")
-    lines.extend(
-        [
-            "",
-            "Look at the photo and pick the best-matching candidate. The 'species' field must be "
-            "ONLY the common_name exactly as written above (e.g. 'Rose') — do not add the "
-            "scientific name, parentheses, or any other text to that field. If the photo clearly "
-            "isn't any of these candidates or isn't a flower at all, still pick the closest "
-            "candidate but say so plainly in confidence_note (e.g. 'low confidence, photo may not "
-            "match any known candidate').",
-            "Then assess visible quality: bloom stage, wilting, discoloration, or blemishes, and "
-            "assign a quality_grade of A (excellent), B (good), or C (fair).",
-            "Remember: your quality assessment is a heuristic visual read, not a calibrated "
-            "agronomic grading system — keep quality_note honest about what you can and can't tell from one photo.",
-            "",
-            "Respond with ONLY a single JSON object, no markdown code fences and no other text, "
-            "with exactly these string keys: species, confidence_note, quality_grade, quality_note, summary.",
-        ]
-    )
-    return "\n".join(lines)
+    lines.append("\nHere is the photo:")
+
+    image_b64 = base64.b64encode(_image_to_jpeg_bytes(image)).decode("utf-8")
+    return {
+        "role": "user",
+        "content": [
+            {"type": "text", "text": "\n".join(lines)},
+            {"type": "image", "source_type": "base64", "data": image_b64, "mime_type": "image/jpeg"},
+        ],
+    }
+
+
+def _extract_final_text(agent_result: dict) -> str:
+    """The final AIMessage's content can be a plain string or a list of content
+    blocks (observed: [{'type': 'text', 'text': ..., 'extras': {...}}]) depending
+    on the model/SDK version — handle both."""
+    content = agent_result["messages"][-1].content
+    if isinstance(content, str):
+        return content
+    return "".join(block.get("text", "") for block in content if isinstance(block, dict))
 
 
 def _extract_json(text: str) -> dict:
@@ -165,37 +211,52 @@ def _classify_confidence(candidates: list[dict]) -> ConfidenceTier:
     return "ambiguous"
 
 
-def _generate_with_retries(client: genai.Client, image: Image.Image, candidates: list[dict]) -> _GeminiAnswer:
+_RATE_LIMIT_MAX_RETRIES = 2
+_RATE_LIMIT_MAX_WAIT_SECONDS = 60
+
+
+def _parse_retry_delay_seconds(exc: Exception, default: float = 30.0) -> float:
+    """Gemini's 429 error message embeds the server's own suggested wait
+    (e.g. "'retryDelay': '37s'") — use it instead of guessing."""
+    match = re.search(r"retryDelay['\"]?\s*:\s*['\"]?(\d+(?:\.\d+)?)s", str(exc))
+    delay = float(match.group(1)) if match else default
+    return min(delay, _RATE_LIMIT_MAX_WAIT_SECONDS)
+
+
+def _run_agent(image: Image.Image, candidates: list[dict]) -> _GeminiAnswer:
+    agent = _get_agent()
+    message = _build_candidates_message(image, candidates)
+
     last_error = None
+    rate_limit_attempts = 0
     for attempt in range(_MAX_RETRIES):
         try:
-            response = client.models.generate_content(
-                model=_GEMINI_MODEL,
-                contents=[
-                    _build_prompt(candidates),
-                    types.Part.from_bytes(data=_image_to_jpeg_bytes(image), mime_type="image/jpeg"),
-                ],
-                config=types.GenerateContentConfig(
-                    http_options=types.HttpOptions(timeout=45_000)  # milliseconds; avoid an indefinite hang
-                ),
-            )
-            return _GeminiAnswer.model_validate(_extract_json(response.text))
-        except genai_errors.ClientError as exc:
-            code = getattr(exc, "code", None)
-            if code == 429:
+            result = agent.invoke({"messages": [message]})
+            return _GeminiAnswer.model_validate(_extract_json(_extract_final_text(result)))
+        except GoogleRateLimitError as exc:
+            # The agent can make several Gemini calls per identify() (reasoning +
+            # each tool round-trip), so a per-minute quota can trip mid-request even
+            # on a single scan. The API tells us how long to wait — honor it and
+            # retry a couple of times rather than failing a request that would
+            # likely succeed moments later.
+            rate_limit_attempts += 1
+            if rate_limit_attempts > _RATE_LIMIT_MAX_RETRIES:
                 raise IdentifyError(
-                    "Gemini's free-tier rate limit was reached for this key. Wait a minute and try "
-                    "again, or check your quota at https://ai.dev/rate-limit."
+                    "Gemini's free-tier rate limit was reached for this key and didn't clear in "
+                    "time. Wait a minute and try again, or check your quota at "
+                    "https://ai.dev/rate-limit."
                 ) from exc
-            if code == 499:
-                # Our own request timeout (45s) firing under high demand — retry like any
-                # other transient failure rather than treating it as a bad request.
-                last_error = exc
-                if attempt < _MAX_RETRIES - 1:
-                    time.sleep(_RETRY_BASE_DELAY_SECONDS * (attempt + 1))
-                continue
+            time.sleep(_parse_retry_delay_seconds(exc))
+            continue
+        except GoogleAPIError as exc:
+            # Server-side (5xx) — transient, worth retrying with backoff.
+            last_error = exc
+            if attempt < _MAX_RETRIES - 1:
+                time.sleep(_RETRY_BASE_DELAY_SECONDS * (attempt + 1))
+        except GoogleGenerativeAIError as exc:
+            # Auth/permission/invalid-request/model-not-found — retrying won't help.
             raise IdentifyError(f"Gemini rejected the request: {exc}") from exc
-        except Exception as exc:  # noqa: BLE001 — includes ServerError, timeouts, and any parsing failure; all retryable
+        except Exception as exc:  # noqa: BLE001 — timeouts and any JSON-parsing failure; all retryable
             last_error = exc
             if attempt < _MAX_RETRIES - 1:
                 time.sleep(_RETRY_BASE_DELAY_SECONDS * (attempt + 1))
@@ -212,8 +273,7 @@ def identify(image: Image.Image) -> IdentifyResult:
     if not candidates:
         raise IdentifyError("The species index is empty — run scripts/build_index.py first.")
 
-    client = _client()
-    parsed = _generate_with_retries(client, image, candidates)
+    parsed = _run_agent(image, candidates)
 
     species = _match_candidate(parsed.species, candidates)
     scientific_name = next(
