@@ -1,0 +1,45 @@
+# Hugging Face Spaces (Docker SDK) build. Deliberately a separate file from
+# the root Dockerfile used by docker-compose -- see docs/ARCHITECTURE.md's
+# "Deployment: Hugging Face Spaces" section for why: this bakes BioCLIP 2's
+# weights and the Qdrant index in at build time (the opposite of Milestone
+# 7's call, which was specific to this dev machine's slow network -- HF's
+# build servers pull weights from the HF Hub itself, so baking here is fast
+# and gives every visitor an instant cold start), and runs as HF's required
+# non-root uid 1000 instead of root.
+FROM python:3.13-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+# Same CPU-only torch index as local dev / the compose Dockerfile -- no GPU
+# anywhere in this project (see docs/RESEARCH.md's Milestone 1 notes).
+RUN pip install --no-cache-dir torch==2.6.0 torchvision==0.21.0 \
+        --index-url https://download.pytorch.org/whl/cpu \
+    && pip install --no-cache-dir -r requirements.txt
+
+# Only what app.py actually needs at runtime -- no api/, no eval/, no docs.
+COPY src/ src/
+COPY data/species_reference.json data/species_reference.json
+COPY scripts/build_index.py scripts/build_index.py
+COPY app.py .
+
+# HF Spaces containers run as uid 1000, not root (required, see
+# https://huggingface.co/docs/hub/en/spaces-sdks-docker#permissions).
+# Dependency installation above stays as root -- simpler than fighting
+# pip's default system-site-packages permissions -- but the app directory,
+# the baked index below, and the running process all end up owned by and
+# running as uid 1000.
+RUN useradd -m -u 1000 user && chown -R user:user /app
+USER user
+ENV HOME=/home/user
+
+# Bake the species index + simulated prices in now, at build time, so a
+# container start (including waking from HF's free-tier sleep) is just
+# "launch Streamlit" -- no first-request delay, no dependency on the
+# ephemeral filesystem surviving a restart.
+RUN python scripts/build_index.py
+
+EXPOSE 7860
+
+CMD ["streamlit", "run", "app.py", "--server.address", "0.0.0.0", "--server.port", "7860", "--server.headless", "true"]

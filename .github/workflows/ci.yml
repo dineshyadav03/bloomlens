@@ -84,3 +84,17 @@ jobs:
       - name: Tear down
         if: always()
         run: docker compose down -v
+
+  hf-space-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the Hugging Face Space image
+        # Build-only, no `run`/no secrets needed -- this just proves
+        # Dockerfile.hf (a separate, HF-specific Dockerfile; see
+        # docs/ARCHITECTURE.md's "Deployment: Hugging Face Spaces" section
+        # for why it differs from the root Dockerfile) still builds on
+        # every push, on GitHub's fast network instead of this project's
+        # slow local one -- same reasoning as docker-smoke-test above.
+        run: docker build -f Dockerfile.hf -t bloomlens-hf .

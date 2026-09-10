@@ -1,6 +1,6 @@
 # Architecture (planned)
 
-Status: Milestones 1–6 implemented (core pipeline, confidence gating, agentic layer, lot mode, evaluation harness, FastAPI endpoint) — see each section below for what's built vs. still planned. See [RESEARCH.md](RESEARCH.md) for the sources behind each design choice; this document is kept current as decisions change, not just written once.
+Status: all 7 originally-planned milestones implemented (core pipeline, confidence gating, agentic layer, lot mode, evaluation harness, FastAPI endpoint, Docker Compose + CI), plus Milestone 8 (Hugging Face Spaces deployment) — see each section below for details. Two items remain as documented future work (Grad-CAM overlay, persistent inventory log). See [RESEARCH.md](RESEARCH.md) for the sources behind each design choice; this document is kept current as decisions change, not just written once.
 
 ## Pipeline
 
@@ -110,8 +110,6 @@ Confirmed by inspecting the agent's actual message trace (not just its final ans
 - Error mapping verified against real requests: an oversized lot (>`LOT_MAX_PHOTOS`) → `400` with a clear message; a missing `photos` field entirely → FastAPI's own `422` validation error (idiomatic, not something to override); a pipeline-level `IdentifyError` (missing API key, rate-limited, etc.) → `503` with the error's own message, not a raw traceback — confirmed by temporarily removing `GEMINI_API_KEY` and hitting the endpoint for real.
 - Interactive Swagger UI at `/docs` comes free from FastAPI's OpenAPI generation — confirmed it renders correctly for both endpoints and all response schemas.
 
-## DevOps: Docker & CI
-
 ## DevOps: Docker & CI — implemented (Milestone 7)
 
 - **Qdrant becomes a real server in Docker, not just local mode with extra steps.** `src/vector_store.py`'s local/embedded mode takes an exclusive file lock — the exact thing that caused a real bug in Milestone 1 ("Storage folder is already accessed by another instance"). Docker Compose runs `web` (Streamlit) and `api` (FastAPI) as separate containers that could genuinely run at once, so local mode's one-process-at-a-time constraint would just reproduce that bug. `get_client()` now branches on a `QDRANT_URL` env var — set in compose, unset (unchanged local-mode behavior) everywhere else — so this is invisible to every caller.
@@ -121,9 +119,25 @@ Confirmed by inspecting the agent's actual message trace (not just its final ans
 - `.github/workflows/ci.yml`, two jobs: **`lint-and-eval`** — `ruff check .` (config in `pyproject.toml`: 120-char lines, matching this codebase's actual style, not ruff's 88-char default; `B008` ignored, since it's FastAPI's own required idiom for `= File(...)` parameters — checked before adopting the rule, not assumed) — then `eval/run_eval.py`, which now **fails CI outright if top-1 accuracy drops below 80%** (real headroom under the measured 87.2%, since this pipeline is deterministic and shouldn't drift) — an actual regression gate, not just "the script ran." **`docker-smoke-test`** — builds the real Compose stack and curls both services' `/health` endpoints; deliberately needs no `GEMINI_API_KEY` secret, since health checks don't touch the identify() pipeline. This is the authoritative end-to-end check of the Docker setup, running on GitHub's fast network rather than this machine's slow one.
 - **`eval/test_images/` is now committed** (reversing a Milestone 5 call): it was gitignored under the same rule as `qdrant_data/` ("fetched, not source"), but unlike `qdrant_data/` it depends on a slow one-time external download, not instant regeneration from committed source. It's only ~15MB — small enough to commit outright, which is what actually makes the CI eval job possible without a flaky external dependency.
 
+## Deployment: Hugging Face Spaces — implemented (Milestone 8)
+
+The Docker Compose stack (Milestone 7) is correct for local dev, but doesn't answer "where can someone just click a link and try it" — that's what this milestone adds: a live, one-click demo, with no clone/install step for a visitor.
+
+- **A second, HF-specific Dockerfile (`Dockerfile.hf`), not a reused one.** Two requirements here are the *opposite* of the root `Dockerfile`'s Milestone-7 reasoning, so one file can't serve both:
+  - It **bakes BioCLIP 2's weights and the built Qdrant index in at build time** (`RUN python scripts/build_index.py` runs during `docker build`, not at container start). Milestone 7 deferred this locally because *this dev machine's* home network made a build-time download impractical — but HF's build servers pull weights from the HF Hub itself (the same infrastructure HF's own builders run on), so baking there is fast and every visitor gets an instant cold start (including waking from HF's free-tier sleep) instead of waiting through a first-run download.
+  - It runs as **non-root uid 1000** (`useradd -m -u 1000 user`, ownership handed to it before running anything) — a hard requirement for HF's Docker SDK containers, unlike the root `Dockerfile`, which runs as root under Compose without issue.
+  - It only runs the Streamlit UI (`app.py`), not the FastAPI endpoint — a live demo is something a recruiter clicks and interacts with, not a JSON API.
+- **Qdrant stays in local/embedded mode** (`QDRANT_URL` left unset) rather than becoming a server like in Compose. Milestone 7's reason for a real server was two containers (`web`+`api`) potentially racing for the same local-mode file lock; a Space runs exactly one process, so that race can't happen, and adding a second container isn't even possible under the single-container Docker SDK.
+- **The GitHub repo's root `README.md` stays untouched.** HF Spaces reads a `README.md` with YAML frontmatter (`sdk: docker`, title/emoji/colors) at the Space's own repo root — but GitHub does not parse or hide that frontmatter block in a rendered README (confirmed by research, not assumed); it would render as a stray horizontal rule followed by a wall of plain-text `key: value` lines at the top of a portfolio README recruiters read first. So the Space gets its own file, `README.hf.md`, kept in this repo as source but never used as GitHub's own README.
+- **The Space is a separate git remote, deployed via `scripts/deploy_hf_space.py`**, not an auto-synced mirror of this GitHub repo — auto-sync would pull in the root `README.md`/`Dockerfile`, defeating the point above. The script copies exactly the files the Space needs (`src/`, `data/species_reference.json`, `app.py`, `requirements.txt`, plus `Dockerfile.hf`→`Dockerfile` and `README.hf.md`→`README.md`) into a local clone of the Space's repo, and commits there — it deliberately does not `git push`, since publishing to a public Space is a per-run decision, not something to automate silently.
+- **CI gets a third job, `hf-space-build`**: builds `Dockerfile.hf` (no `up`, no secrets) on every push, the same "GitHub's fast network is the authoritative check" reasoning as `docker-smoke-test`. Catches a broken HF Dockerfile automatically instead of only finding out when a real deploy fails.
+- **`GEMINI_API_KEY` needs no code change** — it's already read via plain `os.environ.get("GEMINI_API_KEY")` (`src/identify.py`), and HF Space secrets are injected as normal runtime environment variables, same as any other host.
+
+Sources: [HF Docker Spaces docs](https://huggingface.co/docs/hub/en/spaces-sdks-docker), [HF Spaces Overview](https://huggingface.co/docs/hub/en/spaces-overview).
+
 ## Future work (not in this build, noted for later)
 
-- **Interpretability overlay**: a Grad-CAM-style saliency map showing which part of the photo drove BioCLIP's species call — useful trust-building UI, more implementation effort than the items above.
+- **Interpretability overlay**: a Grad-CAM-style saliency map showing which part of the photo drove BioCLIP's species call — useful trust-building UI, more implementation effort than the items above. BioCLIP 2's visual backbone is a ViT (not a CNN), so literal Grad-CAM doesn't directly apply — needs a ViT-adapted technique (e.g. attention rollout, or a gradient-weighted variant), plus a new code path since `src/embeddings.embed_image` currently runs entirely under `torch.no_grad()` and returns only a detached, pooled vector — no gradients or attention weights are retained today.
 - **Persistent inventory/traceability log**: closer to the original tutorial's "Inventory Scanner — AI Agent System" idea for a greenhouse — logging every scan (species, confidence, quality, timestamp) to build up a running inventory count rather than one-off lookups. Deferred because it turns this from a stateless demo into a small stateful application (needs a real datastore, not just a CSV).
 
 ## Planned file layout
@@ -157,6 +171,9 @@ app.py                     Streamlit entrypoint (single photo + lot mode)
 api/main.py                FastAPI entrypoint (/identify, /identify-lot)
 Dockerfile                 container image for app.py / api/main.py
 docker-compose.yml         app + local Qdrant, one-command spin-up
+Dockerfile.hf              Hugging Face Space image (weights+index baked in)
+README.hf.md               the Space's own README (frontmatter), not GitHub's
+scripts/deploy_hf_space.py assembles + commits the Space's file set
 .github/workflows/ci.yml   lint + run eval/run_eval.py on push
 .env.example               GEMINI_API_KEY=
 ```
