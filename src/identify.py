@@ -27,6 +27,8 @@ from src.pricing import lookup_price
 from src.tools import assess_quality, check_price, lookup_taxonomy
 from src.vector_store import get_client, search
 
+LOT_MAX_PHOTOS = 10
+
 load_dotenv()
 
 _GEMINI_MODEL = "gemini-3.1-flash-lite"
@@ -40,9 +42,11 @@ _MAX_RETRIES = 4
 _RETRY_BASE_DELAY_SECONDS = 2
 
 _SYSTEM_PROMPT = """\
-You are helping a flower-auction buyer identify a flower from a photo. You will be shown a \
-photo plus a short list of candidate species that a vision similarity search already narrowed \
-things down to.
+You are helping a flower-auction buyer identify a flower from a photo. You will be shown one \
+photo, or several photos of the same "lot" (a batch of stems presumed to be the same or similar \
+species), plus a short list of candidate species that a vision similarity search already \
+narrowed things down to. If shown several photos, assess overall/representative quality across \
+the lot and mention any notable variation between individual photos in quality_note.
 
 Use your tools as needed:
 - lookup_taxonomy(species): get botanical context for a candidate before committing to it.
@@ -223,9 +227,12 @@ def _parse_retry_delay_seconds(exc: Exception, default: float = 30.0) -> float:
     return min(delay, _RATE_LIMIT_MAX_WAIT_SECONDS)
 
 
-def _run_agent(image: Image.Image, candidates: list[dict]) -> _GeminiAnswer:
+def _invoke_agent_with_retries(message: dict) -> _GeminiAnswer:
+    """Run the agent on a pre-built message and parse its final answer, with
+    retry/backoff. Shared by identify() (one photo) and identify_lot() (several
+    photos in one message) — the only difference between them is how the
+    message is built, not how it's executed."""
     agent = _get_agent()
-    message = _build_candidates_message(image, candidates)
 
     last_error = None
     rate_limit_attempts = 0
@@ -273,7 +280,7 @@ def identify(image: Image.Image) -> IdentifyResult:
     if not candidates:
         raise IdentifyError("The species index is empty — run scripts/build_index.py first.")
 
-    parsed = _run_agent(image, candidates)
+    parsed = _invoke_agent_with_retries(_build_candidates_message(image, candidates))
 
     species = _match_candidate(parsed.species, candidates)
     scientific_name = next(
@@ -319,3 +326,112 @@ def resolve_candidate(species: str, top_candidates: list[dict], quality_grade: s
         "price_trend": price["trend"],
         "price_as_of": price["as_of_date"],
     }
+
+
+# Below this agreement fraction, the UI warns the lot may contain mixed species
+# rather than treating the majority vote as a settled answer.
+LOT_LOW_AGREEMENT_THRESHOLD = 0.7
+
+
+class LotResult(BaseModel):
+    consensus_species: str
+    scientific_name: str | None = None
+    quality_grade: str
+    quality_note: str
+    summary: str
+    price_per_stem: float | None
+    price_trend: str
+    price_as_of: str | None
+    price_simulated: bool = True
+    photo_count: int
+    agreement_fraction: float
+    flagged_photos: list[dict]
+
+
+def _compute_consensus(top1_votes: list[tuple[str, float]]) -> tuple[str, float]:
+    """Majority vote on each photo's top-1 species; ties broken by highest summed
+    score. Returns (consensus_species, agreement_fraction)."""
+    votes: dict[str, list[float]] = {}
+    for species, score in top1_votes:
+        votes.setdefault(species, []).append(score)
+
+    consensus = max(votes.items(), key=lambda kv: (len(kv[1]), sum(kv[1])))[0]
+    agreement_fraction = len(votes[consensus]) / len(top1_votes)
+    return consensus, agreement_fraction
+
+
+def _build_lot_message(images: list[Image.Image], candidates: list[dict]) -> dict:
+    lines = [
+        f"This is a LOT of {len(images)} photos, presumed to be the same or a similar species. "
+        "Candidates from the vision similarity search (based on the consensus across the lot's photos):",
+        "",
+    ]
+    for c in candidates:
+        p = c["payload"]
+        lines.append(f"- {p['common_name']} ({p['scientific_name']}): {p['description']}")
+    lines.append(f"\nHere are all {len(images)} photos in the lot, in order:")
+
+    content = [{"type": "text", "text": "\n".join(lines)}]
+    for image in images:
+        image_b64 = base64.b64encode(_image_to_jpeg_bytes(image)).decode("utf-8")
+        content.append({"type": "image", "source_type": "base64", "data": image_b64, "mime_type": "image/jpeg"})
+
+    return {"role": "user", "content": content}
+
+
+def identify_lot(images: list[Image.Image]) -> LotResult:
+    """Identify a lot of photos with ONE agent call total, not one per photo —
+    an agentic identify() call costs 4+ Gemini calls (see docs/RESEARCH.md), so
+    per-photo agent calls would make a 10-photo lot cost 40+. Retrieval
+    (BioCLIP + Qdrant, free/local) still runs per photo for the consensus vote."""
+    if not images:
+        raise IdentifyError("No photos in the lot to identify.")
+    if len(images) > LOT_MAX_PHOTOS:
+        raise IdentifyError(f"A lot can have at most {LOT_MAX_PHOTOS} photos (got {len(images)}).")
+
+    qdrant = get_client()
+    per_photo_candidates = []
+    for image in images:
+        embedding = embed_image(image)
+        candidates = search(qdrant, embedding, top_k=3)
+        if not candidates:
+            raise IdentifyError("The species index is empty — run scripts/build_index.py first.")
+        per_photo_candidates.append(candidates)
+
+    top1_votes = [(c[0]["payload"]["common_name"], c[0]["score"]) for c in per_photo_candidates]
+    consensus_species, agreement_fraction = _compute_consensus(top1_votes)
+
+    flagged_photos = [
+        {"index": i, "top_species": c[0]["payload"]["common_name"], "score": round(c[0]["score"], 3)}
+        for i, c in enumerate(per_photo_candidates)
+        if c[0]["payload"]["common_name"] != consensus_species
+    ]
+
+    # Candidates from a photo that actually agreed with consensus, for taxonomy context.
+    consensus_candidates = next(
+        c for c in per_photo_candidates if c[0]["payload"]["common_name"] == consensus_species
+    )
+
+    parsed = _invoke_agent_with_retries(_build_lot_message(images, consensus_candidates))
+
+    species = _match_candidate(parsed.species, consensus_candidates)
+    scientific_name = next(
+        (c["payload"]["scientific_name"] for c in consensus_candidates if c["payload"]["common_name"] == species),
+        None,
+    )
+
+    price = lookup_price(species, grade=parsed.quality_grade)
+
+    return LotResult(
+        consensus_species=species,
+        scientific_name=scientific_name,
+        quality_grade=parsed.quality_grade,
+        quality_note=parsed.quality_note,
+        summary=parsed.summary,
+        price_per_stem=price["price_per_stem"],
+        price_trend=price["trend"],
+        price_as_of=price["as_of_date"],
+        photo_count=len(images),
+        agreement_fraction=round(agreement_fraction, 3),
+        flagged_photos=flagged_photos,
+    )

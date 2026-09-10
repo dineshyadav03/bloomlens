@@ -30,7 +30,7 @@ LangChain tool-calling agent (Gemini), deciding which tools to use:
   lookup_taxonomy · assess_quality · check_price
   → species/common name, confidence, quality note, price, summary
         │
-        ▼ (lot mode aggregates across photos — planned)
+        ▼ (lot mode: retrieval per photo, one agent call for the whole lot)
 Streamlit UI  /  FastAPI JSON endpoint (API planned)
 ```
 
@@ -41,7 +41,8 @@ Full breakdown, including the evaluation harness and Docker/CI setup, in [docs/A
 - **Species ID** via BioCLIP 2 zero-shot classification against a curated taxonomy vector index (Qdrant) — 91.4% zero-shot accuracy on the PlantNet benchmark in the original paper.
 - **Agentic reasoning layer**: a LangChain agent (not a fixed pipeline) — confirmed via its own message trace to genuinely call `lookup_taxonomy`, `assess_quality`, and `check_price` on a normal run, deciding for itself when to use each. Matches the "AI Agent System" framing from the original tutorial this project was inspired by.
 - **Confidence handling**: a close call between top candidates surfaces a visible switcher instead of a silently wrong guess; a clear non-match gets a hedged message instead of a confident species name.
-- **Planned**: lot/batch mode with a price trend chart, a measured evaluation harness (top-1/top-3 accuracy + confusion matrix), a FastAPI endpoint alongside the Streamlit UI, and Docker Compose + CI.
+- **Lot/batch mode**: scan or upload up to 10 photos as one lot and get a consensus species, agreement fraction, flagged mismatches, and a price trend chart — one agent call for the whole lot, not one per photo.
+- **Planned**: a measured evaluation harness (top-1/top-3 accuracy + confusion matrix), a FastAPI endpoint alongside the Streamlit UI, and Docker Compose + CI.
 
 ## Tech stack
 
@@ -78,7 +79,7 @@ Not part of this build, but noted for later: a Grad-CAM-style interpretability o
 - ✅ **Milestone 1** — core pipeline: camera scan → BioCLIP 2 species ID → Gemini quality read → simulated price, in a working Streamlit app. Verified end-to-end on real flower photos.
 - ✅ **Milestone 2** — confidence gating: three tiers from Qdrant's top-1/top-2 score gap (`high`/`ambiguous`/`low`, thresholds in `src/identify.py`). Ambiguous scans show a visible switcher between the top-2 candidates (updates species/price with no extra Gemini call); low-confidence scans get a hedged message instead of a confident species name.
 - ✅ **Milestone 3** — agentic layer: a LangChain (`create_agent`) tool-calling agent over Gemini replaces the fixed call, with `lookup_taxonomy`/`assess_quality`/`check_price` as real tools (`src/tools.py`). Verified via the agent's own message trace, not just its output, that it genuinely calls all three. Found along the way that an agentic `identify()` call costs 4+ Gemini calls instead of 1, which exhausted `gemini-3.6-flash`'s daily free quota — switched to `gemini-3.1-flash-lite`, which tracks separate, more generous quota (see [docs/RESEARCH.md](docs/RESEARCH.md)).
-- ⬜ Milestone 4 — lot/batch mode + price trend chart
+- ✅ **Milestone 4** — lot/batch mode: scan or upload up to 10 photos as one lot in the new "Lot mode" tab. Redesigned from the original plan for a real reason found in Milestone 3 — running the full agent per photo would cost 40+ Gemini calls for a 10-photo lot, so retrieval runs per-photo (free/local) for a majority-vote consensus + agreement fraction, while the agent runs **once** for the whole lot given all photos in one multi-image message. Mismatched photos are flagged individually; a price trend chart uses `src/pricing.price_history`. Verified with a real mixed lot (2 roses + 1 sunflower): correct 2/3 consensus, correct flag, and the agent's own summary independently corroborated the mismatch.
 - ⬜ Milestone 5 — evaluation harness
 - ⬜ Milestone 6 — FastAPI endpoint
 - ⬜ Milestone 7 — Docker Compose + CI

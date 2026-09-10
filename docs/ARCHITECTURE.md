@@ -86,11 +86,14 @@ Confirmed by inspecting the agent's actual message trace (not just its final ans
 - Three tiers, computed purely from Qdrant scores in `src/identify._classify_confidence` (no extra Gemini call): **`high`** (top-1 ≥ 0.55 and gap to top-2 ≥ 0.05) — proceeds normally; **`ambiguous`** (everything in between) — `app.py` shows a visible `st.radio` switcher between the top-2 candidates, defaulting to Gemini's pick, that re-derives species/scientific-name/price via `src/identify.resolve_candidate` on change, no second Gemini call; **`low`** (top-1 < 0.45) — the confident species title is replaced with a hedged "not confidently a known species" message.
 - The specific thresholds (0.55/0.05/0.45) are a heuristic starting point from Milestone 1's handful of real test photos, not tuned against a labeled dataset — they're module-level constants specifically so Milestone 5's evaluation harness can revisit them with real accuracy data.
 
-## Lot/batch mode
+## Lot/batch mode — implemented (Milestone 4)
 
-- User can upload 1–10 photos as a single "lot" instead of one at a time.
-- Each photo runs the full pipeline independently; results are aggregated: majority-vote species (flagging any photo that disagrees, since that's a real auction concern — mislabeled lots), quality notes summarized, and a lot-level simulated price with a small trend chart (price over recent simulated dates for that species/grade).
-- Chart: a simple line/area chart (Streamlit's built-in charting is enough — no need for a separate charting library) showing the simulated price trend leading up to "today."
+- User can scan or upload 1–`LOT_MAX_PHOTOS` (10) photos as a single "lot" (`app.py`'s "Lot mode" tab, `src/identify.identify_lot`).
+- **Redesigned from the original plan for a real reason**: "each photo runs the full pipeline independently" would mean a 10-photo lot costs 40+ Gemini calls (Milestone 3 found an agentic `identify()` call costs 4+ calls, not 1). Instead: BioCLIP + Qdrant retrieval (free, local) runs **per photo** to get each one's top candidate; a majority vote across those (ties broken by highest summed score, `src/identify._compute_consensus`) gives the lot's consensus species and an agreement fraction (e.g. "2/3 photos agree"); the agent then runs **once for the whole lot**, given all photos together in one multi-image message (confirmed working: `ChatGoogleGenerativeAI` correctly distinguishes multiple images in a single call) plus the consensus species' taxonomy context, and produces one quality_grade/quality_note/summary for the lot. Net effect: a lot costs the same ~4-5 Gemini calls as a single scan, regardless of photo count.
+- Photos whose top candidate disagreed with consensus are flagged in the UI with their own detected species (`flagged_photos`) — verified with a real mixed lot (2 roses + 1 sunflower): correctly detected 2/3 agreement, flagged the sunflower, and the agent's own summary independently corroborated the mismatch ("This lot is mixed and highly inconsistent...").
+- Below `LOT_LOW_AGREEMENT_THRESHOLD` (0.7), the UI shows an explicit "may contain mixed species" warning rather than presenting the majority vote as a settled answer.
+- Chart: `st.line_chart` fed by `src/pricing.price_history` (existing since Milestone 1, unused until now) — no separate charting library needed.
+- `identify()`'s retry/parse loop was factored out into a shared `_invoke_agent_with_retries(message)` so both single-scan and lot mode execute through the same tested path; single-scan behavior is unchanged (verified by regression-testing the Milestone 1/2/3 photos after the refactor).
 
 ## Evaluation harness
 
