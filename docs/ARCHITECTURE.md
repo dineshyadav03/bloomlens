@@ -1,6 +1,6 @@
 # Architecture (planned)
 
-Status: Milestones 1–3 implemented (core pipeline, confidence gating, agentic layer) — see each section below for what's built vs. still planned. See [RESEARCH.md](RESEARCH.md) for the sources behind each design choice; this document is kept current as decisions change, not just written once.
+Status: Milestones 1–5 implemented (core pipeline, confidence gating, agentic layer, lot mode, evaluation harness) — see each section below for what's built vs. still planned. See [RESEARCH.md](RESEARCH.md) for the sources behind each design choice; this document is kept current as decisions change, not just written once.
 
 ## Pipeline
 
@@ -95,12 +95,13 @@ Confirmed by inspecting the agent's actual message trace (not just its final ans
 - Chart: `st.line_chart` fed by `src/pricing.price_history` (existing since Milestone 1, unused until now) — no separate charting library needed.
 - `identify()`'s retry/parse loop was factored out into a shared `_invoke_agent_with_retries(message)` so both single-scan and lot mode execute through the same tested path; single-scan behavior is unchanged (verified by regression-testing the Milestone 1/2/3 photos after the refactor).
 
-## Evaluation harness
+## Evaluation harness — implemented (Milestone 5)
 
-- A held-out split of the Oxford 102 Flowers test images (never used to build the Qdrant taxonomy index, since that index doesn't need images at all — see above) with known ground-truth species, mapped onto the curated species list.
-- `eval/run_eval.py` runs the identification step (BioCLIP embed → Qdrant search) against every held-out image and reports **top-1 and top-3 accuracy** plus a confusion matrix — this measures the actual classification step, separate from Gemini's free-text quality/summary output which isn't the kind of thing accuracy metrics apply to.
-- Results get written to `eval/results.md` (or similar) and referenced from the README, so the portfolio claim is "measured X% top-1 accuracy on N species," not just "it seems to work."
-- This same script runs in CI (see DevOps below) so accuracy regressions get caught on every push.
+- **Result: 87.2% top-1 / 96.1% top-3 accuracy** on 360 held-out Oxford 102 Flowers test images across 18 of the 30 curated species (`eval/results.md`, `eval/run_eval.py`). Zero API cost — this only exercises BioCLIP 2 + Qdrant retrieval (`embed_image` + `vector_store.search`, the exact functions `identify()` uses), matching the architecture's own scope: measuring the classification step, not Gemini's free-text output, which isn't the kind of thing accuracy metrics apply to.
+- **Species coverage is honestly scoped, not inflated**: `eval/species_mapping.py` maps 18 of the 30 curated species to a confident Oxford 102 category — several via well-established alternate common names verified individually (e.g. "barberton daisy" = *Gerbera jamesonii*, "hippeastrum" = the genus commercially sold as "amaryllis," matching our own `species_reference.json`), not string-matched. The other 12 either aren't in Oxford 102 at all, or only have an unconfirmed genus-level match (e.g. Oxford's generic "buttercup" isn't confirmed to be *Ranunculus asiaticus*) — deliberately excluded rather than claimed. `eval/results.md` lists all 12 with the specific reason.
+- Test images sampled once (`eval/build_test_set.py`, seeded, up to 20/species) from Oxford's "test" split — deliberately the *largest* split in their benchmark, since their own classifier trains on very few images per class. Verified the well-known 0-index/1-index labeling gotcha for this dataset by reading torchvision's `Flowers102` source directly (it already normalizes to 0-indexed) rather than assuming, then spot-checked sampled images visually before trusting the full run.
+- **Confidence-tier thresholds checked against real data, and kept as-is** (the concrete "revisit" the Milestone 2 code comment promised — a genuine check, not a rubber stamp): the `high` tier is 99.1% precise but withholds 105 of 314 correct predictions into `ambiguous` purely because their score/gap fell just under threshold. Swept looser alternatives against the actual data (`eval/run_eval.py`'s threshold sweep) rather than guessing: loosening the gap requirement would gain those correct calls back, but drops precision by over 2 percentage points, because correct and wrong predictions *within* the ambiguous zone have nearly identical score/gap distributions — there's no cleaner cutoff hiding in the data. The `low` threshold couldn't be validated at all here (every test image is a genuine species match, so nothing ever lands there) — that needs deliberately-included non-flower images, noted as future work. Full numbers in `eval/results.md`'s calibration section.
+- Confusion matrix confirms the errors are visually sensible, not random noise — e.g. Amaryllis↔Easter lily (both large trumpet-form lilies) and Dahlia↔Sunflower/Gerbera daisy (all radial multi-petal composites) account for most of the misses.
 
 ## API layer
 

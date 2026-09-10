@@ -1,0 +1,1442 @@
+[
+  {
+    "image_path": "test_images/Amaryllis_5494.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5461.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5455.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5501.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5471.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5469.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5468.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5462.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5506.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5460.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5497.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5488.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5459.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5491.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5481.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5456.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5507.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5499.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5467.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Amaryllis_5503.jpg",
+    "species": "Amaryllis"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3377.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3346.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3357.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3367.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3365.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3375.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3362.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3358.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3352.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3359.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3363.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3353.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3345.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3350.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3371.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3355.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3373.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3349.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3351.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bearded_iris_3376.jpg",
+    "species": "Bearded iris"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_249.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_219.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_211.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_230.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_212.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_228.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_260.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_265.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_244.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_222.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_257.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_208.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_252.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_235.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_240.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_213.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_267.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_268.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_241.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Bird_of_paradise_224.jpg",
+    "species": "Bird of paradise"
+  },
+  {
+    "image_path": "test_images/Calla_lily_762.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_751.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_743.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_741.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_753.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_763.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_748.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_771.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_766.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_746.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_742.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_773.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_747.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_770.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_759.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_750.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_744.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_760.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_757.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Calla_lily_745.jpg",
+    "species": "Calla lily"
+  },
+  {
+    "image_path": "test_images/Carnation_1155.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1160.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1167.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1159.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1158.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1140.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1157.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1165.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1143.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1169.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1145.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1161.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1152.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1150.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1146.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1166.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1148.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1151.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1156.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Carnation_1163.jpg",
+    "species": "Carnation"
+  },
+  {
+    "image_path": "test_images/Daffodil_1621.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1632.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1620.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1638.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1643.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1635.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1622.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1631.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1647.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1636.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1646.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1640.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1628.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1624.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1653.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1633.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1630.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1642.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1655.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Daffodil_1650.jpg",
+    "species": "Daffodil"
+  },
+  {
+    "image_path": "test_images/Dahlia_3000.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_2968.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_2996.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_3042.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_3035.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_3025.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_2989.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_3063.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_3059.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_2956.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_2945.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_2961.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_2972.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_2973.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_3041.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_2949.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_3031.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_3030.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_3052.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Dahlia_3068.jpg",
+    "species": "Dahlia"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1543.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1581.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1512.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1598.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1603.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1525.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1579.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1607.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1545.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1609.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1593.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1554.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1548.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1566.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1531.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1569.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1511.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1544.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1575.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gerbera_daisy_1608.jpg",
+    "species": "Gerbera daisy"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1679.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1721.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1670.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1737.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1695.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1764.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1738.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1734.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1682.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1676.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1704.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1754.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1677.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1726.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1756.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1724.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1657.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1733.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1698.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/Gladiolus_1719.jpg",
+    "species": "Gladiolus"
+  },
+  {
+    "image_path": "test_images/King_protea_456.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_459.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_467.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_481.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_465.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_463.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_457.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_479.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_474.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_458.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_475.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_471.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_476.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_460.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_472.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_466.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_477.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_464.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_470.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/King_protea_473.jpg",
+    "species": "King protea"
+  },
+  {
+    "image_path": "test_images/Marigold_2058.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_2068.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_2045.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_143.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_2060.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_2079.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_141.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_2082.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_155.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_2042.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_2076.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_2074.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_2038.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_2047.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_2057.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_2048.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_131.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_147.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_144.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Marigold_124.jpg",
+    "species": "Marigold"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_196.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_186.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_203.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_193.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_202.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_204.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_187.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_197.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_205.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_200.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_189.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_199.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_198.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_192.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_188.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_201.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_194.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_195.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_191.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Moth_orchid_190.jpg",
+    "species": "Moth orchid"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2151.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2138.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2157.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2152.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2159.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2149.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2141.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2160.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2147.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2140.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2137.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2158.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2154.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2145.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2153.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2148.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2156.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2155.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2134.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Oxeye_daisy_2135.jpg",
+    "species": "Oxeye daisy"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_651.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_673.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_694.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_669.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_699.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_703.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_654.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_663.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_660.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_701.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_682.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_676.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_656.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_675.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_659.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_665.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_677.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_702.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_652.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Peruvian_lily_698.jpg",
+    "species": "Peruvian lily"
+  },
+  {
+    "image_path": "test_images/Rose_3903.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3788.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3775.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3901.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3766.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3786.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3823.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3805.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3867.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3887.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3886.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3817.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3865.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3778.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3860.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3763.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3862.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3830.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3879.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Rose_3836.jpg",
+    "species": "Rose"
+  },
+  {
+    "image_path": "test_images/Snapdragon_376.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_384.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_341.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_346.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_340.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_335.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_325.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_359.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_369.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_356.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_382.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_380.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_342.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_378.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_375.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_381.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_352.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_354.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_355.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Snapdragon_332.jpg",
+    "species": "Snapdragon"
+  },
+  {
+    "image_path": "test_images/Sunflower_2614.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2643.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2616.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2622.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2615.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2647.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2626.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2636.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2618.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2645.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2629.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2630.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2612.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2640.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2613.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2624.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2632.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2641.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2634.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sunflower_2627.jpg",
+    "species": "Sunflower"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_100.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_96.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_93.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_115.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_95.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_88.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_92.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_84.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_101.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_112.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_89.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_94.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_90.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_82.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_80.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_104.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_99.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_98.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_83.jpg",
+    "species": "Sweet pea"
+  },
+  {
+    "image_path": "test_images/Sweet_pea_102.jpg",
+    "species": "Sweet pea"
+  }
+]

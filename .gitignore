@@ -22,6 +22,11 @@ data/oxford_flowers/
 qdrant_storage/
 qdrant_data/
 
+# Evaluation dataset (fetched by eval/build_test_set.py, not source) --
+# eval/results.md and the mapping/scripts themselves ARE committed.
+eval/raw/
+eval/test_images/
+
 # IDE / OS
 .vscode/
 .idea/
