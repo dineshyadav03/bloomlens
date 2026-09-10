@@ -42,7 +42,8 @@ Full breakdown, including the evaluation harness and Docker/CI setup, in [docs/A
 - **Agentic reasoning layer**: a LangChain agent (not a fixed pipeline) — confirmed via its own message trace to genuinely call `lookup_taxonomy`, `assess_quality`, and `check_price` on a normal run, deciding for itself when to use each. Matches the "AI Agent System" framing from the original tutorial this project was inspired by.
 - **Confidence handling**: a close call between top candidates surfaces a visible switcher instead of a silently wrong guess; a clear non-match gets a hedged message instead of a confident species name. The tier thresholds were checked against real held-out data (not just guessed) and confirmed well-calibrated — see [eval/results.md](eval/results.md)'s calibration section for what was tried and why they were kept as-is.
 - **Lot/batch mode**: scan or upload up to 10 photos as one lot and get a consensus species, agreement fraction, flagged mismatches, and a price trend chart — one agent call for the whole lot, not one per photo.
-- **Planned**: a FastAPI endpoint alongside the Streamlit UI, and Docker Compose + CI.
+- **FastAPI endpoint** (`api/main.py`) alongside the Streamlit UI: `POST /identify`, `POST /identify-lot`, `GET /health` — sharing `src/identify.py`'s pipeline directly (no second implementation), with interactive docs at `/docs`.
+- **Planned**: Docker Compose + CI.
 
 ## Tech stack
 
@@ -61,6 +62,8 @@ streamlit run app.py
 ```
 
 First run downloads BioCLIP 2 weights (public, no auth needed). If you ever see `Storage folder ... is already accessed by another instance of Qdrant client`, another Python process from a previous run is still holding the local index — close it and retry.
+
+To run the API instead of (or alongside) the Streamlit app: `uvicorn api.main:app --reload`, then browse `http://localhost:8000/docs` for interactive Swagger docs, or `POST` a photo directly: `curl -X POST http://localhost:8000/identify -F "photo=@your-flower.jpg"`.
 
 ## Important disclaimers
 
@@ -81,7 +84,7 @@ Not part of this build, but noted for later: a Grad-CAM-style interpretability o
 - ✅ **Milestone 3** — agentic layer: a LangChain (`create_agent`) tool-calling agent over Gemini replaces the fixed call, with `lookup_taxonomy`/`assess_quality`/`check_price` as real tools (`src/tools.py`). Verified via the agent's own message trace, not just its output, that it genuinely calls all three. Found along the way that an agentic `identify()` call costs 4+ Gemini calls instead of 1, which exhausted `gemini-3.6-flash`'s daily free quota — switched to `gemini-3.1-flash-lite`, which tracks separate, more generous quota (see [docs/RESEARCH.md](docs/RESEARCH.md)).
 - ✅ **Milestone 4** — lot/batch mode: scan or upload up to 10 photos as one lot in the new "Lot mode" tab. Redesigned from the original plan for a real reason found in Milestone 3 — running the full agent per photo would cost 40+ Gemini calls for a 10-photo lot, so retrieval runs per-photo (free/local) for a majority-vote consensus + agreement fraction, while the agent runs **once** for the whole lot given all photos in one multi-image message. Mismatched photos are flagged individually; a price trend chart uses `src/pricing.price_history`. Verified with a real mixed lot (2 roses + 1 sunflower): correct 2/3 consensus, correct flag, and the agent's own summary independently corroborated the mismatch.
 - ✅ **Milestone 5** — evaluation harness: **87.2% top-1 / 96.1% top-3 accuracy** on 360 held-out Oxford 102 Flowers images across 18 of the 30 curated species ([eval/results.md](eval/results.md); species chosen via individually-verified alternate common names, not string matches — see `eval/species_mapping.py`). Zero API cost — evaluates only BioCLIP 2 + Qdrant retrieval, same as `identify()` uses. Also swept alternative confidence-tier thresholds against the real data (the "revisit" Milestone 2 promised) and found the current ones are already well-calibrated — loosening them would trade meaningful precision for coverage, not a free win — so they were kept as-is, backed by data instead of the original guess.
-- ⬜ Milestone 6 — FastAPI endpoint
+- ✅ **Milestone 6** — FastAPI endpoint: `GET /health`, `POST /identify`, `POST /identify-lot` (`api/main.py`), returning the exact same `IdentifyResult`/`LotResult` Pydantic models the Streamlit app renders — no second implementation. Verified end-to-end with real photos (identical results to calling the pipeline directly), plus the error paths: oversized lot → `400`, missing API key → `503` with a clear message (not a raw traceback), and the auto-generated Swagger UI at `/docs`.
 - ⬜ Milestone 7 — Docker Compose + CI
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full plan.

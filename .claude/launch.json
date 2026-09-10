@@ -6,6 +6,12 @@
       "runtimeExecutable": ".venv/Scripts/streamlit.exe",
       "runtimeArgs": ["run", "app.py", "--server.headless", "true"],
       "port": 8501
+    },
+    {
+      "name": "bloomlens-api",
+      "runtimeExecutable": ".venv/Scripts/uvicorn.exe",
+      "runtimeArgs": ["api.main:app", "--host", "0.0.0.0", "--port", "8000"],
+      "port": 8000
     }
   ]
 }

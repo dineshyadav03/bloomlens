@@ -1,6 +1,6 @@
 # Architecture (planned)
 
-Status: Milestones 1–5 implemented (core pipeline, confidence gating, agentic layer, lot mode, evaluation harness) — see each section below for what's built vs. still planned. See [RESEARCH.md](RESEARCH.md) for the sources behind each design choice; this document is kept current as decisions change, not just written once.
+Status: Milestones 1–6 implemented (core pipeline, confidence gating, agentic layer, lot mode, evaluation harness, FastAPI endpoint) — see each section below for what's built vs. still planned. See [RESEARCH.md](RESEARCH.md) for the sources behind each design choice; this document is kept current as decisions change, not just written once.
 
 ## Pipeline
 
@@ -103,10 +103,12 @@ Confirmed by inspecting the agent's actual message trace (not just its final ans
 - **Confidence-tier thresholds checked against real data, and kept as-is** (the concrete "revisit" the Milestone 2 code comment promised — a genuine check, not a rubber stamp): the `high` tier is 99.1% precise but withholds 105 of 314 correct predictions into `ambiguous` purely because their score/gap fell just under threshold. Swept looser alternatives against the actual data (`eval/run_eval.py`'s threshold sweep) rather than guessing: loosening the gap requirement would gain those correct calls back, but drops precision by over 2 percentage points, because correct and wrong predictions *within* the ambiguous zone have nearly identical score/gap distributions — there's no cleaner cutoff hiding in the data. The `low` threshold couldn't be validated at all here (every test image is a genuine species match, so nothing ever lands there) — that needs deliberately-included non-flower images, noted as future work. Full numbers in `eval/results.md`'s calibration section.
 - Confusion matrix confirms the errors are visually sensible, not random noise — e.g. Amaryllis↔Easter lily (both large trumpet-form lilies) and Dahlia↔Sunflower/Gerbera daisy (all radial multi-petal composites) account for most of the misses.
 
-## API layer
+## API layer — implemented (Milestone 6)
 
-- `api/main.py`: a small FastAPI app exposing `POST /identify` (single photo) and `POST /identify-lot` (multiple photos), both returning the same structured JSON the Streamlit app renders.
-- Both the Streamlit app and the API import the same core pipeline module (`src/identify.py`) — no duplicated logic between the two front ends.
+- `api/main.py`: FastAPI app exposing `GET /health`, `POST /identify` (single photo), and `POST /identify-lot` (multiple photos) — both return `response_model=IdentifyResult`/`LotResult`, the exact same Pydantic models `identify()`/`identify_lot()` already produced. No reshaping, no second implementation — verified end-to-end with real photos from `eval/test_images/` giving identical results to calling the pipeline directly.
+- Route handlers are plain `def`, not `async def`: `identify()`/`identify_lot()` block on CPU inference and Gemini network calls, and FastAPI runs sync handlers in a thread pool automatically — the correct way to serve blocking work without stalling the event loop.
+- Error mapping verified against real requests: an oversized lot (>`LOT_MAX_PHOTOS`) → `400` with a clear message; a missing `photos` field entirely → FastAPI's own `422` validation error (idiomatic, not something to override); a pipeline-level `IdentifyError` (missing API key, rate-limited, etc.) → `503` with the error's own message, not a raw traceback — confirmed by temporarily removing `GEMINI_API_KEY` and hitting the endpoint for real.
+- Interactive Swagger UI at `/docs` comes free from FastAPI's OpenAPI generation — confirmed it renders correctly for both endpoints and all response schemas.
 
 ## DevOps: Docker & CI
 
