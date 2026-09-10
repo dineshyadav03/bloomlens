@@ -102,4 +102,4 @@ All 7 planned milestones are complete. See [docs/ARCHITECTURE.md](docs/ARCHITECT
 
 ## License
 
-TBD.
+[MIT](LICENSE)
