@@ -46,6 +46,7 @@ Full breakdown, including the evaluation harness and Docker/CI setup, in [docs/A
 - **Lot/batch mode**: scan or upload up to 10 photos as one lot and get a consensus species, agreement fraction, flagged mismatches, and a price trend chart — one agent call for the whole lot, not one per photo.
 - **FastAPI endpoint** (`api/main.py`) alongside the Streamlit UI: `POST /identify`, `POST /identify-lot`, `GET /health` — sharing `src/identify.py`'s pipeline directly (no second implementation), with interactive docs at `/docs`.
 - **One-command setup**: `docker compose up` runs Qdrant (a real server, not local mode — see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for why that distinction matters once two services share one index), the Streamlit UI, and the FastAPI service together. CI (`.github/workflows/ci.yml`) lints, runs the evaluation harness with a real regression gate (fails under 80% top-1 accuracy), and smoke-tests the full Docker stack on every push.
+- **"Why this species?" interpretability overlay**: an on-demand heatmap (via `src/interpretability.py`) showing which part of a scanned photo most drove its species match — **Grad-ECLIP**, a real published technique for CLIP-style zero-shot vision-language models (not literal Grad-CAM, which needs a CNN and a classifier head neither of which BioCLIP 2 has). See [docs/RESEARCH.md](docs/RESEARCH.md#grad-eclip) for the two real implementation bugs found and fixed by checking against the paper's own reference code.
 
 ## Tech stack
 
@@ -85,7 +86,7 @@ Streamlit at `http://localhost:8501`, the API at `http://localhost:8000/docs`. F
 
 ## Future work
 
-Not part of this build, but noted for later: a Grad-CAM-style interpretability overlay showing which part of a photo drove the species call, and a persistent inventory/traceability log across scans — closer to the original tutorial's "Inventory Scanner" concept for a greenhouse, deferred because it turns this from a stateless demo into a stateful application.
+Not part of this build, but noted for later: a persistent inventory/traceability log across scans — closer to the original tutorial's "Inventory Scanner" concept for a greenhouse, deferred because it turns this from a stateless demo into a stateful application. (The interpretability overlay originally listed here is now built — see Milestone 9 below.)
 
 ## Status
 

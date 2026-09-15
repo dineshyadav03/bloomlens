@@ -1,6 +1,6 @@
 # Architecture (planned)
 
-Status: all 7 originally-planned milestones implemented (core pipeline, confidence gating, agentic layer, lot mode, evaluation harness, FastAPI endpoint, Docker Compose + CI), plus Milestone 8 (Hugging Face Spaces deployment) — see each section below for details. Two items remain as documented future work (Grad-CAM overlay, persistent inventory log). See [RESEARCH.md](RESEARCH.md) for the sources behind each design choice; this document is kept current as decisions change, not just written once.
+Status: all 7 originally-planned milestones implemented (core pipeline, confidence gating, agentic layer, lot mode, evaluation harness, FastAPI endpoint, Docker Compose + CI), plus Milestone 8 (Hugging Face Spaces deployment) and Milestone 9 (Grad-ECLIP interpretability overlay) — see each section below for details. One item remains as documented future work (persistent inventory log). See [RESEARCH.md](RESEARCH.md) for the sources behind each design choice; this document is kept current as decisions change, not just written once.
 
 ## Pipeline
 
@@ -135,10 +135,23 @@ The Docker Compose stack (Milestone 7) is correct for local dev, but doesn't ans
 
 Sources: [HF Docker Spaces docs](https://huggingface.co/docs/hub/en/spaces-sdks-docker), [HF Spaces Overview](https://huggingface.co/docs/hub/en/spaces-overview).
 
+## Interpretability overlay — implemented (Milestone 9)
+
+`src/interpretability.py`'s `explain_image(image, species)` shows which part of a scanned photo most drove its match to a given species, as a heatmap overlay — an on-demand trust/debug aid ("🔍 Why this species?" in `app.py`'s single-scan tab, `POST /explain` in `api/main.py`), not part of the core `/identify` result.
+
+- **Not literal Grad-CAM.** The original Grad-CAM paper backprops a class score into a CNN's last convolutional feature map. Confirmed directly against the loaded model (not assumed from the name) that BioCLIP 2 has neither ingredient: `model.visual` is `open_clip.transformer.VisionTransformer` — a ViT-L/14 with no conv feature maps past the patch-embedding stem — doing zero-shot classification (cosine similarity to a text embedding, no classifier head).
+- **Real technique used: Grad-ECLIP** ("Gradient-based Visual Explanation for Transformer-based CLIP," Zhao et al., ICML 2024; [arXiv:2502.18816](https://arxiv.org/html/2502.18816)) — built for exactly this case (a CLIP-style ViT dual-encoder doing similarity-based zero-shot matching). Verified the actual formula against the paper's own reference implementation ([github.com/Cyang-Zhao/Grad-Eclip](https://github.com/Cyang-Zhao/Grad-Eclip)) rather than trusting a paraphrase. Scoped to the paper's own best-fidelity finding: gradients + values from only the **last** transformer block, not all 24 — their own ablation found this beats aggregating all layers for images.
+- **Two real bugs found and fixed by comparing a first attempt against that reference implementation, not by guessing:**
+  1. The gradient must be taken w.r.t. the attention output *before* `out_proj` (the same basis the raw value vectors live in) — gradient against `nn.MultiheadAttention`'s already-projected return value (a different basis) produced heatmaps concentrated on background bokeh, not the flower. Since PyTorch's built-in module doesn't expose the pre-projection tensor via a hook, the block's `attention` method is monkey-patched for the duration of one explain call to manually recompute Q/K/V/attention-output from `attn.in_proj_weight`/`in_proj_bias` — numerically identical forward output, just with the intermediate exposed.
+  2. The CLS→patch cosine-similarity spatial term needs min-max normalization to `[0, 1]` before use — used raw, its narrow value range washed out the actual spatial signal.
+- **The overlay's colormap is a hand-rolled cool→warm 3-stop gradient (blue→yellow→red), not a flat single-hue tint.** A flat red overlay was tried first and found illegible by eye on already-red/orange flowers (confirmed on real Rose/Carnation test photos) — hue-shifting stays legible regardless of the photo's own colors. No new plotting dependency (numpy only) — matplotlib/opencv were considered and skipped as unneeded for a 3-stop gradient.
+- **No ground-truth metric exists to unit-test a "correct" heatmap against** — verified instead by eye against real photos from `eval/test_images/` (concentrates on the Amaryllis's throat/stamens, the Sunflower's petals, the Rose's two-tone petal edges, the Carnation's fringed texture) and by confirming the heatmap is class-discriminative (explaining the same photo against its correct species vs. a clearly-wrong one produces measurably different maps, since the whole point of using gradients rather than plain attention is that the map depends on which text it's explaining).
+- Computed only on demand (a full gradient-enabled forward+backward pass through the ViT, separate from `embeddings.embed_image`'s fast `torch.no_grad()` path) — not automatically on every scan. Lot mode is out of scope for this milestone (per-photo embeddings are already discarded after the consensus vote).
+
 ## Future work (not in this build, noted for later)
 
-- **Interpretability overlay**: a Grad-CAM-style saliency map showing which part of the photo drove BioCLIP's species call — useful trust-building UI, more implementation effort than the items above. BioCLIP 2's visual backbone is a ViT (not a CNN), so literal Grad-CAM doesn't directly apply — needs a ViT-adapted technique (e.g. attention rollout, or a gradient-weighted variant), plus a new code path since `src/embeddings.embed_image` currently runs entirely under `torch.no_grad()` and returns only a detached, pooled vector — no gradients or attention weights are retained today.
 - **Persistent inventory/traceability log**: closer to the original tutorial's "Inventory Scanner — AI Agent System" idea for a greenhouse — logging every scan (species, confidence, quality, timestamp) to build up a running inventory count rather than one-off lookups. Deferred because it turns this from a stateless demo into a small stateful application (needs a real datastore, not just a CSV).
+- **Explain-on-demand for lot mode**: `identify_lot`'s per-photo embeddings are discarded after the consensus vote; wiring the same overlay into lot mode is a smaller, separate follow-up.
 
 ## Planned file layout
 
@@ -155,6 +168,8 @@ eval/run_eval.py           runs identification against the held-out set,
 src/embeddings.py          load BioCLIP 2, embed an image or a taxonomy string
 src/vector_store.py        Qdrant local-mode client: build/query the collection
 src/pricing.py             simulated price lookup + generator logic
+src/interpretability.py    Grad-ECLIP heatmap overlay: which regions of a
+                           photo drove its match to a given species
 src/tools.py               the three LangChain tools (lookup_taxonomy,
                            assess_quality, check_price)
 src/identify.py            core pipeline: embed → Qdrant search →

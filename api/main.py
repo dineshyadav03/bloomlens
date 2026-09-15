@@ -9,7 +9,8 @@ Then browse http://localhost:8000/docs for interactive Swagger UI.
 
 import io
 
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi.responses import Response
 from PIL import Image
 
 from src.identify import (
@@ -20,6 +21,7 @@ from src.identify import (
     identify,
     identify_lot,
 )
+from src.interpretability import ExplainError, explain_image
 
 app = FastAPI(
     title="BloomLens API",
@@ -70,3 +72,19 @@ def identify_lot_endpoint(photos: list[UploadFile] = File(...)) -> LotResult:
         return identify_lot(images)
     except IdentifyError as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+
+@app.post("/explain")
+def explain_endpoint(photo: UploadFile = File(...), species: str = Form(...)) -> Response:
+    """Returns a PNG of `photo` with a heatmap overlay showing which regions most
+    drove its match to `species` (see src/interpretability.py) -- an on-demand
+    trust/debug aid, not part of the core /identify result."""
+    image = _read_image(photo)
+    try:
+        overlay = explain_image(image, species)
+    except ExplainError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    buf = io.BytesIO()
+    overlay.save(buf, format="PNG")
+    return Response(content=buf.getvalue(), media_type="image/png")

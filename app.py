@@ -11,6 +11,7 @@ from src.identify import (
     identify_lot,
     resolve_candidate,
 )
+from src.interpretability import ExplainError, explain_image
 from src.pricing import price_history
 
 st.set_page_config(page_title="BloomLens", page_icon="🌸")
@@ -93,6 +94,21 @@ with tab_single:
         with st.expander("Other candidates considered"):
             for c in result.top_candidates:
                 st.write(f"- {c['common_name']} (similarity {c['score']})")
+
+        with st.expander("🔍 Why this species?"):
+            st.caption(
+                "Heatmap shows which parts of the photo most influenced this match "
+                "(warm = high influence) — a research technique (Grad-ECLIP), not a "
+                "certified explanation. Computed only when you open this."
+            )
+            if st.button("Generate heatmap"):
+                with st.spinner("Computing..."):
+                    try:
+                        overlay = explain_image(image, display_species)
+                    except ExplainError as exc:
+                        st.error(str(exc))
+                    else:
+                        st.image(overlay, caption=f"Why: {display_species}", width=300)
     else:
         st.info("Waiting for a scan — use the camera above, or expand the uploader for a test photo.")
 
