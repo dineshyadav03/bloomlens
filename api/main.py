@@ -22,6 +22,7 @@ from src.identify import (
     identify_lot,
 )
 from src.interpretability import ExplainError, explain_image
+from src.inventory import InventoryEntry, list_recent, log_lot_scan, log_scan, species_counts
 
 app = FastAPI(
     title="BloomLens API",
@@ -52,9 +53,11 @@ def identify_endpoint(photo: UploadFile = File(...)) -> IdentifyResult:
     correct way to serve blocking work without stalling the event loop."""
     image = _read_image(photo)
     try:
-        return identify(image)
+        result = identify(image)
     except IdentifyError as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
+    log_scan(result)
+    return result
 
 
 @app.post("/identify-lot", response_model=LotResult)
@@ -69,9 +72,11 @@ def identify_lot_endpoint(photos: list[UploadFile] = File(...)) -> LotResult:
 
     images = [_read_image(p) for p in photos]
     try:
-        return identify_lot(images)
+        result = identify_lot(images)
     except IdentifyError as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
+    log_lot_scan(result)
+    return result
 
 
 @app.post("/explain")
@@ -88,3 +93,15 @@ def explain_endpoint(photo: UploadFile = File(...), species: str = Form(...)) ->
     buf = io.BytesIO()
     overlay.save(buf, format="PNG")
     return Response(content=buf.getvalue(), media_type="image/png")
+
+
+@app.get("/inventory", response_model=list[InventoryEntry])
+def inventory_endpoint(limit: int = 100) -> list[InventoryEntry]:
+    """Most recent logged scans (newest first) -- see src/inventory.py."""
+    return list_recent(limit)
+
+
+@app.get("/inventory/species-counts")
+def inventory_species_counts_endpoint() -> dict[str, int]:
+    """Running count of logged scans per species."""
+    return species_counts()

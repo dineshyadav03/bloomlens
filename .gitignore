@@ -22,6 +22,11 @@ data/oxford_flowers/
 qdrant_storage/
 qdrant_data/
 
+# Inventory log (generated at runtime, not source -- same reasoning as qdrant_data/)
+data/inventory.db
+data/inventory.db-wal
+data/inventory.db-shm
+
 # Full Oxford 102 Flowers dump (~679MB, fetched by eval/build_test_set.py) --
 # but NOT eval/test_images/, the small (~15MB) derived sample: that one IS
 # committed (Milestone 7 decision, reversing an earlier Milestone 5 call) so

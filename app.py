@@ -12,6 +12,7 @@ from src.identify import (
     resolve_candidate,
 )
 from src.interpretability import ExplainError, explain_image
+from src.inventory import list_recent, log_lot_scan, log_scan, species_counts
 from src.pricing import price_history
 
 st.set_page_config(page_title="BloomLens", page_icon="🌸")
@@ -28,7 +29,7 @@ st.warning(
 
 _TREND_ICON = {"up": "📈 up", "down": "📉 down", "flat": "➡️ flat", "unknown": "n/a"}
 
-tab_single, tab_lot = st.tabs(["Single scan", "Lot mode"])
+tab_single, tab_lot, tab_inventory = st.tabs(["Single scan", "Lot mode", "Inventory"])
 
 with tab_single:
     st.subheader("Scan")
@@ -52,6 +53,8 @@ with tab_single:
             except Exception as exc:  # noqa: BLE001 — surface unexpected errors plainly in the demo UI
                 st.error(f"Something went wrong: {exc}")
                 st.stop()
+
+        log_scan(result)
 
         display_species = result.species
         display_scientific = result.scientific_name
@@ -182,6 +185,8 @@ with tab_lot:
                     st.error(f"Something went wrong: {exc}")
                     st.stop()
 
+            log_lot_scan(lot_result)
+
             st.subheader(f"🌷 {lot_result.consensus_species}")
             if lot_result.scientific_name:
                 st.caption(f"*{lot_result.scientific_name}*")
@@ -217,3 +222,39 @@ with tab_lot:
                     st.write(f"- Photo {f['index'] + 1}: detected as {f['top_species']} (similarity {f['score']})")
     else:
         st.info("No photos in the lot yet — scan or upload some above.")
+
+with tab_inventory:
+    st.subheader("Inventory log")
+    st.caption(
+        "Every scan above is logged automatically — species, quality, price, and timestamp — "
+        "building a running record across sessions. On the live Hugging Face Spaces demo, this "
+        "resets if the demo container restarts (see docs/ARCHITECTURE.md)."
+    )
+
+    counts = species_counts()
+    if counts:
+        st.write("**Scans per species**")
+        st.bar_chart(counts)
+    else:
+        st.info("No scans logged yet — identify a flower in Single scan or Lot mode above.")
+
+    entries = list_recent(100)
+    if entries:
+        st.write("**Recent scans**")
+        st.dataframe(
+            [
+                {
+                    "Scanned at": e.scanned_at,
+                    "Mode": e.mode,
+                    "Species": e.species,
+                    "Scientific name": e.scientific_name,
+                    "Quality": e.quality_grade,
+                    "Price/stem": e.price_per_stem,
+                    "Trend": e.price_trend,
+                    "Photos": e.photo_count,
+                    "Agreement": e.agreement_fraction,
+                }
+                for e in entries
+            ],
+            hide_index=True,
+        )
