@@ -6,11 +6,52 @@ on:
   pull_request:
     branches: [main]
 
+# A newer push to the same PR cancels that PR's still-running older run.
+# Runs on main are never cancelled.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
 jobs:
-  lint-and-eval:
+  # Cost control: the two Docker jobs are the slowest (a full image build each),
+  # so they only run when something that can change an image changed. Pushes to
+  # main always run everything.
+  changes:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      docker: ${{ steps.filter.outputs.docker }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 2 # the PR merge commit and its base parent
+      - id: filter
+        env:
+          EVENT: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT" != "pull_request" ]; then
+            echo "docker=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          changed=$(git diff --name-only HEAD^1 HEAD)
+          echo "Files changed in this PR:"
+          echo "$changed"
+          if echo "$changed" | grep -qE '^(Dockerfile|Dockerfile\.hf|docker-compose\.yml|\.dockerignore|pyproject\.toml|uv\.lock|\.python-version|\.github/workflows/ci\.yml|app\.py|api/|src/|scripts/|data/|\.streamlit/)'; then
+            echo "docker=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "docker=false" >> "$GITHUB_OUTPUT"
+            echo "No image-relevant files changed: skipping the Docker jobs."
+          fi
+
+  # Once, on one platform: static checks that don't depend on OS or Python.
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
 
       - uses: astral-sh/setup-uv@v10.1.0
         with:
@@ -28,6 +69,77 @@ jobs:
       - name: Lint
         run: uv run --frozen ruff check .
 
+  # Cheap and broad: does the locked environment install and import on every
+  # supported Python/OS combination? No model weights, no network calls, no
+  # inference -- so what this proves (and what it doesn't) is stated plainly in
+  # the README. Unit tests join this matrix in the test-suite milestone.
+  install-and-import:
+    name: install-and-import (${{ matrix.os }}, py${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-latest, python: "3.11" }
+          - { os: ubuntu-latest, python: "3.12" }
+          - { os: ubuntu-latest, python: "3.13" }
+          - { os: windows-latest, python: "3.13" }
+          - { os: macos-latest, python: "3.13" }
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10.1.0
+        with:
+          version: "0.11.29"
+          python-version: ${{ matrix.python }}
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Install locked dependencies
+        run: uv sync --frozen
+
+      - name: Dependency consistency
+        run: uv pip check
+
+      - name: Import the project
+        run: |
+          uv run --frozen python -c "
+          import platform, sys
+          import src.identify, src.interpretability, src.inventory, src.embeddings, api.main
+          import open_clip, torch
+          print(platform.platform(), '| python', sys.version.split()[0], '| torch', torch.__version__, '| open_clip', open_clip.__version__)
+          "
+
+  # Once, on one platform: the expensive part. Real BioCLIP 2 weights and a real
+  # Qdrant index, gated on retrieval accuracy.
+  retrieval-eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10.1.0
+        with:
+          version: "0.11.29"
+          python-version: "3.13"
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Install locked dependencies
+        run: uv sync --frozen --no-dev
+
+      - name: Cache the pinned BioCLIP 2 weights
+        # ~1.7 GB. Keyed on src/versions.py, where the pinned revision and
+        # checksums live: a new pin invalidates the cache, nothing else does.
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/huggingface
+          key: hf-bioclip2-${{ hashFiles('src/versions.py') }}
+
       - name: Build the local Qdrant index
         # eval/run_eval.py queries a pre-built collection -- locally this was
         # masked by an already-populated qdrant_data/ from earlier milestones
@@ -42,12 +154,17 @@ jobs:
         run: uv run --frozen python eval/run_eval.py
 
   docker-smoke-test:
+    needs: changes
+    if: needs.changes.outputs.docker == 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Validate compose file
-        run: docker compose config
+        # --quiet: never print the resolved config (it would include any
+        # env_file secrets).
+        run: docker compose config --quiet
 
       - name: Build images
         run: docker compose build
@@ -88,9 +205,12 @@ jobs:
         run: docker compose down -v
 
   hf-space-build:
+    needs: changes
+    if: needs.changes.outputs.docker == 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Build the Hugging Face Space image
         # Build-only, no `run`/no secrets needed -- this just proves
