@@ -16,13 +16,17 @@ permissions:
   contents: read
 
 jobs:
-  # Cost control: the two Docker jobs are the slowest (a full image build each),
-  # so they only run when something that can change an image changed. Pushes to
-  # main always run everything.
+  # Cost control. The whole PR is diffed against main, and pushes to main always
+  # run everything. `code` is false only when every changed file is
+  # documentation (docs/, *.md, LICENSE) -- such a PR can't break an install,
+  # an import or an eval, so only the cheap lint job runs. `docker` is true
+  # only when something that can change an image changed; the two Docker jobs
+  # are the slowest (a full image build each).
   changes:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
+      code: ${{ steps.filter.outputs.code }}
       docker: ${{ steps.filter.outputs.docker }}
     steps:
       - uses: actions/checkout@v7
@@ -33,12 +37,21 @@ jobs:
           EVENT: ${{ github.event_name }}
         run: |
           if [ "$EVENT" != "pull_request" ]; then
+            echo "code=true" >> "$GITHUB_OUTPUT"
             echo "docker=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           changed=$(git diff --name-only HEAD^1 HEAD)
           echo "Files changed in this PR:"
           echo "$changed"
+
+          if [ -n "$(echo "$changed" | grep -vE '^(docs/|LICENSE$|.*\.md$)' || true)" ]; then
+            echo "code=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "code=false" >> "$GITHUB_OUTPUT"
+            echo "Documentation-only change: skipping install/import, eval and Docker jobs."
+          fi
+
           if echo "$changed" | grep -qE '^(Dockerfile|Dockerfile\.hf|docker-compose\.yml|\.dockerignore|pyproject\.toml|uv\.lock|\.python-version|\.github/workflows/ci\.yml|app\.py|api/|src/|scripts/|data/|\.streamlit/)'; then
             echo "docker=true" >> "$GITHUB_OUTPUT"
           else
@@ -75,6 +88,8 @@ jobs:
   # the README. Unit tests join this matrix in the test-suite milestone.
   install-and-import:
     name: install-and-import (${{ matrix.os }}, py${{ matrix.python }})
+    needs: changes
+    if: needs.changes.outputs.code == 'true'
     runs-on: ${{ matrix.os }}
     timeout-minutes: 25
     strategy:
@@ -117,6 +132,8 @@ jobs:
   # Once, on one platform: the expensive part. Real BioCLIP 2 weights and a real
   # Qdrant index, gated on retrieval accuracy.
   retrieval-eval:
+    needs: changes
+    if: needs.changes.outputs.code == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
