@@ -72,7 +72,7 @@ Prefer plain pip? `uv export --no-dev --no-hashes -o requirements.txt` writes a 
 
 **Supported environments** — stated from what [CI](.github/workflows/ci.yml) actually runs, not from what should work:
 
-| Platform | Python | Checked on every PR |
+| Platform | Python | Checked on every PR that changes code or dependencies (documentation-only PRs skip these) |
 |---|---|---|
 | Linux (Ubuntu x86-64) | 3.11, 3.12, 3.13 | locked install, `uv pip check`, importing every project module |
 | Windows (x86-64) | 3.13 | same |
