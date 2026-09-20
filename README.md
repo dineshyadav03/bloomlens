@@ -70,6 +70,17 @@ uv run streamlit run app.py
 
 Prefer plain pip? `uv export --no-dev --no-hashes -o requirements.txt` writes a pip-compatible file from the same lock (it is generated, not committed, so it can't drift). Only rebuilding the evaluation test set needs the extra `scipy` dependency: `uv sync --extra eval-data`.
 
+**Supported environments** — stated from what [CI](.github/workflows/ci.yml) actually runs, not from what should work:
+
+| Platform | Python | Checked on every PR |
+|---|---|---|
+| Linux (Ubuntu x86-64) | 3.11, 3.12, 3.13 | locked install, `uv pip check`, importing every project module |
+| Windows (x86-64) | 3.13 | same |
+| macOS (Apple silicon) | 3.13 | same |
+| Linux, 3.13 only | — | BioCLIP 2 + Qdrant retrieval eval with an 80% top-1 gate; Docker Compose stack `/health`; Hugging Face Space image build |
+
+**Not covered by CI:** model inference on Windows, macOS, or Python 3.11/3.12 (a one-off manual check on Windows with 3.11, 3.12 and 3.13 loaded the pinned model and got identical scores, but nothing re-runs it), unit and integration tests (not written yet), Intel macOS, Linux ARM, and GPUs (PyTorch is CPU-only). Python 3.14 is unsupported (`torch==2.6.0` has no cp314 wheels); anything below 3.11 is untested.
+
 First run downloads BioCLIP 2 weights (public, no auth needed). If you ever see `Storage folder ... is already accessed by another instance of Qdrant client`, another Python process from a previous run is still holding the local index — close it and retry (this is exactly why Docker Compose uses a real Qdrant server instead, see below).
 
 To run the API instead of (or alongside) the Streamlit app: `uvicorn api.main:app --reload`, then browse `http://localhost:8000/docs` for interactive Swagger docs, or `POST` a photo directly: `curl -X POST http://localhost:8000/identify -F "photo=@your-flower.jpg"`.
