@@ -74,12 +74,14 @@ Prefer plain pip? `uv export --no-dev --no-hashes -o requirements.txt` writes a 
 
 | Platform | Python | Checked on every PR that changes code or dependencies (documentation-only PRs skip these) |
 |---|---|---|
-| Linux (Ubuntu x86-64) | 3.11, 3.12, 3.13 | locked install, `uv pip check`, importing every project module |
+| Linux (Ubuntu x86-64) | 3.11, 3.12, 3.13 | locked install, `uv pip check`, importing every project module, and the unit tests (no model weights, loopback-only network) |
 | Windows (x86-64) | 3.13 | same |
 | macOS (Apple silicon) | 3.13 | same |
-| Linux, 3.13 only | — | BioCLIP 2 + Qdrant retrieval eval with an 80% top-1 gate; Docker Compose stack `/health`; Hugging Face Space image build |
+| Linux, 3.13 only | — | the full test suite including integration tests against the real BioCLIP 2 weights and a real Qdrant index (98% branch coverage measured; CI fails below 95%); BioCLIP 2 + Qdrant retrieval eval with an 80% top-1 gate; Docker Compose stack `/health`; Hugging Face Space image build |
 
-**Not covered by CI:** model inference on Windows, macOS, or Python 3.11/3.12 (a one-off manual check on Windows with 3.11, 3.12 and 3.13 loaded the pinned model and got identical scores, but nothing re-runs it), unit and integration tests (not written yet), Intel macOS, Linux ARM, and GPUs (PyTorch is CPU-only). Python 3.14 is unsupported (`torch==2.6.0` has no cp314 wheels); anything below 3.11 is untested.
+**Not covered by CI:** model inference on Windows, macOS, or Python 3.11/3.12 (a one-off manual check on Windows with 3.11, 3.12 and 3.13 loaded the pinned model and got identical scores, but nothing re-runs it), live Gemini calls (none, by design: the agent is faked and tests are blocked from reaching the network), the single-scan camera/upload path in the browser (Streamlit's test harness can't drive those widgets; that path is covered at function level and by hand), Intel macOS, Linux ARM, and GPUs (PyTorch is CPU-only). Python 3.14 is unsupported (`torch==2.6.0` has no cp314 wheels); anything below 3.11 is untested.
+
+**Tests:** `uv run pytest -m "not integration"` is the fast unit run (~30 s, no weights). `uv run pytest` also runs the integration tests, which need the pinned BioCLIP 2 weights (run `uv run python scripts/build_index.py` once to fetch them) and take a few minutes. Tests are hermetic: no real network (only loopback is allowed), a developer's `GEMINI_API_KEY` is stripped, and every database lives in a temp directory.
 
 First run downloads BioCLIP 2 weights (public, no auth needed). If you ever see `Storage folder ... is already accessed by another instance of Qdrant client`, another Python process from a previous run is still holding the local index — close it and retry (this is exactly why Docker Compose uses a real Qdrant server instead, see below).
 
