@@ -35,7 +35,7 @@ class TestIdentify:
         assert response.json()["species"] == "Tulip"
         assert client.get("/inventory").json()[0]["species"] == "Tulip"
 
-    def test_the_upload_reaches_the_pipeline_as_a_decoded_image(self, client, upload, monkeypatch, make_identify_result):
+    def test_the_upload_reaches_the_pipeline_decoded(self, client, upload, monkeypatch, make_identify_result):
         seen = {}
 
         def fake(image):
