@@ -68,6 +68,26 @@ name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"
 explicit = true
 
+[tool.pytest.ini_options]
+minversion = "8"
+testpaths = ["tests"]
+pythonpath = ["."]
+# Only loopback connections are allowed in tests: a test that would reach the
+# real Gemini API (or the Hugging Face Hub) fails loudly instead of quietly
+# spending quota or depending on the network. Loopback stays open because
+# FastAPI's TestClient and asyncio use it internally.
+addopts = "-ra --strict-markers --allow-hosts=127.0.0.1,::1"
+markers = [
+    "integration: needs the pinned BioCLIP 2 weights and takes minutes (CI runs these once, on Ubuntu / Python 3.13)",
+]
+
+[tool.coverage.run]
+source = ["src", "api"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+
 [tool.ruff]
 line-length = 120
 
