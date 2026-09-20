@@ -83,11 +83,11 @@ jobs:
         run: uv run --frozen ruff check .
 
   # Cheap and broad: does the locked environment install and import on every
-  # supported Python/OS combination? No model weights, no network calls, no
-  # inference -- so what this proves (and what it doesn't) is stated plainly in
-  # the README. Unit tests join this matrix in the test-suite milestone.
-  install-and-import:
-    name: install-and-import (${{ matrix.os }}, py${{ matrix.python }})
+  # supported Python/OS combination, and do the unit tests pass? No model weights,
+  # no real network (pytest-socket allows loopback only), no inference -- so what
+  # this proves (and what it doesn't) is stated plainly in the README.
+  unit-tests:
+    name: unit-tests (${{ matrix.os }}, py${{ matrix.python }})
     needs: changes
     if: needs.changes.outputs.code == 'true'
     runs-on: ${{ matrix.os }}
@@ -129,9 +129,13 @@ jobs:
           print(platform.platform(), '| python', sys.version.split()[0], '| torch', torch.__version__, '| open_clip', open_clip.__version__)
           "
 
+      - name: Unit tests
+        run: uv run --frozen pytest -m "not integration" -q
+
   # Once, on one platform: the expensive part. Real BioCLIP 2 weights and a real
-  # Qdrant index, gated on retrieval accuracy.
-  retrieval-eval:
+  # Qdrant index: the full test suite (unit + integration) with a coverage floor,
+  # then the retrieval-accuracy gate.
+  integration-and-eval:
     needs: changes
     if: needs.changes.outputs.code == 'true'
     runs-on: ubuntu-latest
@@ -163,6 +167,11 @@ jobs:
         # (correctly gitignored, so absent on a fresh checkout). Caught by
         # actually running this workflow, not assumed.
         run: uv run --frozen python scripts/build_index.py
+
+      - name: Full test suite (unit + integration) with coverage
+        # After build_index, so the pinned weights are already on disk; pytest-socket
+        # still blocks every non-loopback connection, so nothing can reach Gemini.
+        run: uv run --frozen pytest -q --cov --cov-report=term-missing:skip-covered --cov-fail-under=95
 
       - name: Run evaluation harness
         # eval/test_images/ is committed (small, ~15MB) specifically so this
