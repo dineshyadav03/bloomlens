@@ -19,7 +19,12 @@ _SPECIES_PATH = Path(__file__).resolve().parent.parent / "data" / "species_refer
 _SPECIES_BY_NAME = {s["common_name"]: s for s in json.loads(_SPECIES_PATH.read_text(encoding="utf-8"))}
 
 _WILT_KEYWORDS = ("wilt", "brown", "blemish", "damage", "discolor", "droop")
-_NEGATION_CUES = ("no ", "not ", "none", "free of", "free from", "without", "no signs of", "no visible")
+# Whole words/phrases only: a plain substring test matched "not " inside "cannot "
+# and "no " inside "casino ", so "visible browning; cannot rule out wilting" was
+# wrongly treated as negated and a Grade A with real damage skipped its warning.
+# ("no signs of" / "no visible" are covered by "no".)
+_NEGATION_CUES = ("no", "not", "none", "free of", "free from", "without")
+_NEGATION_RE = re.compile(r"\b(?:" + "|".join(re.escape(cue) for cue in _NEGATION_CUES) + r")\b")
 
 
 def _mentions_unnegated_damage(note: str) -> bool:
@@ -30,7 +35,7 @@ def _mentions_unnegated_damage(note: str) -> bool:
     per-sentence rather than a fixed lookback window). Still a heuristic, not
     real NLP negation handling."""
     for sentence in re.split(r"(?<=[.!?])\s+", note.lower()):
-        if any(cue in sentence for cue in _NEGATION_CUES):
+        if _NEGATION_RE.search(sentence):
             continue
         if any(keyword in sentence for keyword in _WILT_KEYWORDS):
             return True
