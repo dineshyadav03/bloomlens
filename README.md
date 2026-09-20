@@ -2,9 +2,11 @@
 
 [![CI](https://github.com/dineshyadav03/bloomlens/actions/workflows/ci.yml/badge.svg)](https://github.com/dineshyadav03/bloomlens/actions/workflows/ci.yml)
 
-Point a camera at a flower, get its **species, quality, and price** back — instantly. **Measured 87.2% top-1 / 96.1% top-3 species-ID accuracy** on 360 held-out test images ([eval/results.md](eval/results.md)) — not just "it seems to work."
+Point a camera at a flower and BloomLens proposes a **species**, a visual-condition note, and a **simulated** price. **Only the species step has been measured:** retrieval-stage classification (BioCLIP 2 + Qdrant, zero-shot) scores **87.2% top-1 / 96.1% top-3** on 360 Oxford 102 Flowers test photos covering **18 of the 30** supported species ([eval/results.md](eval/results.md)). That is in-distribution only — garden/wild photos, not auction-lot photos, and no unknown-flower or non-flower inputs have been tested yet.
 
-BloomLens is a portfolio project for the cut-flower supply chain, inspired by the scale of the world's largest flower auction and the "scan to learn" interaction from Dubai's Museum of the Future. All 7 planned milestones are built and working: the core pipeline, an agentic reasoning layer (a real LangChain tool-calling agent, not a fixed call order), lot/batch mode, a measured evaluation harness, a FastAPI endpoint alongside the Streamlit UI, and a one-command Docker Compose setup with CI — see [Status](#status) below.
+**Not measured or not real:** the quality grade is an *unvalidated* LLM heuristic (no expert labels exist), prices are *simulated* (FloraHolland has no public pricing API), and end-to-end latency and full-system accuracy have not been measured. A per-claim evidence table is planned; until then treat everything beyond the species-retrieval number as a demo.
+
+BloomLens is a portfolio project for the cut-flower supply chain, inspired by the scale of the world's largest flower auction and the "scan to learn" interaction from Dubai's Museum of the Future. It contains the core pipeline, an agentic reasoning layer (a LangChain tool-calling agent, not a fixed call order), lot/batch mode, a retrieval evaluation harness, a FastAPI endpoint alongside the Streamlit UI, and a Docker Compose setup with CI — see [Status](#status) below for how each piece was verified.
 
 ## The problem
 
