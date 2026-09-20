@@ -12,32 +12,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v10.1.0
         with:
+          version: "0.11.29"
           python-version: "3.13"
-          cache: "pip"
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
 
-      - name: Install dependencies
-        run: |
-          pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cpu
-          pip install -r requirements.txt
-          pip install ruff==0.16.7
+      - name: Check the lockfile is up to date with pyproject.toml
+        run: uv lock --check
+
+      - name: Install locked dependencies
+        run: uv sync --frozen
 
       - name: Lint
-        run: ruff check .
+        run: uv run --frozen ruff check .
 
       - name: Build the local Qdrant index
         # eval/run_eval.py queries a pre-built collection -- locally this was
         # masked by an already-populated qdrant_data/ from earlier milestones
         # (correctly gitignored, so absent on a fresh checkout). Caught by
         # actually running this workflow, not assumed.
-        run: python scripts/build_index.py
+        run: uv run --frozen python scripts/build_index.py
 
       - name: Run evaluation harness
         # eval/test_images/ is committed (small, ~15MB) specifically so this
         # needs no network access to the slow external Oxford 102 server --
         # see docs/RESEARCH.md for why that call was reversed from Milestone 5.
-        run: python eval/run_eval.py
+        run: uv run --frozen python eval/run_eval.py
 
   docker-smoke-test:
     runs-on: ubuntu-latest

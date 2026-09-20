@@ -26,7 +26,9 @@ FILES_TO_COPY = [
     ("data/species_reference.json", "data/species_reference.json"),
     ("scripts/build_index.py", "scripts/build_index.py"),
     ("app.py", "app.py"),
-    ("requirements.txt", "requirements.txt"),
+    ("pyproject.toml", "pyproject.toml"),
+    ("uv.lock", "uv.lock"),
+    (".python-version", ".python-version"),
     ("Dockerfile.hf", "Dockerfile"),
     ("README.hf.md", "README.md"),
 ]
