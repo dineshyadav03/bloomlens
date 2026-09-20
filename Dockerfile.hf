@@ -10,13 +10,27 @@ FROM python:3.13-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
+# Same hash-pinned uv.lock (CPU-only torch) as local dev and the compose
+# Dockerfile -- no GPU anywhere in this project. uv is installed via pip rather
+# than copied from another registry so HF's builders need nothing extra. The
+# venv sits outside /app; it stays root-owned and read-only to the uid-1000
+# runtime user, which is fine (bytecode is precompiled at install time).
+ENV UV_PROJECT_ENVIRONMENT=/opt/venv \
+    UV_PYTHON_DOWNLOADS=never \
+    UV_LINK_MODE=copy \
+    UV_COMPILE_BYTECODE=1 \
+    UV_HTTP_TIMEOUT=120 \
+    UV_HTTP_CONNECT_TIMEOUT=60 \
+    UV_HTTP_RETRIES=8 \
+    PATH="/opt/venv/bin:$PATH"
 
-# Same CPU-only torch index as local dev / the compose Dockerfile -- no GPU
-# anywhere in this project (see docs/RESEARCH.md's Milestone 1 notes).
-RUN pip install --no-cache-dir torch==2.6.0 torchvision==0.21.0 \
-        --index-url https://download.pytorch.org/whl/cpu \
-    && pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir uv==0.11.29
+
+# uv's wheel cache is a BuildKit cache mount, so it never lands in an image
+# layer (see the root Dockerfile for the 1.2 GB mistake this avoids).
+COPY pyproject.toml uv.lock .python-version ./
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen --no-dev
 
 # Only what app.py actually needs at runtime -- no api/, no eval/, no docs.
 COPY src/ src/

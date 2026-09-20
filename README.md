@@ -59,13 +59,16 @@ Full breakdown, including the evaluation harness and Docker/CI setup, in [docs/A
 
 **Locally:**
 
+Dependencies are locked in `uv.lock` (hash-pinned, CPU-only PyTorch on Linux/Windows) for Python 3.11–3.13. Install [uv](https://docs.astral.sh/uv/), then:
+
 ```bash
-python -m venv .venv
-.venv\Scripts\pip install -r requirements.txt   # Windows; use .venv/bin/pip on macOS/Linux
+uv sync                                          # creates .venv from the lockfile
 cp .env.example .env   # then add your GEMINI_API_KEY (free tier: https://aistudio.google.com/apikey)
-python scripts/build_index.py                    # builds the local Qdrant species index + simulated prices
-streamlit run app.py
+uv run python scripts/build_index.py             # builds the local Qdrant species index + simulated prices
+uv run streamlit run app.py
 ```
+
+Prefer plain pip? `uv export --no-dev --no-hashes -o requirements.txt` writes a pip-compatible file from the same lock (it is generated, not committed, so it can't drift). Only rebuilding the evaluation test set needs the extra `scipy` dependency: `uv sync --extra eval-data`.
 
 First run downloads BioCLIP 2 weights (public, no auth needed). If you ever see `Storage folder ... is already accessed by another instance of Qdrant client`, another Python process from a previous run is still holding the local index — close it and retry (this is exactly why Docker Compose uses a real Qdrant server instead, see below).
 
