@@ -26,12 +26,11 @@ from src.embeddings import embed_image
 from src.pricing import lookup_price
 from src.tools import assess_quality, check_price, lookup_taxonomy
 from src.vector_store import get_client, search
+from src.versions import GEMINI_MODEL
 
 LOT_MAX_PHOTOS = 10
 
 load_dotenv()
-
-_GEMINI_MODEL = "gemini-3.1-flash-lite"
 
 # Gemini's constrained-decoding structured-output feature (response_json_schema /
 # response_schema) returned intermittent 503s in testing — a known, currently-open
@@ -125,7 +124,7 @@ def _get_agent():
     global _agent_singleton
     with _agent_lock:
         if _agent_singleton is None:
-            model = ChatGoogleGenerativeAI(model=_GEMINI_MODEL, google_api_key=_require_api_key(), timeout=45)
+            model = ChatGoogleGenerativeAI(model=GEMINI_MODEL, google_api_key=_require_api_key(), timeout=45)
             _agent_singleton = create_agent(
                 model=model,
                 tools=[lookup_taxonomy, assess_quality, check_price],
