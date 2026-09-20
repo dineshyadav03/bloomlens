@@ -5,6 +5,7 @@ import concurrent.futures
 import datetime
 import os
 import sqlite3
+from contextlib import closing
 
 import pytest
 
@@ -70,12 +71,12 @@ class TestQueries:
 class TestStorage:
     def test_wal_mode_is_enabled(self, make_identify_result):
         inventory.log_scan(make_identify_result())
-        with sqlite3.connect(db_path()) as conn:
+        with closing(sqlite3.connect(db_path())) as conn:
             assert conn.execute("PRAGMA journal_mode").fetchone()[0].lower() == "wal"
 
     def test_the_mode_column_rejects_unknown_values(self, make_identify_result):
         inventory.log_scan(make_identify_result())
-        with sqlite3.connect(db_path()) as conn, pytest.raises(sqlite3.IntegrityError):
+        with closing(sqlite3.connect(db_path())) as conn, pytest.raises(sqlite3.IntegrityError):
             conn.execute(
                 "INSERT INTO scans (scanned_at, mode, species, quality_grade, price_trend) "
                 "VALUES ('2026-01-01', 'bogus', 'Rose', 'A', 'flat')"

@@ -24,6 +24,7 @@ enough that per-call connection overhead doesn't matter.
 import os
 import sqlite3
 import time
+from contextlib import closing
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Literal
@@ -123,7 +124,7 @@ def _insert(
     agreement_fraction: float | None,
 ) -> None:
     try:
-        with _connect() as conn:
+        with closing(_connect()) as conn, conn:  # closing() closes it; `conn` commits/rolls back
             conn.execute(
                 """
                 INSERT INTO scans (
@@ -177,13 +178,13 @@ def log_lot_scan(result: LotResult) -> None:
 
 
 def list_recent(limit: int = 100) -> list[InventoryEntry]:
-    with _connect() as conn:
+    with closing(_connect()) as conn:
         conn.row_factory = sqlite3.Row
         rows = conn.execute("SELECT * FROM scans ORDER BY id DESC LIMIT ?", (limit,)).fetchall()
     return [InventoryEntry(**dict(row)) for row in rows]
 
 
 def species_counts() -> dict[str, int]:
-    with _connect() as conn:
+    with closing(_connect()) as conn:
         rows = conn.execute("SELECT species, COUNT(*) FROM scans GROUP BY species ORDER BY COUNT(*) DESC").fetchall()
     return dict(rows)
