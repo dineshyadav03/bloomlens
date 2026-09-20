@@ -24,6 +24,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 FILES_TO_COPY = [
     ("src", "src"),
     ("data/species_reference.json", "data/species_reference.json"),
+    ("scripts/build_index.py", "scripts/build_index.py"),
     ("app.py", "app.py"),
     ("requirements.txt", "requirements.txt"),
     ("Dockerfile.hf", "Dockerfile"),
