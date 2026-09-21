@@ -34,7 +34,20 @@ def hermetic_env(monkeypatch, tmp_path):
     forgot to fake the agent fails on a missing key rather than on a live call."""
     monkeypatch.delenv("GEMINI_API_KEY", raising=False)
     monkeypatch.delenv("QDRANT_URL", raising=False)
+    monkeypatch.delenv("BLOOMLENS_AUTH", raising=False)
+    monkeypatch.delenv("BLOOMLENS_ENV", raising=False)
+    monkeypatch.delenv("BLOOMLENS_API_KEYS", raising=False)
     monkeypatch.setenv("INVENTORY_DB_PATH", str(tmp_path / "inventory.db"))
+
+
+TEST_API_KEY = "test-secret-0123456789-abcdefghij"
+
+
+@pytest.fixture
+def api_headers(monkeypatch):
+    """Configure one labeled API key ('tester') and return the header that presents it."""
+    monkeypatch.setenv("BLOOMLENS_API_KEYS", f"tester:{TEST_API_KEY}")
+    return {"X-API-Key": TEST_API_KEY}
 
 
 @pytest.fixture

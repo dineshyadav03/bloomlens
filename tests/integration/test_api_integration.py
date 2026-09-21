@@ -39,8 +39,8 @@ def agent(monkeypatch):
 
 
 @pytest.fixture
-def client(use_index, prices_csv):
-    return TestClient(api.app)
+def client(use_index, prices_csv, api_headers):
+    return TestClient(api.app, headers=api_headers)
 
 
 def photo_upload(species):

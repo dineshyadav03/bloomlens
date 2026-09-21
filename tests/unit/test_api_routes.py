@@ -1,8 +1,8 @@
 """FastAPI routes through TestClient with the pipeline (model + Gemini) faked at
 api.main's module boundary. Inventory logging is real, into a temp SQLite file.
 
-These pin the API's CURRENT behavior. The security milestone deliberately changes
-some of it (auth, size limits, error wording); tests are updated there, on purpose."""
+Every request here carries a valid key; the perimeter itself (401/503, size limits,
+headers, docs) is tested in test_api_security.py."""
 
 import io
 
@@ -14,8 +14,8 @@ from src.identify import IdentifyError
 
 
 @pytest.fixture
-def client():
-    return TestClient(api.app)
+def client(api_headers):
+    return TestClient(api.app, headers=api_headers)
 
 
 @pytest.fixture
@@ -59,7 +59,7 @@ class TestIdentify:
         monkeypatch.setattr(api, "identify", failing)
         response = client.post("/identify", files={"photo": upload()})
         assert response.status_code == 503
-        assert "Gemini is unavailable" in response.json()["detail"]
+        assert response.json()["detail"] == "Gemini is unavailable"
         assert client.get("/inventory").json() == []
 
     def test_a_missing_photo_field_is_a_422(self, client):
