@@ -37,6 +37,7 @@ COPY src/ src/
 COPY data/species_reference.json data/species_reference.json
 COPY scripts/build_index.py scripts/build_index.py
 COPY app.py .
+COPY .streamlit/ .streamlit/
 
 # HF Spaces containers run as uid 1000, not root (required, see
 # https://huggingface.co/docs/hub/en/spaces-sdks-docker#permissions).

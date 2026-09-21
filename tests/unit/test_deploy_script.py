@@ -65,6 +65,8 @@ class TestDeploy:
             "data/species_reference.json",
             "scripts/build_index.py",
             "src/embeddings.py",
+            "src/guard.py",
+            ".streamlit/config.toml",
         } <= files
         for unwanted in ("api/main.py", "eval/run_eval.py", "docker-compose.yml", "requirements.txt", ".env"):
             assert unwanted not in files
