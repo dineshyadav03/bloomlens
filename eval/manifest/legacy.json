@@ -1,0 +1,3248 @@
+{
+ "entries": [
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01143.jpg",
+   "sha256": "6826769f5c8da24f80e628438fc2ddc6c72efa4a7c8bd26c94f0bc230012c9b8",
+   "source_id": "oxford102:image_01143",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01146.jpg",
+   "sha256": "81a4c0cf94a75bfe839625a586da4b4eb12f74dbb95eb738d8d86567a9c16345",
+   "source_id": "oxford102:image_01146",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01157.jpg",
+   "sha256": "3a078a3a66088f2cf11c8ecbdd1b3f17c1bce2313b2d0119e4ea17febf9eb4f0",
+   "source_id": "oxford102:image_01157",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01161.jpg",
+   "sha256": "8f26d5fdd9c162c9e76c9303b42f316343cae6c6c39b9d7773aa695ae4236259",
+   "source_id": "oxford102:image_01161",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01170.jpg",
+   "sha256": "d17821d2dc05b24e75eb4e119e6fc451fe902278d6ef16c77d0e7d3919de1dc6",
+   "source_id": "oxford102:image_01170",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01172.jpg",
+   "sha256": "d5fe811fe108ab53ad31964d55c9c15e24b17738072bf58d6bae0c14cee39e5d",
+   "source_id": "oxford102:image_01172",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01191.jpg",
+   "sha256": "d332a1325fc5a8741895d8de48422c2b207567a075b33ba82027e4d1a4195b43",
+   "source_id": "oxford102:image_01191",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01204.jpg",
+   "sha256": "87f299ab2600ea5930b08addf71eb57f9019f870d28f5bdcb75d060f16b2fa7d",
+   "source_id": "oxford102:image_01204",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01210.jpg",
+   "sha256": "67d4ebfaac0cb9647a586b72f98e9f2c950bd0bca66c82b94b5d52ac7fe7cd84",
+   "source_id": "oxford102:image_01210",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01219.jpg",
+   "sha256": "eefccc7a478bae6e54211951405ad4c7874735f61d2867d85d085534065cee1e",
+   "source_id": "oxford102:image_01219",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01226.jpg",
+   "sha256": "295805f8b0f182aa20f115b9475ccb0353a62f7b5957d66d2dac99f549101693",
+   "source_id": "oxford102:image_01226",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01253.jpg",
+   "sha256": "cfb98409c0e575a4618aa5113ec03a110e5edcd5a6226f74a81ca26b99ef29c6",
+   "source_id": "oxford102:image_01253",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01256.jpg",
+   "sha256": "d8972fe70985c07fd65f9f3e790402b2256945ae5239590a5fe6f009481333fa",
+   "source_id": "oxford102:image_01256",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01259.jpg",
+   "sha256": "645a0fadf3772c021b10bf103696542848d6a913c6805742de3e9e4e33f546cf",
+   "source_id": "oxford102:image_01259",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01262.jpg",
+   "sha256": "81a30627280d2e2c6916470438068184e46a6fe89c4b6e25c339408e8610d063",
+   "source_id": "oxford102:image_01262",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01276.jpg",
+   "sha256": "97a73860139cdb141a6d4a34d473540cafeedc883d99986c455d761980f78fd5",
+   "source_id": "oxford102:image_01276",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01283.jpg",
+   "sha256": "8cc6af5cc1d2a7f2f4dbb170a8a6bef4d8f7f933af96690de8008ca58475c442",
+   "source_id": "oxford102:image_01283",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01284.jpg",
+   "sha256": "d6906fa75d65c32183c7123aea55981c5c8fd26f0faa7d9a0e449ea775659ed8",
+   "source_id": "oxford102:image_01284",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01300.jpg",
+   "sha256": "79a15b888ce7a399ddaedae11bbf1882150062fff08e6482846232e3d3eba78b",
+   "source_id": "oxford102:image_01300",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "rose",
+   "label": "Rose",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_01302.jpg",
+   "sha256": "4c55e2ee803c820ddf0a03d007787faaaafd3d2c4b93a86da5a549cf855d116d",
+   "source_id": "oxford102:image_01302",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02189.jpg",
+   "sha256": "92992a71cd1d99b91dc9a4d381e9a24aad802627ed43837a7e54cc547003e01b",
+   "source_id": "oxford102:image_02189",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02190.jpg",
+   "sha256": "596bad5b15735357dd1ae4a601cdf6576a1256122c8eff2e1d06f2213e99f90c",
+   "source_id": "oxford102:image_02190",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02208.jpg",
+   "sha256": "092df1ce10c90065a7826c1c5eef650ccd7deb0736b2920c36efce9093ff17c6",
+   "source_id": "oxford102:image_02208",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02217.jpg",
+   "sha256": "1d7e900390843eeaa012548566152786a867c34f1f26225b0ccbacea239e2f27",
+   "source_id": "oxford102:image_02217",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02230.jpg",
+   "sha256": "ea2988fb11865d348556c0df35bc521ab5a933771caecc4ba71bea224a957641",
+   "source_id": "oxford102:image_02230",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02232.jpg",
+   "sha256": "f274052bc371d56aa9952d0b53e4fcf60e0a72035388b13da2eb5ed09a407aa0",
+   "source_id": "oxford102:image_02232",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02233.jpg",
+   "sha256": "abe376c0aa9530b602897fa848ea13bfb0e115cbda7becaf8db9d0ec6970c87c",
+   "source_id": "oxford102:image_02233",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02236.jpg",
+   "sha256": "194a5ca821802742ef4340d907921e4f5e6e36d1364f0e157f1febeeb0d85445",
+   "source_id": "oxford102:image_02236",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02244.jpg",
+   "sha256": "2ab970f6a70055b50bd76f95ea7a9a746458828e35654b05efeda33f4741a5d9",
+   "source_id": "oxford102:image_02244",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02258.jpg",
+   "sha256": "5a1aa4b101e52fbbcb438b2f62b688bbae60d96d42af6c49ec124e2ca043739c",
+   "source_id": "oxford102:image_02258",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02262.jpg",
+   "sha256": "f2902c754d7ece09ea1af0803abb475ead8198d09d9429e6001b97db88f7de12",
+   "source_id": "oxford102:image_02262",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02268.jpg",
+   "sha256": "ee82cf75be238976ae9b7d113a172051d3832630dbe795cef599f2783818eae1",
+   "source_id": "oxford102:image_02268",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02272.jpg",
+   "sha256": "794add0f41dc88baf43c4455b0ac50b6f6694eef9200e1f2fc8aed9e8317b4ed",
+   "source_id": "oxford102:image_02272",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02274.jpg",
+   "sha256": "0301a0f476b0ada3d6111952496ddd296829d488a543f6825ae2702d441b15a9",
+   "source_id": "oxford102:image_02274",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02289.jpg",
+   "sha256": "640545bc1eec45dcda85622c34e589fc124f1c9f66cc4e3af5c24e87135b38ea",
+   "source_id": "oxford102:image_02289",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02294.jpg",
+   "sha256": "d53993261327fee7bf0ad3503cea9d65bd26a03908782ca6d99d2714d74e4159",
+   "source_id": "oxford102:image_02294",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02299.jpg",
+   "sha256": "bab165b8938f41dedf4a16f1b75abc3b60ae7af26193eead585b3804acc63ebb",
+   "source_id": "oxford102:image_02299",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02303.jpg",
+   "sha256": "54fa6941b93b6116de180b15f9b7a57bead210aac853cc090bbd27c5db518071",
+   "source_id": "oxford102:image_02303",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02304.jpg",
+   "sha256": "fac60ec2fe724714f3cad7444b5cac884692ef73424eeb3ab4c96063bf67b560",
+   "source_id": "oxford102:image_02304",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "barberton daisy",
+   "label": "Gerbera daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02305.jpg",
+   "sha256": "fd6611b6ca19b18d34d5b864400e2a658d7e3476b5d8a52b0a831979d31a4406",
+   "source_id": "oxford102:image_02305",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02316.jpg",
+   "sha256": "12b2b742fb86f9da1504956602fe2e4ac9ccbd23cc9b3f9293323e128d848a60",
+   "source_id": "oxford102:image_02316",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02331.jpg",
+   "sha256": "01aa82a82dbc897634412dd7ebaa40a3b48d4f2b8933df7ffc23743006433507",
+   "source_id": "oxford102:image_02331",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02338.jpg",
+   "sha256": "40840444d3257ef60fd62c2a900a8ba7a63624619589838c0f7dbbb2e60f3475",
+   "source_id": "oxford102:image_02338",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02339.jpg",
+   "sha256": "80f0d5d31fe11641381c2d20ea039bbaeb7f7ed2c1541231f1456b1efd9d5c72",
+   "source_id": "oxford102:image_02339",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02342.jpg",
+   "sha256": "24c4fba6d7c6b187673d4f12592c2cca978b6443b7aa13f8b07761599c07921b",
+   "source_id": "oxford102:image_02342",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02345.jpg",
+   "sha256": "8128c6bb30ddb960684bef9e89a01de5bff7f3a06d5426db7a2ea5a5bdf22ad5",
+   "source_id": "oxford102:image_02345",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02363.jpg",
+   "sha256": "53e210a634f6179cc684fee7238f2913c31541a77336ad773d5bb401c40fb85e",
+   "source_id": "oxford102:image_02363",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02366.jpg",
+   "sha256": "11407265b3fd4346eb56498eaf83987810a4c191ea607fbc2b20a173a3f75d6b",
+   "source_id": "oxford102:image_02366",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02372.jpg",
+   "sha256": "c9e616e64cf798c342519eb595c92ccb2a065e9fbbd176c1a5187270e9a5b4a0",
+   "source_id": "oxford102:image_02372",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02391.jpg",
+   "sha256": "70beff6123c3f0d8e97571afbfcc614aa38ed7034986174438c63c09e8fd9d80",
+   "source_id": "oxford102:image_02391",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02393.jpg",
+   "sha256": "d19ec52071e0993c536f1661c3114f59e752033fb1566f94cdfe9c5ea40cba2a",
+   "source_id": "oxford102:image_02393",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02396.jpg",
+   "sha256": "b0f3fa0938e1b5933ea4ab3c69536400c83144ad1baccc333ed965cb637fa018",
+   "source_id": "oxford102:image_02396",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02399.jpg",
+   "sha256": "45e9d5efbccff7261d889cb98914aff360595e30eb42239ad85db1ec9d09b32d",
+   "source_id": "oxford102:image_02399",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02409.jpg",
+   "sha256": "056a05abf6505e0da544a5204573fd7c46ec06f33464b735221fe06c768dff41",
+   "source_id": "oxford102:image_02409",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02410.jpg",
+   "sha256": "f2f730f6784b60eab8aab8ceaee65fba9d0a237b01ff3b0f2b8c05d698df6250",
+   "source_id": "oxford102:image_02410",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02413.jpg",
+   "sha256": "59a275a8f9f27e20e612d79dd30807268a088182d37e26bf5972edaa932ab26b",
+   "source_id": "oxford102:image_02413",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02414.jpg",
+   "sha256": "b1ba177656a2ca84779f5b8e85fa7d53dcbea1c13aa815bc90f74bc004329717",
+   "source_id": "oxford102:image_02414",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02432.jpg",
+   "sha256": "6284a8ba2679dea7391e45bfac177ee7006f8d4b6b663f6f6d62048e96e56a00",
+   "source_id": "oxford102:image_02432",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02434.jpg",
+   "sha256": "2d086bd3643f6845e86cc8b01801a112f0370f06e68266b1c37513589ea497d6",
+   "source_id": "oxford102:image_02434",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sword lily",
+   "label": "Gladiolus",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02442.jpg",
+   "sha256": "f4bad45e4724c8aff85cdcfa6d42e047727c29370cc6c36aae521df55476a4c5",
+   "source_id": "oxford102:image_02442",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02930.jpg",
+   "sha256": "2986525b7027254fa5282c97057ff3cb3b18487262dfe15a21dfd9cc03e6527b",
+   "source_id": "oxford102:image_02930",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02938.jpg",
+   "sha256": "27665b47c5cc4cef5aed9a05242040c4880ba57102e369221a04aa7a29dc402e",
+   "source_id": "oxford102:image_02938",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02943.jpg",
+   "sha256": "55bedb8e1e75fb85217e879151c84d004f94bd950f8dad6d378bcf26fe6af4c6",
+   "source_id": "oxford102:image_02943",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02975.jpg",
+   "sha256": "f69af5e1fbb70e802d334449d785252ed3a42783af002f3862d6dd4128591cfd",
+   "source_id": "oxford102:image_02975",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02980.jpg",
+   "sha256": "71310ea2af8ad48f12bde90028d319693c7aca9812d84bd8acb92e84ccdbf082",
+   "source_id": "oxford102:image_02980",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02982.jpg",
+   "sha256": "cc53656f5fda20a72a398f1dd35a1bab273994bb073015a3940a7c229a8ff3d8",
+   "source_id": "oxford102:image_02982",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02986.jpg",
+   "sha256": "46348e403401be16f58ff33164cfadbda240895b6594306c9268937a83a216dd",
+   "source_id": "oxford102:image_02986",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02993.jpg",
+   "sha256": "8a6b03ee6d51a417350a7ef50433737e8e056340876f8910e98d77c85a1390ea",
+   "source_id": "oxford102:image_02993",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_02994.jpg",
+   "sha256": "46225498790e42aff560b720bbf8a5e6a91ff346fe2d1eb865271269485e4823",
+   "source_id": "oxford102:image_02994",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03008.jpg",
+   "sha256": "c497171e435277cf3207b0cbcf1d47ddc59285ae13656773749b3d4029103613",
+   "source_id": "oxford102:image_03008",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03017.jpg",
+   "sha256": "dc0d5e1c3b07ee494cd18bfd4bdb776281695f7c6c18582e312c65fd445bac95",
+   "source_id": "oxford102:image_03017",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03021.jpg",
+   "sha256": "5bac04dfe6413a71f19335f81e20e5350142966d94f026d4e25fae397b00daff",
+   "source_id": "oxford102:image_03021",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "pink-yellow dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03028.jpg",
+   "sha256": "0d1fd9e7bf174fbda59a3d4f1e29d0e43d95c35177c98bb14d3765094d206e54",
+   "source_id": "oxford102:image_03028",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03098.jpg",
+   "sha256": "f27c50fa4e65a08b52511f13b37742e8b00c2f16f3e24450ac7fd845fd98fcaf",
+   "source_id": "oxford102:image_03098",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03108.jpg",
+   "sha256": "00dbf0552112ed53b850368c84028a1fcece0b2809fd0f1c638ba80f3edc7dee",
+   "source_id": "oxford102:image_03108",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03111.jpg",
+   "sha256": "fd1604d2220517e82df76b490758e18584d857990a355301940ec3117776cf1e",
+   "source_id": "oxford102:image_03111",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03120.jpg",
+   "sha256": "85ff246969c0dc21e47258b549b1757b3a9bda0f2483711982f017663c60cb62",
+   "source_id": "oxford102:image_03120",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03121.jpg",
+   "sha256": "b70889bdda7ce9762fdd63b8002d192e2db721cd8233c54d0c75139dbdf6e3c5",
+   "source_id": "oxford102:image_03121",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03122.jpg",
+   "sha256": "89f301c96f3f8d6e07a5339af43a5fae3e3f51801d195f0d792d2703c18ee228",
+   "source_id": "oxford102:image_03122",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03126.jpg",
+   "sha256": "5341d3aeb9b142c1a360e831b47af4c21143661b82337c3181da6db4367a5d75",
+   "source_id": "oxford102:image_03126",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03134.jpg",
+   "sha256": "38e14dc3448612e4f562e7e2b55a451e40b34dcfdace9434389475b251be056e",
+   "source_id": "oxford102:image_03134",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03136.jpg",
+   "sha256": "774479f5b050aea2ec24594800dbf3356f539da2c9236c9d41be655c3d6e062e",
+   "source_id": "oxford102:image_03136",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03137.jpg",
+   "sha256": "3c3cb06936ceb618a574762884ff3787d1fa05956b2b7f6f6e8292894aab5453",
+   "source_id": "oxford102:image_03137",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03138.jpg",
+   "sha256": "80d76d8e4da80071c569a041dd686ea6b2066e96a073a7f57b485ef57af5c32e",
+   "source_id": "oxford102:image_03138",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03141.jpg",
+   "sha256": "c87c6d078465e37940949389f426fa7a81ec6235295869cc63253ab388d86786",
+   "source_id": "oxford102:image_03141",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03153.jpg",
+   "sha256": "56c46e28be122d36dcd1cb18546a1341cbc9652942fc3e42d9ace2deaee7fc8b",
+   "source_id": "oxford102:image_03153",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03161.jpg",
+   "sha256": "161a9a2213cfd7283c071f8269b846291b963ae81f90bd1dc597f53852b5febc",
+   "source_id": "oxford102:image_03161",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03162.jpg",
+   "sha256": "51e4f075e391ac70ad4a5ac8abb3719d322095e281f1e039195e757d6b12e20c",
+   "source_id": "oxford102:image_03162",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03167.jpg",
+   "sha256": "b00ea5ca0461ea09bb499d1ddde7973feca4765a099d2db62ec1b3330ec78738",
+   "source_id": "oxford102:image_03167",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03170.jpg",
+   "sha256": "95e8e6f73822105ee015fbdf3acd99daed447dff9b33f39072350ab38e63b749",
+   "source_id": "oxford102:image_03170",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03173.jpg",
+   "sha256": "6f94823793884158749044752d7cf867a02a2c9daa7dd539d7429a1fb68d69d0",
+   "source_id": "oxford102:image_03173",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03174.jpg",
+   "sha256": "b43f817a943be0a9c90fb231387335b5bf66452ec578d0dbec47aea35b913be2",
+   "source_id": "oxford102:image_03174",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "snapdragon",
+   "label": "Snapdragon",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03176.jpg",
+   "sha256": "9d0f778730ad0bb5c51e5baaf6f0c313143ef3bcbc122eb7109e55b8733d2494",
+   "source_id": "oxford102:image_03176",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03286.jpg",
+   "sha256": "10b5bd8dc98a1e4fec31e160540fe135556b0825b7ee422b07dc5c5a95bf9c49",
+   "source_id": "oxford102:image_03286",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03289.jpg",
+   "sha256": "9c2f1d3700d95e8d7d45fc5dc3ca706e4cc2334a3ee8e1a9c4c3ca082a5a5bfd",
+   "source_id": "oxford102:image_03289",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03290.jpg",
+   "sha256": "b5011713c6a7ebb809dab5794c1b306c2415583dbfccd39c1f8e6df36d38c595",
+   "source_id": "oxford102:image_03290",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03291.jpg",
+   "sha256": "5844e895e44686f129888361308c00a9e7f839d0205b87a6c6f56fef5f9fa777",
+   "source_id": "oxford102:image_03291",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03301.jpg",
+   "sha256": "1fd59bc46f2d99986a6041f72d93aa34ee39bc743957a0d2b4ff7b50f6d9e8f2",
+   "source_id": "oxford102:image_03301",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03305.jpg",
+   "sha256": "3146af5a1f99f2873dd143c23db1ebb39bd7a69d3a26f988d403e8988b3da1b6",
+   "source_id": "oxford102:image_03305",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03308.jpg",
+   "sha256": "356ec40564caaf94f1f61c52f564edc3ac3c3fd302cb157e05856e270cb89163",
+   "source_id": "oxford102:image_03308",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03314.jpg",
+   "sha256": "0f3b385fefcc8e1745894b005f59817bb3cb051eb14457f03ada40f297f73e87",
+   "source_id": "oxford102:image_03314",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03317.jpg",
+   "sha256": "30d2d7d04e50d405f51876e51d666bc673758a68395d4832840dd9db21071398",
+   "source_id": "oxford102:image_03317",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03323.jpg",
+   "sha256": "9ec70b37f3ecf973f44fb25befa37ba51a8fbbdffc81828d73d27b5bf05002c1",
+   "source_id": "oxford102:image_03323",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03329.jpg",
+   "sha256": "92f7b0fffa2a8841f11e11141ff8822b85f44f7bc94065ed0b5396a5283e7f57",
+   "source_id": "oxford102:image_03329",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03330.jpg",
+   "sha256": "7ae9eb2d52fa07965914103d71ac990f97adbe17925d77d3780f143a728449b6",
+   "source_id": "oxford102:image_03330",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03334.jpg",
+   "sha256": "de1641618dcb26b941e81117c8f078bcc7c39a1f601314bc8f2d38169d025fdb",
+   "source_id": "oxford102:image_03334",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03342.jpg",
+   "sha256": "527d75690d49084bcda625445cfee1c01b31ef95a2381a0c7ae28bba57de57bb",
+   "source_id": "oxford102:image_03342",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03347.jpg",
+   "sha256": "d223d27dce966462f3d89548e1041d47a131bc8a9738040064af973a37e76e00",
+   "source_id": "oxford102:image_03347",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03352.jpg",
+   "sha256": "ea1292dae0288cd3d39c5abec71269ef8e1e8fe462c3ff0579bee56f20f7999a",
+   "source_id": "oxford102:image_03352",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03355.jpg",
+   "sha256": "38aecd515e3e3000c2a0cc90d1ac51c0a7a331bfa9308c859b5db7485d31a81e",
+   "source_id": "oxford102:image_03355",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03363.jpg",
+   "sha256": "6155997a45a924b43fd613e33f5d404a0f327f674d532029a22d5c839b3a8373",
+   "source_id": "oxford102:image_03363",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03365.jpg",
+   "sha256": "2df3caff715069c40cb972d0e3056df7ca3272e48f9091098f653b189301fbe2",
+   "source_id": "oxford102:image_03365",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bird of paradise",
+   "label": "Bird of paradise",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_03366.jpg",
+   "sha256": "98a981d12b1b439080c5244efba44e976cd0bf37846d0db22d9abd5ffce45c23",
+   "source_id": "oxford102:image_03366",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04249.jpg",
+   "sha256": "429ef1783d3dcd907ade629ae5974d3b52bb4545c9b181a3dcfe2b72e2187f8d",
+   "source_id": "oxford102:image_04249",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04250.jpg",
+   "sha256": "cd547acde0762fdfafc2b602de74dc49737bce1c900da2f6e910145b80d4235e",
+   "source_id": "oxford102:image_04250",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04253.jpg",
+   "sha256": "b5cabaffc6b29fbba9c41f2e02745a0af2835130fbeea8c2a79529535a402e44",
+   "source_id": "oxford102:image_04253",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04255.jpg",
+   "sha256": "c6ec9c2e57a519650e853448ed49e2a968e7e49e2b5af08e033228fd1f8f1cc5",
+   "source_id": "oxford102:image_04255",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04262.jpg",
+   "sha256": "b46f982ffa24ae3cdab74e2c36b280c8f9ae2e2e5b6a6fa2e933f94713397820",
+   "source_id": "oxford102:image_04262",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04263.jpg",
+   "sha256": "25baecadbd2a458365e6868ac66e14f08ab3c6c90526384c5f6595863f27e159",
+   "source_id": "oxford102:image_04263",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04266.jpg",
+   "sha256": "5ab2fd7d502c64d790684cc53d16448de82dd2ff258b1eb7ce1e662ac4c85440",
+   "source_id": "oxford102:image_04266",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04269.jpg",
+   "sha256": "7cc4d4b0b073028e21ce467de32a5243415300ccce1a324b2bbada2b3c2f9dae",
+   "source_id": "oxford102:image_04269",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04273.jpg",
+   "sha256": "eca5478e0a012da2826391bb32f2b9a466a9c340db7388c01ed2b956ebacc1fb",
+   "source_id": "oxford102:image_04273",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04277.jpg",
+   "sha256": "22dce95e9c091ac6d29051de4ed0455af02c3054dbe29d518829e304d0c13221",
+   "source_id": "oxford102:image_04277",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04280.jpg",
+   "sha256": "df920827de590b0f0ef5fad5f1ccd1a02503294470fbbf7fb4a22999402269b6",
+   "source_id": "oxford102:image_04280",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04281.jpg",
+   "sha256": "fb6c9607b6f86ee44aee053b2b8b8199e1121b1cf45f99daf2b1a061329e9ec8",
+   "source_id": "oxford102:image_04281",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04283.jpg",
+   "sha256": "96ad7260a0c8ac00eab3e05eb9fd7f8cd5621a131e6d6191f45ac1212e8491f8",
+   "source_id": "oxford102:image_04283",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04291.jpg",
+   "sha256": "316751dda3e592c2a20c572e30de1c4d84510e6eee4c5d2cd68d649a2092cfd7",
+   "source_id": "oxford102:image_04291",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04308.jpg",
+   "sha256": "a953732ba9adeda599d0eaf89be2ef0da49470d5aa8f012c115dc5b05259c633",
+   "source_id": "oxford102:image_04308",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04313.jpg",
+   "sha256": "2a6b746df629af863681030631ad517cf88290b484948fcd2eeb706172453dd5",
+   "source_id": "oxford102:image_04313",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04314.jpg",
+   "sha256": "94539432bf83895f89b047a77c3d40972c650653f9d6309766567fdab7e2d0af",
+   "source_id": "oxford102:image_04314",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04316.jpg",
+   "sha256": "393599463d7679fe5f9a87f37d7fc7656c48e4cd7a009479228790cdd37dbd91",
+   "source_id": "oxford102:image_04316",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04317.jpg",
+   "sha256": "8fea2ab5c4a3554870cdf60413b6c393520f3e2e461429ec341fde63b626cfbe",
+   "source_id": "oxford102:image_04317",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "peruvian lily",
+   "label": "Peruvian lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04318.jpg",
+   "sha256": "bb8c305a1737a6b7a23aaccac0209730cb3eb96ca81bbc51d398e0dfcd13e66f",
+   "source_id": "oxford102:image_04318",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04833.jpg",
+   "sha256": "6394a0b26496719e08fb70352f97257d24edefa7fe29f0cb825d7d38dbaa62af",
+   "source_id": "oxford102:image_04833",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04834.jpg",
+   "sha256": "adce96890e4f2d968877a54c81ae3464c8070e56e9107f495e06380dd9761ce8",
+   "source_id": "oxford102:image_04834",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04839.jpg",
+   "sha256": "17f0849cad92a99c82dc74cff1c3c5579556e73a2623309e1fba80ccda8b10df",
+   "source_id": "oxford102:image_04839",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04840.jpg",
+   "sha256": "840a8255515813155b123db50bc9039a077750dfb0408fb7c2f610c4387f9dae",
+   "source_id": "oxford102:image_04840",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04841.jpg",
+   "sha256": "be85740b7c860fe0c7bef208586f4019aa79792c2f0f50bc0c34d076cc36175f",
+   "source_id": "oxford102:image_04841",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04842.jpg",
+   "sha256": "f320babae7a6d6f8c015287cd1630df6d3311422eb4e1831043665ac41ce1323",
+   "source_id": "oxford102:image_04842",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04850.jpg",
+   "sha256": "8fbef57fc9546a799adde3add9e55f7529571112000a46e4dc87131c2bced84f",
+   "source_id": "oxford102:image_04850",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04853.jpg",
+   "sha256": "8a66ca6b2d7906f50b9d97e54b4acf5bf27edd5a62c46f464d48f0b3c80befe2",
+   "source_id": "oxford102:image_04853",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04854.jpg",
+   "sha256": "1b7ef133ad93cc401d161168ecd22bb0ffde02e567bbde2e979a5b34e9683193",
+   "source_id": "oxford102:image_04854",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04857.jpg",
+   "sha256": "f82faaea7d33450d90ec7f81d7073c57be143e0caddbdb36a4b3152b86eb4bb5",
+   "source_id": "oxford102:image_04857",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04869.jpg",
+   "sha256": "d06eec150155912c39f452eafab9ce827774a54f95cf95af38342190ae5bcf26",
+   "source_id": "oxford102:image_04869",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04877.jpg",
+   "sha256": "ed87d3c5bce39f48ddf839911bec42efa2e93fbfce18b315575b4ca4f3f7d537",
+   "source_id": "oxford102:image_04877",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04881.jpg",
+   "sha256": "434eb8974f0918fc46f2b5ac1d9f21c32ad9d4ec9df13ca48260c413da325e7b",
+   "source_id": "oxford102:image_04881",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04884.jpg",
+   "sha256": "e847ca551f0117bc4562baf192f49eefc3e759f11c9010fdad461f248de1a1a9",
+   "source_id": "oxford102:image_04884",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04888.jpg",
+   "sha256": "e36c02f83580e668564ae566c67bd19e08741c00fad3a518af02e0dde7fca028",
+   "source_id": "oxford102:image_04888",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04890.jpg",
+   "sha256": "882fc8dbd82572059ec2148d26cb5aebd660c977066300cf1a2e68219137e704",
+   "source_id": "oxford102:image_04890",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04892.jpg",
+   "sha256": "6e873952150dcc03d3e4fab8d06675e87e7f89c416425cc32c643d1422680c13",
+   "source_id": "oxford102:image_04892",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04894.jpg",
+   "sha256": "dd9ada13235619e9dd13de33fb9a42684980c4e42e36af6e3efc4d60cbdea6c3",
+   "source_id": "oxford102:image_04894",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04900.jpg",
+   "sha256": "d0f8e657d368a9668e0497e6af0d076a3bc7146f47aef79c08bc940edb9ab1c8",
+   "source_id": "oxford102:image_04900",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04901.jpg",
+   "sha256": "5846d74c50bd66ce530340c74deaa9753789a4c8ec5039cf7b136d7e8638d621",
+   "source_id": "oxford102:image_04901",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04902.jpg",
+   "sha256": "4ce153ba6c4f5d33b81d807625df52a73241b888dd10eaa121daad02adb34520",
+   "source_id": "oxford102:image_04902",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04903.jpg",
+   "sha256": "88f55517540ed60a6f94b35f3955b4fc9bb12f93eb7776246a6918fe41dd2892",
+   "source_id": "oxford102:image_04903",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04906.jpg",
+   "sha256": "ea6dd5d8c9372633393d5ee2203a51f0779ff50e0fd18ed9b0df04c0caa03841",
+   "source_id": "oxford102:image_04906",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04907.jpg",
+   "sha256": "41200af606161bd98aa3f3983ad2542331d4e280fce24493d7e00d5d0ddd302d",
+   "source_id": "oxford102:image_04907",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04908.jpg",
+   "sha256": "ed0afb977ed48ae162bd86251ca8aa0abd207200e0f0b652ecba68e221377a3a",
+   "source_id": "oxford102:image_04908",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04909.jpg",
+   "sha256": "978d63873f72a44f6caca9d6a612ef91e51bc9f902985b326e375a451367ba17",
+   "source_id": "oxford102:image_04909",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04913.jpg",
+   "sha256": "fc6d332f5b5e970236312b8c0925f9ba3e4fa5032bc27e5b7e79cd4c67203618",
+   "source_id": "oxford102:image_04913",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04914.jpg",
+   "sha256": "ad57ba0c7a4b45bba18d6374bde90864635e460e0406a917d6eb804a78cd4105",
+   "source_id": "oxford102:image_04914",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04917.jpg",
+   "sha256": "cf5cd6fce9a0c6746366cef812ef6ff31c9c476520e2032b38b778d2038bfc4c",
+   "source_id": "oxford102:image_04917",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04922.jpg",
+   "sha256": "921584a820c540c44efbbbb9df56cdce6696b1980f64fc02eeb2028c4eb7f8e9",
+   "source_id": "oxford102:image_04922",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04926.jpg",
+   "sha256": "66a094d82a550a309ec5061e2af3b33c625dcff827f2cd2cea085e8088df598c",
+   "source_id": "oxford102:image_04926",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04928.jpg",
+   "sha256": "a33360910ca9fb5b2442c3f72a9ebb9920e936189f89ef439b4b3027e66d0f4b",
+   "source_id": "oxford102:image_04928",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04930.jpg",
+   "sha256": "2bb776f111335506851e1e86324dcb32c555006138c64dac560de4f57d6d697d",
+   "source_id": "oxford102:image_04930",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04932.jpg",
+   "sha256": "6c8126d246204acb65fab42f5f0f3af931a19c9c6cc2631d4104684d09404ffa",
+   "source_id": "oxford102:image_04932",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04937.jpg",
+   "sha256": "de093698960498927703b16dad4f6d5f4e546754691e0f584b7cca421ca2fdc6",
+   "source_id": "oxford102:image_04937",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04943.jpg",
+   "sha256": "1e64480dd6e05156da7e45d0dc79d577a7f3cc07ba0fbd836754f16a3a0d472b",
+   "source_id": "oxford102:image_04943",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04946.jpg",
+   "sha256": "817c81c0d0f561c7731c0ba96523c5dea1ef4124521a9a8e4dab15ab3ff0fcef",
+   "source_id": "oxford102:image_04946",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "giant white arum lily",
+   "label": "Calla lily",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04949.jpg",
+   "sha256": "68225e4a051cacbe02ef7f23b260bc78870d9e26d56847896d9e911e655dc473",
+   "source_id": "oxford102:image_04949",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04955.jpg",
+   "sha256": "4e308e2452743410cac9d02bbe8aec569bbe4ed91091f1ce1598b6321aabebd2",
+   "source_id": "oxford102:image_04955",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04959.jpg",
+   "sha256": "0532953c683817314d1be087058572d287a4072fb3feca04e00f9f7a60b08572",
+   "source_id": "oxford102:image_04959",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04963.jpg",
+   "sha256": "97bbb1a847b5ef07053eeaec146f941ccb072466bac9e90a9917f7e2dad60689",
+   "source_id": "oxford102:image_04963",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04967.jpg",
+   "sha256": "0dad395849dc32b84ddfba4bbfdb0cab21c59cd84ab76bd6de2e64283646b87f",
+   "source_id": "oxford102:image_04967",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04971.jpg",
+   "sha256": "92d60043e8a3146f6d3ce55c51396a51ba1002710eacd9317e3f92def701dd56",
+   "source_id": "oxford102:image_04971",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04982.jpg",
+   "sha256": "4eb8cc4095bd74720f0ba7df065990274d79b99d405b18b53433832d81ee279f",
+   "source_id": "oxford102:image_04982",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04983.jpg",
+   "sha256": "4e7b2cfbd54e5f4e7443900a45909d9faee60c51823d1572037ed0142ccc2085",
+   "source_id": "oxford102:image_04983",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04987.jpg",
+   "sha256": "71af94398d3822ea0f862bc4794b337c1006670a21a293002a69eaea5f032139",
+   "source_id": "oxford102:image_04987",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_04998.jpg",
+   "sha256": "e16d77487d731d1b328339778ccea8f6a351e11054e323e6c43d787d600c2877",
+   "source_id": "oxford102:image_04998",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05007.jpg",
+   "sha256": "7ef855ee4eba0d142b3b393ffe37b16b8ee76622de17158497b943828134431f",
+   "source_id": "oxford102:image_05007",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05011.jpg",
+   "sha256": "247b0d53bf25d587a7e2755c9cd10e3d917acf3c33313a2d777e6b0b89272286",
+   "source_id": "oxford102:image_05011",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05014.jpg",
+   "sha256": "ac8fecf869e9304602cd9954ff75b0aa0926df8c496516888d9e48a6a49fb99c",
+   "source_id": "oxford102:image_05014",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05018.jpg",
+   "sha256": "d32e34216f2747b1d6e87a2bc07fc659e3f673c0050ef34932fed66f4ba0356a",
+   "source_id": "oxford102:image_05018",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "orange dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05034.jpg",
+   "sha256": "b76d3ade74949136927c81bb11c12a1582b019d148fd2f348beec30ae02393de",
+   "source_id": "oxford102:image_05034",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "orange dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05039.jpg",
+   "sha256": "b94d25d6d316fd472701dc7a7fe5e90c45faef503524f54555322e6ec610cb05",
+   "source_id": "oxford102:image_05039",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "orange dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05050.jpg",
+   "sha256": "bd621b8751d80eb307664829bb4e559bfad60427f2ea855001b6a0b63a7cf287",
+   "source_id": "oxford102:image_05050",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "orange dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05056.jpg",
+   "sha256": "08b9c1cafc41044bd8365d53844a38553504a85647e2a93a2efed6000933033c",
+   "source_id": "oxford102:image_05056",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "orange dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05067.jpg",
+   "sha256": "59b00abe046c1fc876ecb971edcc3538c040ea8cee43d88f3fb89ac7fde7e815",
+   "source_id": "oxford102:image_05067",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "orange dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05073.jpg",
+   "sha256": "0fa2bcb0ec5fe7271df5a8a78ecf47af7cbc3c95826f7004ffd962fc354758d5",
+   "source_id": "oxford102:image_05073",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "orange dahlia",
+   "label": "Dahlia",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05075.jpg",
+   "sha256": "0c5fa89a54f4c0bd39d2e2ed920dcb12c4dd560d4d80789889aed2714434055c",
+   "source_id": "oxford102:image_05075",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "english marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05155.jpg",
+   "sha256": "1bfd9566f91f186ecf8aefc9655442e5b12bfde5ea3f0a76e5578ec414e50e40",
+   "source_id": "oxford102:image_05155",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "english marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05165.jpg",
+   "sha256": "a87c6f6b12138d564639c0786c2e20ae08390f822a818df5a1705e6d7829dc23",
+   "source_id": "oxford102:image_05165",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "english marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05183.jpg",
+   "sha256": "8c31976a839c72a8771a41de53f464f002c093cbda6f3f70767ffb3a2648f8e9",
+   "source_id": "oxford102:image_05183",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "english marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05188.jpg",
+   "sha256": "e8f198d1bec6ba0c79e83edf0eeecaf3c5f5e196fe0fc609c583ff8a47b9f28c",
+   "source_id": "oxford102:image_05188",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "english marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05189.jpg",
+   "sha256": "f3eef09b5f3afe0099443c7f843f45fb8d362a6bb64c5778d43e7fefaf35c2eb",
+   "source_id": "oxford102:image_05189",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "english marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05195.jpg",
+   "sha256": "c637b89360568d0273479ffcc0483b5122c6a6c7bee08bd1923f9630aaf7463f",
+   "source_id": "oxford102:image_05195",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "english marigold",
+   "label": "Marigold",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05205.jpg",
+   "sha256": "9f5d2a85ee0f293798273e826f97f75d5c02a149b4d5f740195aa80e6fadb910",
+   "source_id": "oxford102:image_05205",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05401.jpg",
+   "sha256": "951c20def3c60d5d98a68fc854692f719a4c74982f52041b863b9954970b063f",
+   "source_id": "oxford102:image_05401",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05402.jpg",
+   "sha256": "a82d9692024c6e55f514855491797353d1f837351fd5b5bc54eb141b26b223ef",
+   "source_id": "oxford102:image_05402",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05403.jpg",
+   "sha256": "573626656acde44241e25df78cd0df8e6eea3e0cc0294ac87367d54753ce7380",
+   "source_id": "oxford102:image_05403",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05405.jpg",
+   "sha256": "53a0f7f0fccdbb6adf86221b330ea7069487f0f68a5b64365511609d74162cc0",
+   "source_id": "oxford102:image_05405",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05406.jpg",
+   "sha256": "b303f1d3efa9e82851543e156f6d84b2091acd69853a93b80117da938faf3326",
+   "source_id": "oxford102:image_05406",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05409.jpg",
+   "sha256": "c95c296c8c8d47f22b0b7ce2ba5e0be0e4f4cf956d6dcebd9431ba840c2b0429",
+   "source_id": "oxford102:image_05409",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05416.jpg",
+   "sha256": "5386efcd9b4761b2506ff957ce90c7d07c9649051ab17ae5ab1cc7214720b916",
+   "source_id": "oxford102:image_05416",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05418.jpg",
+   "sha256": "5bf6b85729ebc2f5cdc3ddf3241841538bd492dcd04eedef9aa4a8158be10e99",
+   "source_id": "oxford102:image_05418",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05421.jpg",
+   "sha256": "05f094ae5d4d4bf93e79a71fea973a22641efeb09b4e292314150badb47afc3c",
+   "source_id": "oxford102:image_05421",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05422.jpg",
+   "sha256": "420a7142084c1ca2ec7b2bccbf0b673f6013926b67129f2a2850eb0b4d3167d5",
+   "source_id": "oxford102:image_05422",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05426.jpg",
+   "sha256": "6d1d410bf261b18983156d09266e1fdcdd0d17ae55f8ce2618e58980ad5ef9cb",
+   "source_id": "oxford102:image_05426",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05427.jpg",
+   "sha256": "929eb80e56d3da7937d06b2d5d5876b0b67a088d9060bb9d7b70e5ea24f01176",
+   "source_id": "oxford102:image_05427",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05432.jpg",
+   "sha256": "d568b259d436c715f704ff8990894342f405225726e98813a56a437f137b0ff2",
+   "source_id": "oxford102:image_05432",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05434.jpg",
+   "sha256": "db3c18af3ad670a674d10a3a9ada3c1c2e95f3f58352c381adef1e01db0a5fc6",
+   "source_id": "oxford102:image_05434",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05436.jpg",
+   "sha256": "636487a0a472f187ac03508af045159f4cf55ef4cf0fb825bc05e9d1ba530d9f",
+   "source_id": "oxford102:image_05436",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05442.jpg",
+   "sha256": "f1ff3ac250cef74aa55a8979500e82de87d37576d464934a8274a2351de72793",
+   "source_id": "oxford102:image_05442",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05445.jpg",
+   "sha256": "f2f592adc61680e5127840e22230b482641313163b95c10a63415245d5a5f5e3",
+   "source_id": "oxford102:image_05445",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05450.jpg",
+   "sha256": "a44fbac8ff0536ff51e7ff7d112d5f829b0ce0342c290a21ffc036385bb1b021",
+   "source_id": "oxford102:image_05450",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05452.jpg",
+   "sha256": "3194ad65598f477ffcaa0eab8c42bf652d04516310ebc3ecb5481df516343602",
+   "source_id": "oxford102:image_05452",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sunflower",
+   "label": "Sunflower",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05454.jpg",
+   "sha256": "aebfc9cf8790239f39535e235becd0513d1a5e47e1e208bd0c8681b9fb45c3eb",
+   "source_id": "oxford102:image_05454",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05629.jpg",
+   "sha256": "44fba736a4678457aa2c725d886465fb4737400b4876349cda3c6dae28ea6067",
+   "source_id": "oxford102:image_05629",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05631.jpg",
+   "sha256": "5233a49712706869aff9a269dac91d68f01beac03171ca1bc465a496c1a2fdb1",
+   "source_id": "oxford102:image_05631",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05632.jpg",
+   "sha256": "b9e2285c01e3a406f39e7c3026a77316d5c8c6d6723d83629bc08261a2791114",
+   "source_id": "oxford102:image_05632",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05633.jpg",
+   "sha256": "63c72bd3b31445f2119573cc97ea3b7d928f1589a8a754a0da36db2a331518c3",
+   "source_id": "oxford102:image_05633",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05643.jpg",
+   "sha256": "8583b50ce3eb208d4c89173573caabeed7210834c4294466643eecb09a1d4acf",
+   "source_id": "oxford102:image_05643",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05644.jpg",
+   "sha256": "099365f241805babd5af713cb948872f75c8af0fb64468704430281a80c1b8af",
+   "source_id": "oxford102:image_05644",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05645.jpg",
+   "sha256": "184d4370adb4e935db4d96782222e835f0e29c9b1f17361ca36d4507fe61b638",
+   "source_id": "oxford102:image_05645",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05647.jpg",
+   "sha256": "cf541924315caf76cbbc549640f2e708d008ecb373f4577252925c90ed03c499",
+   "source_id": "oxford102:image_05647",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05649.jpg",
+   "sha256": "e086d192e4e4724e31c717f313ecf1f891cbabe6640f80173a950a128d1894ba",
+   "source_id": "oxford102:image_05649",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05650.jpg",
+   "sha256": "86033a1da3624ba31847f11df156491049cb8afbfb808dd86e55bf705ca152e8",
+   "source_id": "oxford102:image_05650",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05652.jpg",
+   "sha256": "1399670ea7ec440aa9ad6944d098ad47ec664c79f315ab541117df12a47814b9",
+   "source_id": "oxford102:image_05652",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05655.jpg",
+   "sha256": "fdc51737a50258cbcde3f820ba2c950af905635528138b07b9a843736f7e3638",
+   "source_id": "oxford102:image_05655",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05657.jpg",
+   "sha256": "6f379c0fba018f1a980906b87e82079e332b3d7c3908e081baaddafafe03f5fd",
+   "source_id": "oxford102:image_05657",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05660.jpg",
+   "sha256": "9670143409e810cd7f8eb22737a319aa765ef362167239450d2067aa869885dd",
+   "source_id": "oxford102:image_05660",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05661.jpg",
+   "sha256": "22881e044cb542757ca4a22ab275f6363c740573b6450d1949472f9553c88331",
+   "source_id": "oxford102:image_05661",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05665.jpg",
+   "sha256": "22853778de2eb601d914b98811ff26a13295f978afc3117c4b69f833328c2531",
+   "source_id": "oxford102:image_05665",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05666.jpg",
+   "sha256": "46fb1caa2c4e1c835e141944da0eecbfc042d4321dd088baa43fbfee2c401718",
+   "source_id": "oxford102:image_05666",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05668.jpg",
+   "sha256": "5606b322553bf6ad12f8b8405e47ced57d3d6f15e7347bf988108b8d583d2e16",
+   "source_id": "oxford102:image_05668",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05680.jpg",
+   "sha256": "483523dec2a03030a5d579bc2961cab15a0d4f447c13a80ac5b95c2b6ec879ea",
+   "source_id": "oxford102:image_05680",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "sweet pea",
+   "label": "Sweet pea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05683.jpg",
+   "sha256": "8410795c1975e9f1b10ebb507ecfdf084cb1dbc625547874964a07f5dc34e3f4",
+   "source_id": "oxford102:image_05683",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05688.jpg",
+   "sha256": "98b90238ec939b590d6a496ce7731b8ccdc13f6af6e09d249749f8005d15995a",
+   "source_id": "oxford102:image_05688",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05690.jpg",
+   "sha256": "18b73d340b4b87410b6d57d1959472b91e7b7b4d0435b60567b328ecf284fb56",
+   "source_id": "oxford102:image_05690",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05692.jpg",
+   "sha256": "30c8b721ba85ea823f572358dd3553e2a13452b4631ef31017d02e18c1a87ac8",
+   "source_id": "oxford102:image_05692",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05695.jpg",
+   "sha256": "661d9d29960efe08085312df4acd77d003382eabc40a16edaf474f39b5746e6b",
+   "source_id": "oxford102:image_05695",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05701.jpg",
+   "sha256": "0cf2ed813233ecf1f98661246a97fdf5d4a61d9cf911e3ade677f7b95058211e",
+   "source_id": "oxford102:image_05701",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05703.jpg",
+   "sha256": "bcc585d1c28f0f48ea8c97b79713ea2dcd5ab621429896d9eda9a8241d61e391",
+   "source_id": "oxford102:image_05703",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05704.jpg",
+   "sha256": "8fe9d916debcd04fe933dc9fddf35f82c973127aecb6962c0084ac1d59eb798e",
+   "source_id": "oxford102:image_05704",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05705.jpg",
+   "sha256": "367d4878b8ca85e26c9a97ad863d89559112c2a8119a8a915cd863fab89d1219",
+   "source_id": "oxford102:image_05705",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05706.jpg",
+   "sha256": "972dfa23d98968d6f904eaa610c2424fd6c1fea7fbdac322542037d8c2cb0628",
+   "source_id": "oxford102:image_05706",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05708.jpg",
+   "sha256": "b10429238716705a1872a0d91cf6e16bf4ccd1090581ca6d8a47522ce45d8d3b",
+   "source_id": "oxford102:image_05708",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05710.jpg",
+   "sha256": "674ebf467fc7ef42272281e78f74c03db1c34d4f51685cdaa6fb5976167b98ab",
+   "source_id": "oxford102:image_05710",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05713.jpg",
+   "sha256": "5cdd596219e11339eba26926064ea7e55a669df5a97f9f96f571e0122b2fa976",
+   "source_id": "oxford102:image_05713",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05715.jpg",
+   "sha256": "e95ecfed2a834b8dc6b2a842982cec3d5ef1857ceff7ad6175e5ea14efa0454b",
+   "source_id": "oxford102:image_05715",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05717.jpg",
+   "sha256": "e973c9c1fc179bb1d21ad3c2527defd1c43622112531e7abe2d67333f8a55c53",
+   "source_id": "oxford102:image_05717",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05723.jpg",
+   "sha256": "5337e784d559ffd56a09381bddd88ad05433124b47aa7997cb843badb0f965a1",
+   "source_id": "oxford102:image_05723",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05729.jpg",
+   "sha256": "3c1000268cbb68d5bdf9b57e9123d892684020e0b6b2e5cd8f10c3f288de451a",
+   "source_id": "oxford102:image_05729",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05732.jpg",
+   "sha256": "9097b4641dfbaf4f442d6e91cb83a6ab56ca8416e97259ae99f5da53ee5a5e01",
+   "source_id": "oxford102:image_05732",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05735.jpg",
+   "sha256": "98d3d21ffa71c935787fb02ef1390c8e5c44bb83130ea1f0064866d84f923c92",
+   "source_id": "oxford102:image_05735",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05738.jpg",
+   "sha256": "115403f3d422ccf2875fcbbae541e692e8430111b527305145a1d20c478384c1",
+   "source_id": "oxford102:image_05738",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "daffodil",
+   "label": "Daffodil",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05742.jpg",
+   "sha256": "84563b59165fab1e53e9cddbf3eff9b7b7b36762b10eb38a66a19fa1a17af802",
+   "source_id": "oxford102:image_05742",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05744.jpg",
+   "sha256": "38aea8971c4e40c1d44b8555b937624f1e00351ec9044f521034e75481bf0344",
+   "source_id": "oxford102:image_05744",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05745.jpg",
+   "sha256": "2b10f5ef65b690b2e28e38ca7cf1cb63e1cd9e1583d9c596b012c26340437e18",
+   "source_id": "oxford102:image_05745",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05747.jpg",
+   "sha256": "819edeb7edadb8a1516690d25693ae992ce888db70746d81ab4770e74bfc4e50",
+   "source_id": "oxford102:image_05747",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05748.jpg",
+   "sha256": "9fb7832d8f01edc20a14cfc8014f0b5ccc1357ceabffb22f6290cb5fdac77023",
+   "source_id": "oxford102:image_05748",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05749.jpg",
+   "sha256": "118a448851b67366c2d77df08e6ee3ce31b0aa6f7eb411b204fe2c4085bfd6ec",
+   "source_id": "oxford102:image_05749",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05754.jpg",
+   "sha256": "dcbde606052ff0ed727a7944dc2d4044e02a2cc973f4cc039c94f686b90ad8d8",
+   "source_id": "oxford102:image_05754",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05756.jpg",
+   "sha256": "17b0b657ed77ded569248eb6b9d64fd962768c820b85610c0cfa0eec4af00ebb",
+   "source_id": "oxford102:image_05756",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05758.jpg",
+   "sha256": "98bd6baf0a1b1d0d67a53f9db8b3429a33ac061aec8056bf481f54d22aa041ed",
+   "source_id": "oxford102:image_05758",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05759.jpg",
+   "sha256": "9b1e5e1e564d45437ae91fb25c398d572996f162da3eddccf02b1d8d6a3ad2d8",
+   "source_id": "oxford102:image_05759",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05760.jpg",
+   "sha256": "eb7774e959863b7b8179b83dd7e2a10754d3ba0c1c197ffa6b81a7c33e6bc72a",
+   "source_id": "oxford102:image_05760",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05764.jpg",
+   "sha256": "b6689a50a336199b9a03287b2b25169482a5edb619cacdd9f3dc41176554a42d",
+   "source_id": "oxford102:image_05764",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05765.jpg",
+   "sha256": "444827fa196aaafcd9c4c69cd64bb4d56bb12686fb5f7bacea46fd9f2a958744",
+   "source_id": "oxford102:image_05765",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05766.jpg",
+   "sha256": "263223eb63b25ff0f5a090699ff547c548c21dfd18912a858a7b419dfc483e66",
+   "source_id": "oxford102:image_05766",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05769.jpg",
+   "sha256": "367558d6f9f7bc757ca315dde961a0755702a3c1103a40e22e30fba85c981a53",
+   "source_id": "oxford102:image_05769",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05771.jpg",
+   "sha256": "9ff581c15afeb62439f20df8c74ee9e95696af6ab835a68b95dbd5b23fb7e420",
+   "source_id": "oxford102:image_05771",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05775.jpg",
+   "sha256": "603928e21eda3a028a48088089cd6807f8112c512f98e0694998c4e0c124fa1c",
+   "source_id": "oxford102:image_05775",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05776.jpg",
+   "sha256": "725e0ece7028819c17612184f573cb5dc0870c4912dc28bc5750dcd8c8e42ee7",
+   "source_id": "oxford102:image_05776",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05777.jpg",
+   "sha256": "cbc11b16807b8bc0660875d55a45020b51321b19453cc8decc0d24a888a8e7e5",
+   "source_id": "oxford102:image_05777",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05780.jpg",
+   "sha256": "9683b66b31d8eeba3d688e73e4b7eefc622edad053b28ada2a22478f3dc35c5a",
+   "source_id": "oxford102:image_05780",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "king protea",
+   "label": "King protea",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05782.jpg",
+   "sha256": "842ae230fc52ebdd06431477abd564d1c9e6a2580e9c27428a592adb8e8679e4",
+   "source_id": "oxford102:image_05782",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05903.jpg",
+   "sha256": "450628cab09463bbac25d1e6dfabcca01f470e386769bebb5796df9bf814ce93",
+   "source_id": "oxford102:image_05903",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05904.jpg",
+   "sha256": "b4cc833d4e1beb009ff66d9e53cd5a86fc19262752d419771f04236b6976a679",
+   "source_id": "oxford102:image_05904",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05910.jpg",
+   "sha256": "8a67d8a37dafb34ed21d15d3c1cc2c6dd2b8713b4b4c2509d96e5067787e7fb8",
+   "source_id": "oxford102:image_05910",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05911.jpg",
+   "sha256": "41ee72bab6b739f77b74f118e7f33d41668b063515c8dd9d2671a5922959737a",
+   "source_id": "oxford102:image_05911",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05912.jpg",
+   "sha256": "9736424ab82e78038d58e21009cc57d8ef5c687be020daf94e02123b8d8cf90b",
+   "source_id": "oxford102:image_05912",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05914.jpg",
+   "sha256": "49ac46195153f1a7305d3c10e66f0e89c3bdf64bf6bed4ca699cbac5e9d807e7",
+   "source_id": "oxford102:image_05914",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05915.jpg",
+   "sha256": "3615eb70477ddf55fdabc9fe76a7b41a8387d86bdc592b3897e139861d51099a",
+   "source_id": "oxford102:image_05915",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05919.jpg",
+   "sha256": "1b64a2f7ac32ee1ffae8f4561a91a86eb6360e787cfabf9345d0dedbe4e67d62",
+   "source_id": "oxford102:image_05919",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05923.jpg",
+   "sha256": "e78d36f80415dc53a8e29dd32448faeee83a25b8e553c7b450206f21540a1639",
+   "source_id": "oxford102:image_05923",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05924.jpg",
+   "sha256": "c7b587c374c575b3baa5a95e2cec614d6890f19481d215f1cae54b0ba64746c3",
+   "source_id": "oxford102:image_05924",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05927.jpg",
+   "sha256": "3e43fba6d613aa8dd8088404aacad2f9654d7d7f48f299b20b1cfc46ad049982",
+   "source_id": "oxford102:image_05927",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05930.jpg",
+   "sha256": "47899dba2ca35f19d47d3c28e01d284427e4bcc8a91ba1e31bb2a2ee33c639cd",
+   "source_id": "oxford102:image_05930",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05932.jpg",
+   "sha256": "1db68e34eff03649bbd7adde9e7dae7d4666977e5e57e430c79173b403054477",
+   "source_id": "oxford102:image_05932",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05935.jpg",
+   "sha256": "528dc715c10b517d37a7044c734f9e452f437538a799809f3220f8585482c4f9",
+   "source_id": "oxford102:image_05935",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05938.jpg",
+   "sha256": "cea43869e6265ae843d1fcdc89bf812485a5e8dcc1ebb01943a4ae077c4ff90e",
+   "source_id": "oxford102:image_05938",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05943.jpg",
+   "sha256": "707b3b653b90287116c4291d49457e632e5cfc3c9ccdaaf759e87c0522fa1bba",
+   "source_id": "oxford102:image_05943",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05946.jpg",
+   "sha256": "b1ee223aeaa2191d108ed6edd97ec733b24f5c39f3d3cf75bde2039c571bbf20",
+   "source_id": "oxford102:image_05946",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05949.jpg",
+   "sha256": "cc3a31e053bf791c4a847a1e74da0472427dcfd0dfd186c80cc04c5a9b02969c",
+   "source_id": "oxford102:image_05949",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05952.jpg",
+   "sha256": "484059ecee049daba0d64fe6106523c723e766a217af5ddbfb3438d0e56892aa",
+   "source_id": "oxford102:image_05952",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "bearded iris",
+   "label": "Bearded iris",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_05953.jpg",
+   "sha256": "fc58fae5156bd5a5458c931e09a61a04b908ef0d3f7bf0a32e3a8626a3828b30",
+   "source_id": "oxford102:image_05953",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06198.jpg",
+   "sha256": "795598957708dc950153ea34eeb10442f0ac8f4a08a5cc640e7a77bac05cb86a",
+   "source_id": "oxford102:image_06198",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06199.jpg",
+   "sha256": "fbebe31dac67a258f00931183770ab84c49a56ce2a888e8b891d264910034009",
+   "source_id": "oxford102:image_06199",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06202.jpg",
+   "sha256": "43f517928ad73137c48c10fc91aadc36aed6eaca1de64253faea8348e89e3ffe",
+   "source_id": "oxford102:image_06202",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06203.jpg",
+   "sha256": "f5ea45ec5686a0e8255f6022c4d5cfeab8789928e4eb4572037e734bb8015be6",
+   "source_id": "oxford102:image_06203",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06208.jpg",
+   "sha256": "3b52f14c5127cb719a4ddfa6e8595ef4ac704232fb297e2cd52a014120257142",
+   "source_id": "oxford102:image_06208",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06210.jpg",
+   "sha256": "7144ebaca4f6567eb77646fa1b247db9f8b8aff544270cc0ae7f90c91f41fdbb",
+   "source_id": "oxford102:image_06210",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06216.jpg",
+   "sha256": "da5b3916779ae3d11e21b10ae8f96dfba39be6e51e93f4aaa8d43a9ebf430ca4",
+   "source_id": "oxford102:image_06216",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06220.jpg",
+   "sha256": "531759f899257eed93ce1cd20947ff04d59e9d294ff093d9de72ec5f6bac2e64",
+   "source_id": "oxford102:image_06220",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06221.jpg",
+   "sha256": "66ae82da5d3441e3652d08d8445339afebc92aa71321656dab57c45df12e17a6",
+   "source_id": "oxford102:image_06221",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06222.jpg",
+   "sha256": "18705439525bceea20dbe2646b280ddb66a6da9d7b1d9d8ed7af0020d578a807",
+   "source_id": "oxford102:image_06222",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06227.jpg",
+   "sha256": "f3f058023586b0bc559bd2f256d136d29965cad4d77bd33a60e4613b5386e090",
+   "source_id": "oxford102:image_06227",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06228.jpg",
+   "sha256": "434b39387b8d66e163a232a6cc29355c8d2ee34ae53cc10a6a2504a3a739c894",
+   "source_id": "oxford102:image_06228",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06230.jpg",
+   "sha256": "89130787954eb8ea56a2c2e20db18ce2f361f4966b6229aef285f01e74bbba9b",
+   "source_id": "oxford102:image_06230",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06231.jpg",
+   "sha256": "5a3ca02cdfdd8493a2f8c57ce8d997765700ad1a6f9399a6e7c60d85917e0181",
+   "source_id": "oxford102:image_06231",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06234.jpg",
+   "sha256": "abe0762e813922fd2f043bc3ca51a7fcb1f461d50254d06396fee8b1cd4becd2",
+   "source_id": "oxford102:image_06234",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06235.jpg",
+   "sha256": "362df0561ad066a02e4eef199f865e0dfb2db0f336bbd2f097e92ec084190a96",
+   "source_id": "oxford102:image_06235",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06236.jpg",
+   "sha256": "4675c3fae3c036f8ccb6aec04ea2fb8964928e5fc9246782d5bfe503a6ecc614",
+   "source_id": "oxford102:image_06236",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06238.jpg",
+   "sha256": "72b0727e1bdb380d5d444bd2bf4d66d675b0da0fdc01e0dee164eabf73227ed1",
+   "source_id": "oxford102:image_06238",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06240.jpg",
+   "sha256": "66e060f730eaed9feb04190c88b38610b3960f74aeaebd445fdfd57fdc701b03",
+   "source_id": "oxford102:image_06240",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "oxeye daisy",
+   "label": "Oxeye daisy",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06244.jpg",
+   "sha256": "a9e06d3fd59aa886758fd8c5d69175795216638dbfcbf4cabfc0a60280a4308c",
+   "source_id": "oxford102:image_06244",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06895.jpg",
+   "sha256": "26c0e86657f323b6af28fadeabcb4cb6a738fac5e7b18a37481e9a8809527afc",
+   "source_id": "oxford102:image_06895",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06898.jpg",
+   "sha256": "d27e1003db9c4d22efd7ac586feb4f42ab4635eaddb48505a39c46eab7e0e0ed",
+   "source_id": "oxford102:image_06898",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06900.jpg",
+   "sha256": "0ab601e67bbe6c4c218595d42726353403a913e82995eacc86adb2ce21fd2b2b",
+   "source_id": "oxford102:image_06900",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06901.jpg",
+   "sha256": "7b04be80500486a5fdc6770498354e0a8daaea7eb081d121c6df3cb075b24e53",
+   "source_id": "oxford102:image_06901",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06905.jpg",
+   "sha256": "a7ce4eaf48f9298b62f5c9892c18e766c7f128a58a84ae1b7bc59509a35faa81",
+   "source_id": "oxford102:image_06905",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06914.jpg",
+   "sha256": "81cb568777c00a4527ce196dcf6be9cfae0b0056f23de912b778368d46bd0e86",
+   "source_id": "oxford102:image_06914",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06915.jpg",
+   "sha256": "a54a51958b91ceff8433f66a8112bd08cf22ec3019c13bb60edc773b1b33b101",
+   "source_id": "oxford102:image_06915",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06916.jpg",
+   "sha256": "c42e9993620856418506985fe71e28ec73b07deb4d844de0d3f1a786ba686ae5",
+   "source_id": "oxford102:image_06916",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06920.jpg",
+   "sha256": "a073bd55f51d54b3e3c344d8e534099e2e42ce3c7e7cea98a0e5d398b07a5764",
+   "source_id": "oxford102:image_06920",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06921.jpg",
+   "sha256": "ccd5027855337aa8ed5b289ae0a1b2044f25c6b3a0a72ad0f79ef1109986e950",
+   "source_id": "oxford102:image_06921",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06923.jpg",
+   "sha256": "daade973428a360e4957b7d3a66c6873c0f6dddcd6028cf6bc532f3931f8ffc2",
+   "source_id": "oxford102:image_06923",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06924.jpg",
+   "sha256": "45072eedbaccebe58824157eaf776984918ef30e58c316eba8e6e4aabfa2898f",
+   "source_id": "oxford102:image_06924",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06925.jpg",
+   "sha256": "48a09ec19cd3279d0818fe5cbcc19a4ffa121b5dc6e2ec628c37c0baae2432d5",
+   "source_id": "oxford102:image_06925",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06926.jpg",
+   "sha256": "6ad1f9ccfdf1088726f2e3ba48d01594e77ea07f605728b2af92fb5f91684356",
+   "source_id": "oxford102:image_06926",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_06927.jpg",
+   "sha256": "7e5380ecbe5ccff8c8cca5da9aa46f9b77aad8005413b19cbb41f81a11a7c0ad",
+   "source_id": "oxford102:image_06927",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07200.jpg",
+   "sha256": "6ba9292d67e8946bf7e0c5f77dfd682d385cc9b2ebe05d028831d1e479fa1f99",
+   "source_id": "oxford102:image_07200",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07201.jpg",
+   "sha256": "064cdcbe725bb3f48cb793d5b7e5f3f9bf4d384ba797f85a1926e7c94fa79430",
+   "source_id": "oxford102:image_07201",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07202.jpg",
+   "sha256": "ec47c7706cfc3b14a7565e015fd4021dd2f6bb488103b75fdaefc3d0cd4d88fa",
+   "source_id": "oxford102:image_07202",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07204.jpg",
+   "sha256": "f4709d9a8f3fab9c8813a78e025f15b4f6c62f621d818da699005e3992cf80a6",
+   "source_id": "oxford102:image_07204",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07205.jpg",
+   "sha256": "5be83d2699dbaa7107073336fd57bd4f1d6802f3facf24f13b5f0f3f92a7d1ff",
+   "source_id": "oxford102:image_07205",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07206.jpg",
+   "sha256": "b19e6683b4b937ac59ac2025ad945599fd4df7c144dd6a8fe9d9886a2f28ae9c",
+   "source_id": "oxford102:image_07206",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07207.jpg",
+   "sha256": "a079b99b0c07d4e0d2f86bea623ca7a3781bab373c33f6cf213f301ca26961d3",
+   "source_id": "oxford102:image_07207",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07208.jpg",
+   "sha256": "402c9cc2b311220bb07fd90f4ebd463fe98d5cdaab0b0c40ed6d4ae78b697d7c",
+   "source_id": "oxford102:image_07208",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07209.jpg",
+   "sha256": "2ec5608378422c7a6b1b086218abc6d65757a1e935f7315194d2623b295a77ea",
+   "source_id": "oxford102:image_07209",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07211.jpg",
+   "sha256": "64ecdfa42c30d1e3ad1b9c5b5e1650999cf738fe4c0d89e9cdb86cdf9917b34e",
+   "source_id": "oxford102:image_07211",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07216.jpg",
+   "sha256": "19590d8640b0cc2ef95d294ea186bb7ba10b753662f3e9edc70ac1f8cec78014",
+   "source_id": "oxford102:image_07216",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07217.jpg",
+   "sha256": "5eeb1adf643485e19fb6628cba36a7290c2bf1d5264d6b29882cf2facbe97360",
+   "source_id": "oxford102:image_07217",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07220.jpg",
+   "sha256": "b9cc325d9125df57ad6500f4f8dec209d324d0617e88a7060b62dc8a2bcb3153",
+   "source_id": "oxford102:image_07220",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07222.jpg",
+   "sha256": "1516a58604992485fc8a0f5e39d19bf1535014a81fed59283c786a9118db1e6a",
+   "source_id": "oxford102:image_07222",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07223.jpg",
+   "sha256": "4ca1f17d4efcdc36416a38caafd2337481559438777727fd9ffbf6d4188f6025",
+   "source_id": "oxford102:image_07223",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07227.jpg",
+   "sha256": "1b72882ad62d5fe20331d6f2a5503ab5fa132859bd8a06cfaaadf75617a1b022",
+   "source_id": "oxford102:image_07227",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_07232.jpg",
+   "sha256": "90b386795d1cc91e63364d60eb8cb95a82a677575dc318a3fc5333a123bf7768",
+   "source_id": "oxford102:image_07232",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_08054.jpg",
+   "sha256": "22d386b9696fab8edb205bf3f1f93743065b1b7042598871bf46631725462880",
+   "source_id": "oxford102:image_08054",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "hippeastrum",
+   "label": "Amaryllis",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_08055.jpg",
+   "sha256": "7646e5ccc2843c9ac3affeb164d6c2249be739536ea131aa2518d74f315ec853",
+   "source_id": "oxford102:image_08055",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_08066.jpg",
+   "sha256": "99cddb980e708cc366ae58d49faa7f547f2220ebdd2df8cd785e9d5864461112",
+   "source_id": "oxford102:image_08066",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_08068.jpg",
+   "sha256": "c2cc11d48e7a2f093cb1293f10d64f885f9afbc421d7c206dae85d2236f3a174",
+   "source_id": "oxford102:image_08068",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_08070.jpg",
+   "sha256": "97512981770b8f3a5a6be20f0c9f9c69f2183d7212003f8b3d3fdfc7fc8faf16",
+   "source_id": "oxford102:image_08070",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_08071.jpg",
+   "sha256": "719d56eb0b27151569cd46610b5567a41c72488c29c8b2917cb8abd0488cb728",
+   "source_id": "oxford102:image_08071",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "carnation",
+   "label": "Carnation",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_08073.jpg",
+   "sha256": "44626ff69758493f4daad8f663556520420247946b62f2ae0a5e1ce63da28b3e",
+   "source_id": "oxford102:image_08073",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_08099.jpg",
+   "sha256": "3138fc729692907e31b7bf7f6004972ed84c5f13b50f59fe593896dc1dff4587",
+   "source_id": "oxford102:image_08099",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_08100.jpg",
+   "sha256": "e2927b6f57504b21b4369d533a825ac7849e7c8d6ad76c840a350205243cdce1",
+   "source_id": "oxford102:image_08100",
+   "split": "dev_legacy"
+  },
+  {
+   "group": "moon orchid",
+   "label": "Moth orchid",
+   "oxford_split": "test",
+   "path": "flowers-102/jpg/image_08102.jpg",
+   "sha256": "3c8a03e622321cbd03fa793ee9290cb06e2f4ad7019c8db864fef3a75c9dc940",
+   "source_id": "oxford102:image_08102",
+   "split": "dev_legacy"
+  }
+ ],
+ "family": "id",
+ "note": "the 360 images that shaped the current thresholds: development data",
+ "protocol": "v1",
+ "salt": "bloomlens-eval-v1"
+}

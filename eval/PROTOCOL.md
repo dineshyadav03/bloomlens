@@ -36,7 +36,7 @@ data, never a final test. They keep their existing role in CI (the 80 % retrieva
 ### 2.2 In-distribution pool (`id`)
 
 The 20 Oxford 102 categories that map confidently onto 18 covered species (`eval/species_mapping.py`) —
-**all Oxford images of those categories not among the legacy 360**: 1 182 images. *Deviation from the plan,
+**all Oxford images of those categories not among the legacy 360**: 1 181 images after de-duplication (§2.6). *Deviation from the plan,
 stated up front:* the plan said "Oxford test split"; that split leaves too few images per species (Moth orchid
 would have none), so the pool also uses Oxford's train/val images. This is sound here because BloomLens
 trains nothing on images — the index is built from *text* — so Oxford's own partition carries no meaning for
@@ -56,7 +56,7 @@ removed from *both* sides — they are neither ID nor near-OOD:
 coronaria*), `grape hyacinth` (*Muscari*, not *Hyacinthus*), `siam tulip` (*Curcuma*, not *Tulipa*),
 `bishop of llandaff` (a *Dahlia* cultivar, and Dahlia is a covered species).
 
-That leaves **77 categories** (6 331 images). **Near-OOD is split by category, not by image**: whole
+That leaves **77 categories** (6 331 files before de-duplication). **Near-OOD is split by category, not by image**: whole
 categories go to dev, test or pilot, so the thresholds are tuned on some unseen categories and tested on
 *other* unseen categories — that is what "open world" means. Categories are capped at 20 images (the 20 with
 the smallest hash), so no category dominates.
@@ -66,7 +66,7 @@ the smallest hash), so no category dominates.
 A **different-source** set with no flowers: Caltech-101 (137 MB, CC BY 4.0, Li Fei-Fei et al.), minus
 `sunflower`, `water_lilly`, `lotus` (flowers), `Faces`, `Faces_easy` (people — no faces are sent to a third-party
 API) and `BACKGROUND_Google` (unlabeled clutter that can contain anything). Split by category like near-OOD,
-capped at 20 images per category. Caltech-101 images are not redistributed by this repository.
+capped at 20 images per category: **96 categories** remain. Caltech-101 images are not redistributed by this repository.
 
 Far-OOD is *easier* than near-OOD by construction and is reported separately; a good far-OOD number must never
 be presented as open-world robustness.
@@ -88,9 +88,16 @@ these are reported as accuracy / abstention per corruption, never as an OOD AURO
   40 % → `test`, the last 20 % → `pilot` (dev = round(0.4 n), pilot = round(0.2 n), test = the rest).
 - **near-OOD / far-OOD** — categories sorted by bucket with the same 40/40/20 rule; then ≤ 20 images per
   category.
+- **Content de-duplication (added after the leakage test found a real leak):** two Oxford carnation files
+  (`image_08067`, `image_08077`) are the same photo, and the split rule had put them in `dev` and `test`. Images are
+  now collapsed by SHA-256 content: byte-identical copies keep only the smallest source id; content filed under two
+  different categories is dropped; content that repeats a legacy image, or that occurs in both Oxford and
+  Caltech, is dropped. Perceptual near-duplicates (the same plant from a slightly different angle) are **not**
+  detected — see the non-independence caveat in §2.7.
 - **Leakage rules, enforced by tests on the committed manifests:** every source id has exactly one split;
-  no OOD category appears in two splits; no image is in both the legacy 360 and a new split; every variant's
-  source is in the same split as its variants; rebuilding gives byte-identical manifests.
+  no image content is repeated within a family or shared across families or with the legacy 360; no OOD category
+  appears in two splits; every variant's source is in the same split as its variants; rebuilding gives
+  byte-identical manifests.
 
 ### 2.7 Caveats that are part of the protocol
 
@@ -102,6 +109,12 @@ these are reported as accuracy / abstention per corruption, never as an OOD AURO
   still probably optimistic.
 - **Domain.** Oxford is garden and wild flowers photographed for a UK dataset — not auction lots, not cut
   stems in buckets. Nothing here generalises to that domain.
+
+### 2.8 Realized sizes (counts only; no model has been run)
+
+From `eval/manifest/SUMMARY.md`: **ID** 1 181 images (dev 472 / test 475 / pilot 234, every species in every split);
+**near-OOD** 77 categories, 1 540 images (620 / 620 / 300); **far-OOD** 96 categories, 1 920 images (760 / 780 / 380);
+**corrupted-in-set** 18 species × 5 sources × 8 variants in each of dev and test = 720 + 720; **legacy** 360.
 
 ## 3. Scores
 
@@ -180,3 +193,6 @@ number and will say so.
 3. `bishop of llandaff` is also excluded from near-OOD (a *Dahlia* cultivar) beyond the four gray-zone classes
    named in the plan.
 4. Far-OOD is Caltech-101 (§2.4), chosen after checking size and licence for this machine's slow link.
+5. Content de-duplication (§2.6) was added during construction, after the leakage test caught a byte-identical
+   pair split across dev and test. It changes the ID pool from 1 182 to 1 181 images. No model result existed
+   when this was decided.
