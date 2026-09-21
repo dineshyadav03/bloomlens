@@ -184,7 +184,8 @@ class TestScanContext:
         (row,) = rows()
         assert 25 <= row["embed_ms"] < 2000 and 55 <= row["agent_ms"] < 3000
         assert row["search_ms"] is None and row["attempts"] == 2
-        assert row["total_ms"] >= row["embed_ms"] + row["agent_ms"]
+        # each figure is rounded to a whole ms on its own, so allow one ms of slack per stage
+        assert row["total_ms"] + 2 >= row["embed_ms"] + row["agent_ms"]
 
     def test_a_scan_that_fails_before_the_agent_has_no_attempts(self):
         with pytest.raises(RuntimeError), telemetry.scan("single", 1, cold_start=False):
