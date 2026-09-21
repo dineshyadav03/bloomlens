@@ -19,21 +19,20 @@ here opens and closes its own short-lived connection rather than sharing
 one across calls/threads, since sqlite3 connections aren't safe to share
 across threads without extra care and the write frequency here is low
 enough that per-call connection overhead doesn't matter.
+
+The connection, WAL/schema initialisation (and its cold-start retry) and the
+transaction helper live in src/db.py, shared with the rate/quota counters.
 """
 
-import os
 import sqlite3
-import time
 from contextlib import closing
 from datetime import UTC, datetime
-from pathlib import Path
 from typing import Literal
 
 from pydantic import BaseModel
 
+from src import db
 from src.identify import IdentifyResult, LotResult
-
-DEFAULT_DB_PATH = str(Path(__file__).resolve().parent.parent / "data" / "inventory.db")
 
 
 class InventoryEntry(BaseModel):
@@ -50,67 +49,6 @@ class InventoryEntry(BaseModel):
     agreement_fraction: float | None
 
 
-def _db_path() -> str:
-    return os.environ.get("INVENTORY_DB_PATH", DEFAULT_DB_PATH)
-
-
-# Wait up to 30 s for a lock instead of sqlite3's 5 s default.
-_BUSY_TIMEOUT_SECONDS = 30
-
-_SCHEMA = """
-CREATE TABLE IF NOT EXISTS scans (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    scanned_at TEXT NOT NULL,
-    mode TEXT NOT NULL CHECK (mode IN ('single', 'lot')),
-    species TEXT NOT NULL,
-    scientific_name TEXT,
-    confidence_tier TEXT,
-    quality_grade TEXT NOT NULL,
-    price_per_stem REAL,
-    price_trend TEXT NOT NULL,
-    photo_count INTEGER NOT NULL DEFAULT 1,
-    agreement_fraction REAL
-)
-"""
-
-_INIT_ATTEMPTS = 8
-
-
-def _initialize(conn: sqlite3.Connection) -> None:
-    """Switch to WAL and make sure the table exists.
-
-    On a brand-new file, several connections doing this at once (threads, or the
-    `web` and `api` processes on their first write) race: converting to WAL needs
-    exclusive access, and in that situation SQLite reports "database is locked"
-    immediately, skipping the busy timeout (waiting could deadlock). Found by a
-    concurrency test that lost rows only on a fresh database; retrying just this
-    step with a short backoff fixes it. Once the file is in WAL mode with the
-    table present, nothing here can conflict."""
-    delay = 0.05
-    for attempt in range(_INIT_ATTEMPTS):
-        try:
-            conn.execute("PRAGMA journal_mode=WAL")
-            conn.execute(_SCHEMA)
-            return
-        except sqlite3.OperationalError as exc:
-            if "locked" not in str(exc).lower() or attempt == _INIT_ATTEMPTS - 1:
-                raise
-            time.sleep(delay)
-            delay = min(delay * 2, 1.0)
-
-
-def _connect() -> sqlite3.Connection:
-    path = Path(_db_path())
-    path.parent.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(path, timeout=_BUSY_TIMEOUT_SECONDS)
-    try:
-        _initialize(conn)
-    except BaseException:
-        conn.close()
-        raise
-    return conn
-
-
 def _insert(
     *,
     mode: Literal["single", "lot"],
@@ -124,7 +62,7 @@ def _insert(
     agreement_fraction: float | None,
 ) -> None:
     try:
-        with closing(_connect()) as conn, conn:  # closing() closes it; `conn` commits/rolls back
+        with closing(db.connect()) as conn, db.transaction(conn):
             conn.execute(
                 """
                 INSERT INTO scans (
@@ -178,13 +116,13 @@ def log_lot_scan(result: LotResult) -> None:
 
 
 def list_recent(limit: int = 100) -> list[InventoryEntry]:
-    with closing(_connect()) as conn:
+    with closing(db.connect()) as conn:
         conn.row_factory = sqlite3.Row
         rows = conn.execute("SELECT * FROM scans ORDER BY id DESC LIMIT ?", (limit,)).fetchall()
     return [InventoryEntry(**dict(row)) for row in rows]
 
 
 def species_counts() -> dict[str, int]:
-    with closing(_connect()) as conn:
+    with closing(db.connect()) as conn:
         rows = conn.execute("SELECT species, COUNT(*) FROM scans GROUP BY species ORDER BY COUNT(*) DESC").fetchall()
     return dict(rows)
