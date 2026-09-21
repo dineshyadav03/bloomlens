@@ -55,6 +55,7 @@ and anything that needs a multi-tenant boundary or more than one host.
 | Identity is an API-key **label** (`api:<label>`) or a random session id (`ui:<16 hex>`) — never an address, never a secret | same | `TestIdentityIsALabelNotASecretOrAnAddress`, `test_app_ui.py` |
 | 429 carries `Retry-After` computed to the next UTC minute/midnight; waiting exactly that long gets in | `src/quota.py` | `TestMinuteWindow`, `TestDayWindowAndUtcRollover` |
 | Per-process concurrency gate (default 2 runs at once; a busy service answers 503 + `Retry-After`, costing no quota); a crashed run still frees its slot | `src/quota.py` | `TestConcurrencyGate` (unit and API) |
+| `GET /metrics` is behind the API key and returns aggregates only — never a row, a timestamp or an identifier; the telemetry table has a closed column set that cannot hold an image, prompt, answer, exception text, address, key or caller identity | `src/telemetry.py`, `api/main.py` | `test_telemetry_privacy.py` (canaries through every path, raw file scanned), `test_metrics_report.py`, `test_telemetry.py::TestTheSchemaIsClosed` |
 | A widget click in Streamlit re-runs the whole script; the result is cached per photo so it does not re-bill the model, burn quota or write a duplicate inventory row | `app.py` | `test_a_widget_rerun_does_not_rescan_rebill_or_duplicate_the_log_row` |
 | Streamlit's own fence: `maxUploadSize`, XSRF on, CORS on, usage stats off, no error details in the browser | `.streamlit/config.toml` | asserted with `streamlit config show` |
 | Containers run as a non-root user, ports bound to `127.0.0.1`, `no-new-privileges`, all capabilities dropped | `Dockerfile`, `docker-compose.yml` | `docker inspect` (recorded in the PR) |
@@ -78,6 +79,8 @@ mutation (FastAPI serves `/docs` only if the OpenAPI URL is set too).
 | `BLOOMLENS_QUOTA_PER_DAY` | requests per caller per UTC day | 100 |
 | `BLOOMLENS_GLOBAL_QUOTA_PER_DAY` | requests per UTC day across **all** callers — the real budget guard | 500 |
 | `BLOOMLENS_MAX_CONCURRENT` | simultaneous pipeline runs **per process** | 2 |
+| `BLOOMLENS_METRICS_RETENTION_DAYS` | how long scan telemetry is kept | 30 |
+| `BLOOMLENS_INVENTORY_RETENTION_DAYS` | how long the inventory log is kept | 365 |
 
 Invalid limit values (0, negative, non-integer) fall back to the default with a warning; they never mean "unlimited".
 The defaults are conservative guesses, **not** derived from your Gemini key's actual limits — check those (AI Studio →

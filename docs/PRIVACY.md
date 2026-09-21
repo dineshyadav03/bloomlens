@@ -50,11 +50,40 @@ Per scan, one request to the Gemini API carries:
   agreement. No image, no free text from the model, no user identifier.
 - **Logs** record *that* an upload was rejected and a short reason code, never the file,
   its name or its contents.
-- Planned (milestone M14, **not built yet**): request telemetry with a closed schema.
-  The rule it will be built to is fixed now: it may store timings, counts, versions and a
-  failure category, and it must **never** store images, prompts, IP addresses, API keys,
-  raw provider error messages or model responses. Retention (default 30 days) and a purge
-  job come with it.
+- **Scan telemetry** (`scan_metrics`, milestone M14), in a **closed** set of columns: a UTC timestamp,
+  single/lot, photo count, ok/error, a failure **category** (an enum: `rate_limit`, `server_5xx`, `timeout`,
+  `parse_error`, `auth`, `empty_index`, `other` — never text), stage timings, agent attempts, model turns,
+  tool-call count, summed token counts, the versions in play (BioCLIP revision, the Gemini model requested and
+  the name the provider echoed), the price version and an *estimated* cost, and a coarse hardware string
+  (e.g. "Windows AMD64, 8 CPUs"). It **never** holds images, prompts, model answers or tool arguments,
+  exception messages (provider or otherwise), IP addresses, API keys, or who asked (no key label, no session
+  id, no file name). No column exists that could. `tests/unit/test_telemetry_privacy.py` writes canary strings
+  through every path that could carry one — model output, tool arguments, provider metadata, prompt text, six
+  kinds of exception, request headers, the client address and the API key — then reads the raw database file
+  and requires that none appears and that every stored value matches a strict pattern.
+  Token, turn and tool columns are nullable: they exist only when the provider reports them
+  ([telemetry_probe.md](telemetry_probe.md) records what a real run returned).
+- Telemetry is exposed **only as aggregates** — counts, failure rates, p50/p95, means — by `GET /metrics`
+  (API key required), `scripts/report_metrics.py` and a Performance expander in the UI. No row, timestamp or
+  identifier is ever returned. Percentiles are withheld below 20 scans, and there is no p99.
+- **Cost** is an *estimated list-price equivalent; actual billed cost unknown*: tokens × the published price
+  (`src/llm_cost.py`, append-only, each price with its source and the date it was read). Each scan keeps the
+  price version it ran under; old runs are never re-priced with today's prices. On the free tier the real bill
+  is zero — the estimate is what the same usage would cost at list price, not a claim about your account.
+
+### Retention
+
+| Data | Kept | Setting |
+|---|---|---|
+| Scan telemetry | 30 days | `BLOOMLENS_METRICS_RETENTION_DAYS` |
+| Inventory log | 365 days | `BLOOMLENS_INVENTORY_RETENTION_DAYS` |
+| Daily quota counters | 48 hours | fixed |
+| Per-minute rate windows | 1 hour | fixed |
+| Photos, prompts, model answers | never stored | — |
+
+Purging runs opportunistically (at most hourly per process, when a scan is recorded) and on demand:
+`uv run python scripts/purge_data.py`. An invalid setting falls back to the default; it never means "keep
+forever". The immutable price history is kept (it holds no personal data).
 
 ## What Google does with it: assumptions, tier-dependent
 
