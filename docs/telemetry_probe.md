@@ -32,3 +32,34 @@ tool results.
   column stays nullable, and aggregates report how many rows actually had a value.
 - It does not validate cost: a token count times a list price is an estimate (see the pricing table
   and the "estimated list-price equivalent" wording), never a bill.
+
+## First aggregate from real scans (2026-09-21)
+
+`scripts/sample_scans.py --count 24` ran 24 genuine scans (BioCLIP 2 on this machine + the Gemini agent)
+on committed Oxford 102 Flowers photos, one per species round-robin, into a scratch database, then
+`scripts/report_metrics.py` printed the aggregate. **All 24 succeeded; no retries were needed.** This is a
+first measurement on one machine, one network and one day, not a benchmark.
+
+| | value |
+|---|---|
+| Machine | Windows, AMD64, 22 logical CPUs (CPU-only inference) |
+| Scans | 24 (1 cold, 23 warm), 0 failed |
+| Cold scan (first of the process, loads the model) | 28.8 s (n = 1: no percentile) |
+| Warm scan, end to end | **p50 15.1 s, p95 66.5 s** (n = 23) |
+| — BioCLIP 2 embedding | p50 0.57 s, p95 0.62 s |
+| — Qdrant search (local mode) | p50 ≈ 1 ms |
+| — Gemini agent (4 turns, 3 tool calls) | p50 14.5 s, p95 66.0 s |
+| Retries per scan | 0.0 |
+| Tokens per scan (mean) | 7 522 in, 227 out (24 of 24 scans reported counts) |
+| Estimated list-price equivalent | $0.053 in total, about $0.0022 per scan (**estimated list-price equivalent; actual billed cost unknown** — this was the free tier) |
+
+What it says, and doesn't:
+
+- Local work is small and steady (embedding + search well under a second). **Nearly all latency is the Gemini
+  agent**, and it has a heavy tail: the fastest scans took 7 s, five took 27–73 s, all with a single attempt.
+  With n = 23 the p95 rests on the two or three slowest scans, so treat 66 s as "occasionally over a minute",
+  not as a precise number.
+- The four sequential model turns (each waiting on the previous tool result) are why a scan takes seconds,
+  not milliseconds. "Instantly" would not be an honest description of the full pipeline.
+- Nothing here measures a first-time Docker start, a Hugging Face Space cold start (no Space exists yet), or
+  another machine. Those are stated as not measured wherever they appear.
