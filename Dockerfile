@@ -28,7 +28,14 @@ COPY pyproject.toml uv.lock .python-version ./
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev
 
-COPY . .
+# Run as an unprivileged user (uid 1000, the same one Dockerfile.hf uses). The venv above
+# stays root-owned and read-only to it. The two directories below are created *here*, owned
+# by that user, so that the named volumes docker-compose mounts on them are initialised
+# with the right owner (a fresh volume copies its mount point's ownership from the image).
+RUN useradd -m -u 1000 user     && mkdir -p /app/inventory_data /home/user/.cache/huggingface     && chown user:user /app /app/inventory_data /home/user/.cache /home/user/.cache/huggingface
+COPY --chown=user:user . .
+USER user
+ENV HOME=/home/user
 
 # BioCLIP 2 weights (a real download, a few hundred MB) are fetched at first
 # run, not baked in here at build time. This machine's network made a
