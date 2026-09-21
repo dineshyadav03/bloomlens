@@ -3,12 +3,20 @@
 Uploads go through src/guard.py (the same validator the API uses), and every piece
 of text a language model wrote is shown with st.text -- literally, never as markdown
 or HTML -- so nothing an attacker writes inside a photo can format or link anything.
+
+Each scan spends one unit of the browser session's rate/daily quota (and of the global
+daily ceiling) from the SQLite file this app shares with the API -- see src/quota.py.
+A scan is only run again when the *photo* changes: a widget interaction re-runs this whole
+script, and that must not re-bill the model, burn quota or write a duplicate log row.
 """
 
+import hashlib
 import logging
+import secrets
+from contextlib import contextmanager
 
 import streamlit as st
-from src import guard
+from src import guard, quota
 from src.identify import (
     LOT_LOW_AGREEMENT_THRESHOLD,
     LOT_MAX_PHOTOS,
@@ -46,6 +54,28 @@ st.info(
     icon="🔒",
 )
 
+
+@contextmanager
+def _admitted():
+    """Hold a concurrency slot and spend one unit of this session's quota for the block.
+    On any refusal say why in plain words and stop the script; if the counters can't be
+    reached, refuse (fail closed) rather than run unmetered."""
+    try:
+        with quota.gate().slot():
+            try:
+                decision = quota.admit(f"ui:{st.session_state.setdefault('session_id', secrets.token_hex(8))}")
+            except quota.QuotaUnavailable:
+                st.error("Scanning is unavailable right now (the rate limiter can't be reached). Try again soon.")
+                st.stop()
+            if not decision.allowed:
+                st.warning(f"⏳ {decision.message}")
+                st.stop()
+            yield
+    except quota.Busy:
+        st.warning("⏳ The service is busy with other scans. Please try again in a few seconds.")
+        st.stop()
+
+
 def _load_photo(file):
     """A validated, metadata-free RGB image from an upload/camera file, or None after
     telling the user why not (fixed wording from src/guard.py -- no filenames, no internals)."""
@@ -75,18 +105,25 @@ with tab_single:
     if image is not None:
         st.image(image, caption="Scanned flower", width=300)
 
-        with st.spinner("Identifying species, checking quality, looking up price..."):
-            try:
-                result = identify(image)
-            except IdentifyError as exc:
-                st.error(str(exc))
-                st.stop()
-            except Exception:  # noqa: BLE001 — never show exception text; log it for the operator
-                logger.exception("unexpected error while identifying a photo")
-                st.error(_UNEXPECTED_ERROR)
-                st.stop()
+        digest = hashlib.sha256(image.tobytes() + repr(image.size).encode()).hexdigest()
+        cached = st.session_state.get("single_scan")
+        if cached is not None and cached[0] == digest:
+            result = cached[1]  # a rerun caused by a widget, not a new photo
+        else:
+            with st.spinner("Identifying species, checking quality, looking up price..."):
+                try:
+                    with _admitted():
+                        result = identify(image)
+                except IdentifyError as exc:
+                    st.error(str(exc))
+                    st.stop()
+                except Exception:  # noqa: BLE001 — never show exception text; log it for the operator
+                    logger.exception("unexpected error while identifying a photo")
+                    st.error(_UNEXPECTED_ERROR)
+                    st.stop()
 
-        log_scan(result)
+            log_scan(result)
+            st.session_state["single_scan"] = (digest, result)
 
         display_species = result.species
         display_scientific = result.scientific_name
@@ -219,7 +256,8 @@ with tab_lot:
         if st.button("🔍 Identify Lot", type="primary"):
             with st.spinner(f"Identifying {len(st.session_state.lot_photos)} photos as one lot..."):
                 try:
-                    lot_result = identify_lot(st.session_state.lot_photos)
+                    with _admitted():
+                        lot_result = identify_lot(st.session_state.lot_photos)
                 except IdentifyError as exc:
                     st.error(str(exc))
                     st.stop()

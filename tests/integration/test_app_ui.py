@@ -237,3 +237,134 @@ def test_the_privacy_notice_says_where_photos_go():
     at = new_app().run()
     notice = text_of(at.info)
     assert "Gemini" in notice and "free tier" in notice and "docs/PRIVACY.md" in notice
+
+
+# --- rate limits, quotas, and not re-running a scan on every widget click ---------------
+
+from contextlib import closing  # noqa: E402
+from datetime import UTC, datetime  # noqa: E402
+
+from src import db, quota  # noqa: E402
+
+
+@pytest.fixture
+def fixed_clock(monkeypatch):
+    monkeypatch.setattr(quota, "_utc", lambda now: datetime(2026, 9, 21, 12, 0, 30, tzinfo=UTC) if now is None else now)
+
+
+def quota_identities():
+    with closing(db.connect()) as conn:
+        return sorted({row[0] for row in conn.execute("SELECT identity FROM quota_counters")})
+
+
+def photo_variant(n):
+    """A distinct photo per n (the app re-runs the model only when the photo changes)."""
+    return encode(Image.new("RGB", (40, 30), (n * 20 % 255, 100, 60)), "PNG")
+
+
+class TestSingleScanLimits:
+    @pytest.fixture
+    def scans(self, monkeypatch, make_identify_result):
+        calls = []
+
+        def fake(image):
+            calls.append(image.size)
+            return make_identify_result()
+
+        monkeypatch.setattr(ident, "identify", fake)
+        return calls
+
+    def test_a_widget_rerun_does_not_rescan_rebill_or_duplicate_the_log_row(self, camera, scans, fixed_clock):
+        camera(photo_variant(1))
+        at = new_app().run()
+        at = at.run()  # what any button/radio interaction causes
+        at = at.run()
+        assert len(scans) == 1
+        assert len(inventory.list_recent()) == 1
+        assert not at.exception and "Rose" in text_of(at.subheader)
+
+    def test_a_new_photo_is_a_new_scan(self, camera, scans, fixed_clock):
+        camera(photo_variant(1))
+        at = new_app().run()
+        camera(photo_variant(2))
+        at.run()
+        assert len(scans) == 2 and len(inventory.list_recent()) == 2
+
+    def test_over_the_rate_limit_the_user_is_told_and_nothing_runs(self, camera, scans, fixed_clock, monkeypatch):
+        monkeypatch.setenv("BLOOMLENS_RATE_PER_MINUTE", "1")
+        camera(photo_variant(1))
+        at = new_app().run()
+        camera(photo_variant(2))
+        at.run()
+        assert len(scans) == 1  # the second photo was refused before the pipeline
+        assert "Too many requests" in text_of(at.warning)
+        assert len(inventory.list_recent()) == 1
+
+    def test_a_refused_scan_leaves_the_page_usable(self, camera, scans, fixed_clock, monkeypatch):
+        monkeypatch.setenv("BLOOMLENS_QUOTA_PER_DAY", "1")
+        camera(photo_variant(1))
+        at = new_app().run()
+        camera(photo_variant(2))
+        at.run()
+        assert "daily quota" in text_of(at.warning) and "00:00 UTC" in text_of(at.warning)
+        assert not at.exception
+
+    def test_each_browser_session_has_its_own_allowance_but_they_share_the_global_ceiling(
+        self, camera, scans, fixed_clock, monkeypatch
+    ):
+        monkeypatch.setenv("BLOOMLENS_RATE_PER_MINUTE", "1")
+        monkeypatch.setenv("BLOOMLENS_GLOBAL_QUOTA_PER_DAY", "2")
+        camera(photo_variant(1))
+        first, second, third = new_app().run(), new_app().run(), new_app().run()
+        assert len(scans) == 2  # two sessions each got their one scan
+        assert "capacity" in text_of(third.warning)  # the third hit the shared daily ceiling
+        assert not first.exception and not second.exception
+
+    def test_identity_is_a_random_session_id_never_an_address_or_a_secret(self, camera, scans, fixed_clock):
+        camera(photo_variant(1))
+        new_app().run()
+        identities = quota_identities()
+        assert "*" in identities
+        (session,) = [i for i in identities if i != "*"]
+        assert session.startswith("ui:") and len(session) == len("ui:") + 16
+
+    def test_when_every_slot_is_busy_the_scan_waits_and_costs_nothing(self, camera, scans, fixed_clock, monkeypatch):
+        monkeypatch.setenv("BLOOMLENS_MAX_CONCURRENT", "1")
+        quota.reset_gate()
+        camera(photo_variant(1))
+        with quota.gate().slot():
+            at = new_app().run()
+        assert "busy" in text_of(at.warning) and scans == []
+        assert quota_identities() == []
+
+    def test_an_unreachable_counter_store_refuses_the_scan(self, camera, scans, fixed_clock, tmp_path, monkeypatch):
+        blocker = tmp_path / "a-file"
+        blocker.write_text("x")
+        monkeypatch.setenv("INVENTORY_DB_PATH", str(blocker / "shared.db"))
+        camera(photo_variant(1))
+        at = new_app().run()
+        assert "rate limiter can't be reached" in text_of(at.error)
+        assert scans == []
+        assert str(blocker) not in all_rendered_text(at)
+
+    def test_an_invalid_photo_costs_no_quota(self, camera, scans, fixed_clock, monkeypatch):
+        monkeypatch.setenv("BLOOMLENS_RATE_PER_MINUTE", "1")
+        camera(b"not an image")
+        new_app().run()
+        assert quota_identities() == []
+        camera(photo_variant(1))
+        new_app().run()
+        assert len(scans) == 1
+
+
+class TestLotLimits:
+    def test_a_lot_spends_one_unit_and_a_refused_lot_runs_nothing(self, monkeypatch, make_lot_result, fixed_clock):
+        calls = []
+        monkeypatch.setattr(ident, "identify_lot", lambda images: calls.append(len(images)) or make_lot_result())
+        monkeypatch.setenv("BLOOMLENS_RATE_PER_MINUTE", "1")
+        at = new_app()
+        at.session_state["lot_photos"] = lot_photos(3)
+        at = click(at.run(), "🔍 Identify Lot")
+        assert calls == [3]  # three photos, one unit
+        at = click(at, "🔍 Identify Lot")
+        assert calls == [3] and "Too many requests" in text_of(at.warning)
