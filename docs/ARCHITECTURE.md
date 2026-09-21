@@ -220,6 +220,24 @@ An in-memory limiter protects only the process it lives in, and compose already 
 
 **Not done / limits.** No Redis or Postgres, so no multi-host limits. Defaults (6/min, 100/day, 500 global) are conservative guesses, not measured against a real Gemini key's limits. The purge of expired counters runs opportunistically (hourly per process); the scheduled `scripts/purge_data.py` for all retention arrives with the telemetry milestone.
 
+## Privacy-safe telemetry — Milestone 14
+
+**Probe first, schema second.** Token counts, the provider's model version and tool-call counts were to be nullable until a real trace proved they exist, so one real agent run was inspected for *shape only* ([telemetry_probe.md](telemetry_probe.md)): token counts exist on every model turn, tool calls are countable (3 tools across 4 turns), and there is **no provider-reported model version** — `model_name` just echoes the requested name, so a silent server-side model change would be invisible. Those columns stay nullable and the aggregates say how many scans had a value.
+
+- **A closed schema, enforced by the database** (`scan_metrics`): a timestamp, single/lot, photo count, ok/error, a failure *category enum*, stage timings, agent attempts, model turns, tool-call count, summed tokens, versions, the price version and an estimated cost, and a coarse hardware string. `CHECK` constraints refuse a malformed row (an error with no category, a success with one, a category outside the enum). No column can hold an image, prompt, answer, exception text, address, key or caller identity — and none of them is in the table.
+- **Only numbers are read from agent messages** (`note_agent_result`): token counts (integers in a sane range; booleans and strings ignored), the number of tool calls (never their names or arguments), and the model *name* only if it is a plain identifier. A test hands it messages whose `content` raises if touched.
+- **Failures are an enum, not a message.** `IdentifyError` carries a `category` set where it is raised (`rate_limit`, `server_5xx`, `timeout`, `parse_error`, `auth`, `empty_index`, `other`); a retry-exhausted scan is named by its *last* failure, a timeout is a timeout whatever exception class carried it, and a category attribute that isn't in the enum is stored as `other`.
+- **Nothing private, proven on the raw file.** `test_telemetry_privacy.py` pushes canary strings through every path that could carry one, then reads the database file and requires that none is present and that every stored value matches a strict per-column pattern. The check is itself shown to fail when a canary is placed where text is stored.
+- **Cost is an estimate with a history.** `src/llm_cost.py` is an append-only price list (each entry with its source URL and the date it was read); `version_in_force` returns the price published on or before the scan's own date, so old runs are never priced with today's, and a scan before any price existed gets no cost. The versions are copied into an immutable table (triggers block UPDATE/DELETE) and an in-place edit of a price in code is refused. Wording everywhere: *estimated list-price equivalent; actual billed cost unknown* — the free tier bills zero.
+- **Aggregate-only exposure.** `GET /metrics` (API key), `scripts/report_metrics.py` and a UI expander return counts, failure rates by category, warm and cold p50/p95, retries, token means and the cost estimate — no row, timestamp or identifier. Percentiles are withheld below 20 scans (with `n` shown) and there is no p99. Percentiles are `statistics.quantiles(method="inclusive")`, checked against numpy's default on random data.
+- **Retention** (`src/retention.py`, `scripts/purge_data.py`): 30 days of telemetry, 365 of inventory, the quota windows at 48 h / 1 h; purged opportunistically (hourly per process) and on demand; an invalid setting falls back to the default, never to "forever".
+
+**A real measurement, not an assumption.** `scripts/sample_scans.py` ran 24 real scans on this machine: warm p50 15.1 s, p95 66.5 s (n = 23), cold 28.8 s (n = 1), embedding 0.57 s, the Gemini agent ~14.5 s median with a heavy tail, 0 retries, ~7.5 k tokens in / 227 out per scan, ≈ $0.0022 estimated list-price equivalent per scan. Nearly all latency is the agent's four sequential turns; "instantly" was never true of the full pipeline. One machine, one day, and the p95 rests on two or three slow scans — see the caveats in telemetry_probe.md.
+
+**Found on the way.** `note_agent_result` initially raised on a malformed result (`{"messages": None}`), which inside the retry loop would have turned a good scan into a failed one — telemetry must never do that, so it now ignores anything of an unexpected shape. And `version_in_force` bound its price list as a default argument at import, the same trap as in the guard and the quota admission (a third occurrence, caught by a test that swaps the list).
+
+**Limits.** Provider-reported model version: not available, so a silent model change is undetectable here. Reasoning-token usage is not reported by this model; if it is folded into output tokens the cost estimate is right, if it is separate and unreported it is an underestimate (unknown). Tokens of a request that failed *before* returning any message are not observable. Telemetry lives in the same single-host SQLite file as everything else.
+
 ## Future work (not in this build, noted for later)
 
 - **Explain-on-demand for lot mode**: `identify_lot`'s per-photo embeddings are discarded after the consensus vote; wiring the same overlay into lot mode is a smaller, separate follow-up.
@@ -260,6 +278,9 @@ src/guard.py               shared upload validation (API and Streamlit)
 src/privacy.py             forces LangSmith/LangChain tracing off
 src/db.py                  the shared SQLite connection + transaction helper
 src/quota.py               rate/daily/global quotas (atomic, UTC) + concurrency gate
+src/telemetry.py           closed-schema per-scan telemetry + aggregate-only summary
+src/llm_cost.py            append-only list-price history (estimated cost)
+src/retention.py           retention schedule and purge (scripts/purge_data.py)
 Dockerfile                 container image for app.py / api/main.py
 docker-compose.yml         app + local Qdrant, one-command spin-up
 Dockerfile.hf              Hugging Face Space image (weights+index baked in)
