@@ -37,7 +37,21 @@ def hermetic_env(monkeypatch, tmp_path):
     monkeypatch.delenv("BLOOMLENS_AUTH", raising=False)
     monkeypatch.delenv("BLOOMLENS_ENV", raising=False)
     monkeypatch.delenv("BLOOMLENS_API_KEYS", raising=False)
+    for name in (
+        "BLOOMLENS_RATE_PER_MINUTE",
+        "BLOOMLENS_QUOTA_PER_DAY",
+        "BLOOMLENS_GLOBAL_QUOTA_PER_DAY",
+        "BLOOMLENS_MAX_CONCURRENT",
+    ):
+        monkeypatch.delenv(name, raising=False)
     monkeypatch.setenv("INVENTORY_DB_PATH", str(tmp_path / "inventory.db"))
+
+    from src import quota
+
+    quota.reset_gate()
+    monkeypatch.setattr(quota, "_last_purge", float("-inf"))
+    yield
+    quota.reset_gate()
 
 
 TEST_API_KEY = "test-secret-0123456789-abcdefghij"
