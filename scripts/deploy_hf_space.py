@@ -26,6 +26,7 @@ FILES_TO_COPY = [
     ("data/species_reference.json", "data/species_reference.json"),
     ("scripts/build_index.py", "scripts/build_index.py"),
     ("app.py", "app.py"),
+    (".streamlit/config.toml", ".streamlit/config.toml"),
     ("pyproject.toml", "pyproject.toml"),
     ("uv.lock", "uv.lock"),
     (".python-version", ".python-version"),
