@@ -41,6 +41,12 @@ _COLOR_STOPS = np.array([[40, 60, 200], [255, 220, 60], [230, 30, 30]], dtype=np
 _MAX_OVERLAY_ALPHA = 200  # out of 255 -- low-importance regions stay near-transparent
 
 
+def is_known_species(species: str) -> bool:
+    """Whether `species` is a curated common_name -- checkable without running the model,
+    so callers can refuse a bad request before spending anything on it."""
+    return species in _SPECIES_BY_NAME
+
+
 class ExplainError(Exception):
     pass
 
