@@ -10,16 +10,16 @@ requires-python = ">=3.11,<3.14"
 # Runtime dependencies: the exact versions this project was developed and CI-tested
 # against. Transitive dependencies are pinned by uv.lock, not here.
 dependencies = [
-    "streamlit==1.50.0",
+    "streamlit==1.54.0",
     "torch==2.6.0",
     "torchvision==0.21.0",
     "open_clip_torch==2.32.0",
     "qdrant-client==1.12.1",
-    "Pillow==11.0.0",
+    "Pillow==12.3.0",
     "google-genai==2.22.0",
     "langchain==1.4.0",
     "langchain-google-genai==4.4.0",
-    "python-dotenv==1.0.1",
+    "python-dotenv==1.2.2",
     "pandas==2.2.3",
     "pydantic==2.13.5",
     "numpy==2.1.3",
