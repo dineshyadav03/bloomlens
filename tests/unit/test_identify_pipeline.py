@@ -88,11 +88,11 @@ class TestIdentify:
         assert result.top_candidates[0]["common_name"] == "Rose"
         assert result.confidence_tier == "high"  # from Rose's 0.70 vs 0.50, not from the agent
 
-    def test_unknown_grade_gives_no_price_rather_than_a_wrong_one(self, pipeline, image):
-        pipeline.agent_answer = answer(grade="Z")
-        result = ident.identify(image)
-        assert result.price_per_stem is None
-        assert result.price_trend == "unknown"
+    def test_a_grade_outside_a_b_c_cannot_reach_the_pipeline(self):
+        """It used to flow through to a null price; the boundary now refuses it outright
+        (tests/unit/test_identify_validation.py covers what the retry loop does with it)."""
+        with pytest.raises(ValueError):
+            answer(grade="Z")
 
     def test_an_empty_index_is_a_clear_error(self, pipeline, image):
         pipeline.candidates = []
