@@ -238,6 +238,21 @@ An in-memory limiter protects only the process it lives in, and compose already 
 
 **Limits.** Provider-reported model version: not available, so a silent model change is undetectable here. Reasoning-token usage is not reported by this model; if it is folded into output tokens the cost estimate is right, if it is separate and unreported it is an underestimate (unknown). Tokens of a request that failed *before* returning any message are not observable. Telemetry lives in the same single-host SQLite file as everything else.
 
+## Open-world evaluation: protocol, data and the abstention flag — Milestone 15a
+
+The retrieval evaluation (87.2 % top-1 on 360 images) is closed-world: every image is one of the covered species. It says nothing about a tulip photo, a coffee cup, or a badly lit rose. Milestone 15 asks that question properly, and 15a is the part that must come *before* any number: the pre-registered protocol, the datasets, and the flag the UI will read. **No model result was computed in this milestone** — only counts.
+
+- **The protocol is committed first and says how it can be wrong** ([eval/PROTOCOL.md](../eval/PROTOCOL.md)): which images belong to which family, how splits are assigned, the three candidate scores (max cosine, margin, max-softmax at a temperature), the dev-only rule for picking one and setting the threshold (τ = the 5th percentile of dev-ID scores, so 95 % of ID is accepted), an adoption criterion fixed in advance, a frozen file, a single locked test run, and per-family metrics with bootstrap CIs. Its caveats are part of it: pretraining contamination, non-independent photos of the same plant, an Oxford domain that is not an auction hall, and **12 covered species (Tulip and Hyacinth among them) that have no Oxford data and so are not measured at all**.
+- **Families are kept apart.** In-distribution (1 181 images of 18 species), *near*-OOD (77 Oxford categories that are not among the 30 species, split **by category** so the test categories are ones the thresholds never saw), *far*-OOD (Caltech-101 minus flowers, people and clutter — a different source, and easier by construction), and *corrupted in-set* (8 deterministic corruptions of covered species: robustness, not OOD, never an OOD AUROC). The 360 images that shaped today's thresholds are relabelled `dev-legacy`.
+- **Splits are a function of the ids.** SHA-256 buckets under a fixed salt; 40/40/20 dev/test/pilot, stratified by species (ID) or by category (OOD); a 20-image cap per category. The bucket values are pinned in a test, so a changed salt or hash is noticed. Corruptions are pure functions of `(image, source id)`, so a variant never has to be stored.
+- **The leakage test found a real leak.** On the first build two Oxford carnation files (`image_08067`, `image_08077`) turned out to be the same photo, and the split rule had put them in dev and test. Images are now collapsed by content hash (twins keep the smallest id; content under two categories, repeating a legacy image, or shared between datasets is dropped) and the protocol records the change — made before any model result existed. Perceptual near-duplicates are *not* detected, which the protocol says.
+- **What a manifest holds:** source id, label, group, split, relative path, SHA-256 — no images (only the original 360 are committed; Caltech-101 is CC BY 4.0 and not redistributed here). The builder is a pure function (order-independent, tested); on a machine with the raw data a sample of every manifest's files is checked against its hashes. The legacy 360 are matched to their Oxford sources by *content* hash, not by file-name arithmetic.
+- **`abstained` is a field, not a guess about text.** `IdentifyResult`/`LotResult` carry `abstained` and `abstain_source` (`retrieval`, `agent`, `both`), computed from exactly two signals: the retrieval policy (tier `low`, until a rule is frozen and adopted) and the agent's own explicit `matches_a_candidate == false` (an optional JSON boolean; `None` means "no opinion" and never counts as no). A test feeds "this is not a flower" prose alongside a confident, matching answer and requires no abstention. The UI reads `abstained` rather than the tier. **How the live model behaves with the new prompt line is not verified here** — the capped pilot (15c) measures it.
+
+**Deviations from the plan (all in the protocol):** the ID pool uses Oxford's train/val images too (the test split alone would leave Moth orchid with none — sound because nothing is trained on images); near-OOD is split by category, not by image; `bishop of llandaff` (a *Dahlia* cultivar) is excluded from near-OOD along with the four planned gray-zone classes; content de-duplication was added mid-way.
+
+**Limits.** Oxford photos of one category are often one plant from several angles, so even category-level and source-level splits leave the images correlated and any CI is probably optimistic. Caltech-101's 96 categories are objects and animals, not the things a florist would photograph by mistake. Nothing here says anything about photos taken in an auction hall.
+
 ## Future work (not in this build, noted for later)
 
 - **Explain-on-demand for lot mode**: `identify_lot`'s per-photo embeddings are discarded after the consensus vote; wiring the same overlay into lot mode is a smaller, separate follow-up.
@@ -281,6 +296,9 @@ src/quota.py               rate/daily/global quotas (atomic, UTC) + concurrency 
 src/telemetry.py           closed-schema per-scan telemetry + aggregate-only summary
 src/llm_cost.py            append-only list-price history (estimated cost)
 src/retention.py           retention schedule and purge (scripts/purge_data.py)
+eval/PROTOCOL.md           the pre-registered open-world evaluation protocol (v1)
+eval/manifest/             evaluation manifests (ids, splits, hashes; no images)
+eval/{splits,corruptions,build_datasets}.py  deterministic splits, corruptions, the manifest builder
 Dockerfile                 container image for app.py / api/main.py
 docker-compose.yml         app + local Qdrant, one-command spin-up
 Dockerfile.hf              Hugging Face Space image (weights+index baked in)
