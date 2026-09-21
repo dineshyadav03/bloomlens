@@ -7,7 +7,6 @@ from types import SimpleNamespace
 import pytest
 
 from src import identify as ident
-from src.identify import IdentifyError
 
 
 class TestClassifyConfidence:
@@ -120,11 +119,12 @@ class TestExtractJson:
     def test_surrounding_prose_is_ignored(self):
         assert ident._extract_json('Sure! Here you go: {"a": {"b": 2}} Hope that helps.') == {"a": {"b": 2}}
 
-    def test_no_object_raises_identify_error(self):
-        with pytest.raises(IdentifyError, match="didn't contain a JSON object"):
-            ident._extract_json("I could not decide.")
+    def test_no_object_is_a_malformed_answer_that_does_not_quote_the_text(self):
+        with pytest.raises(ident._MalformedAnswer, match="no JSON object") as info:
+            ident._extract_json("I could not decide, said the sign in the photo.")
+        assert "sign in the photo" not in str(info.value)
 
     def test_invalid_json_inside_braces_raises_a_decode_error(self):
-        # not an IdentifyError on purpose: the retry loop treats it as retryable
+        # _parse_answer turns this into a _MalformedAnswer; the retry loop treats both as retryable
         with pytest.raises(json.JSONDecodeError):
             ident._extract_json("{not json}")
