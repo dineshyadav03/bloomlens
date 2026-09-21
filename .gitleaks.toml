@@ -1,0 +1,10 @@
+# gitleaks configuration (used by .github/workflows/security.yml).
+# Start from the full default rule set, and add one narrow exception.
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Synthetic API keys that tests/ uses as fixtures (e.g. tests/conftest.py::TEST_API_KEY). They are made-up strings that protect nothing. Only the generic high-entropy rule is relaxed, and only under tests/: every provider-specific rule (Google/Gemini keys, cloud and GitHub tokens, private keys...) still applies there."
+targetRules = ["generic-api-key"]
+paths = ['''^tests/''']
