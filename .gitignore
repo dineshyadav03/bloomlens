@@ -41,3 +41,9 @@ Thumbs.db
 
 # Reference screenshots from the source tutorial (not ours to redistribute)
 Screenshot *.png
+
+# Test/coverage artifacts
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
