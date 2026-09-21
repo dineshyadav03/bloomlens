@@ -16,8 +16,12 @@ services:
     command: python scripts/build_index.py
     environment:
       QDRANT_URL: http://qdrant:6333
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
     volumes:
-      - hf_cache:/root/.cache/huggingface
+      - hf_cache:/home/user/.cache/huggingface
     depends_on:
       qdrant:
         condition: service_healthy
@@ -25,8 +29,14 @@ services:
   web:
     build: .
     command: streamlit run app.py --server.address 0.0.0.0 --server.headless true
+    # Published on the host's loopback only: Streamlit has no authentication of its own
+    # (docs/SECURITY.md). To share it, put an authenticating reverse proxy in front.
     ports:
-      - "8501:8501"
+      - "127.0.0.1:8501:8501"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
     environment:
       QDRANT_URL: http://qdrant:6333
       # Own volume, deliberately not data/ -- web and api are separate
@@ -40,7 +50,7 @@ services:
       - path: .env
         required: false
     volumes:
-      - hf_cache:/root/.cache/huggingface
+      - hf_cache:/home/user/.cache/huggingface
       - inventory_data:/app/inventory_data
     depends_on:
       build-index:
@@ -48,19 +58,28 @@ services:
 
   api:
     build: .
-    command: uvicorn api.main:app --host 0.0.0.0 --port 8000
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --no-server-header
+    # Loopback only, like `web`; every route but /health needs an X-API-Key from
+    # BLOOMLENS_API_KEYS (see .env.example) and answers 503 until one is set.
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
     environment:
       QDRANT_URL: http://qdrant:6333
       INVENTORY_DB_PATH: /app/inventory_data/inventory.db
+      # `production` turns off /docs and /openapi.json. For development set
+      # BLOOMLENS_ENV=development in .env to get Swagger UI back.
+      BLOOMLENS_ENV: ${BLOOMLENS_ENV:-production}
     env_file:
       # optional: so a missing .env fails via identify()'s own clear
       # "GEMINI_API_KEY is not set" error, not a Compose-level file error
       - path: .env
         required: false
     volumes:
-      - hf_cache:/root/.cache/huggingface
+      - hf_cache:/home/user/.cache/huggingface
       - inventory_data:/app/inventory_data
     depends_on:
       build-index:

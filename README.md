@@ -46,7 +46,7 @@ Full breakdown, including the evaluation harness and Docker/CI setup, in [docs/A
 - **Agentic reasoning layer**: a LangChain agent (not a fixed pipeline) — confirmed via its own message trace to genuinely call `lookup_taxonomy`, `assess_quality`, and `check_price` on a normal run, deciding for itself when to use each. Matches the "AI Agent System" framing from the original tutorial this project was inspired by.
 - **Confidence handling**: a close call between top candidates surfaces a visible switcher instead of a silently wrong guess; a clear non-match gets a hedged message instead of a confident species name. The tier thresholds were checked against real held-out data (not just guessed) and confirmed well-calibrated — see [eval/results.md](eval/results.md)'s calibration section for what was tried and why they were kept as-is.
 - **Lot/batch mode**: scan or upload up to 10 photos as one lot and get a consensus species, agreement fraction, flagged mismatches, and a price trend chart — one agent call for the whole lot, not one per photo.
-- **FastAPI endpoint** (`api/main.py`) alongside the Streamlit UI: `POST /identify`, `POST /identify-lot`, `GET /health` — sharing `src/identify.py`'s pipeline directly (no second implementation), with interactive docs at `/docs`.
+- **FastAPI endpoint** (`api/main.py`) alongside the Streamlit UI: `POST /identify`, `POST /identify-lot`, `POST /explain`, `GET /inventory`, `GET /health` — sharing `src/identify.py`'s pipeline directly (no second implementation). **Fail-closed**: every route except `/health` needs an `X-API-Key` and answers `503` until keys are configured; uploads are size-, format- and pixel-capped and stripped of EXIF/GPS. See [docs/SECURITY.md](docs/SECURITY.md) (controls, tests, and what is *not* defended) and [docs/PRIVACY.md](docs/PRIVACY.md) (what is sent to Google's Gemini API).
 - **One-command setup**: `docker compose up` runs Qdrant (a real server, not local mode — see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for why that distinction matters once two services share one index), the Streamlit UI, and the FastAPI service together. CI (`.github/workflows/ci.yml`) lints, runs the evaluation harness with a real regression gate (fails under 80% top-1 accuracy), and smoke-tests the full Docker stack on every push.
 - **"Why this species?" interpretability overlay**: an on-demand heatmap (via `src/interpretability.py`) showing which part of a scanned photo most drove its species match — **Grad-ECLIP**, a real published technique for CLIP-style zero-shot vision-language models (not literal Grad-CAM, which needs a CNN and a classifier head neither of which BioCLIP 2 has). See [docs/RESEARCH.md](docs/RESEARCH.md#grad-eclip) for the real implementation bugs (including a thread-safety one) found and fixed by checking against the paper's own reference code.
 - **Persistent inventory log**: every scan (single or lot) is recorded automatically — species, quality, price, timestamp — into a SQLite database (`src/inventory.py`, WAL mode for safe concurrent writes across the `web`/`api` containers). A new "Inventory" tab shows a running per-species count and recent-scan history; `GET /inventory` keeps the API at parity.
@@ -85,7 +85,14 @@ Prefer plain pip? `uv export --no-dev --no-hashes -o requirements.txt` writes a 
 
 First run downloads BioCLIP 2 weights (public, no auth needed). If you ever see `Storage folder ... is already accessed by another instance of Qdrant client`, another Python process from a previous run is still holding the local index — close it and retry (this is exactly why Docker Compose uses a real Qdrant server instead, see below).
 
-To run the API instead of (or alongside) the Streamlit app: `uvicorn api.main:app --reload`, then browse `http://localhost:8000/docs` for interactive Swagger docs, or `POST` a photo directly: `curl -X POST http://localhost:8000/identify -F "photo=@your-flower.jpg"`.
+**The API** needs a key you choose. Add one to `.env` (`BLOOMLENS_API_KEYS=me:<at least 24 characters>`; generate with `python -c "import secrets; print(secrets.token_urlsafe(32))"`), then:
+
+```bash
+uv run uvicorn api.main:app --reload
+curl -X POST http://127.0.0.1:8000/identify -H "X-API-Key: <the secret>" -F "photo=@your-flower.jpg"
+```
+
+Swagger UI is at `http://127.0.0.1:8000/docs` (use *Authorize* to enter the key); it is switched off when `BLOOMLENS_ENV=production`. Without a key the API is closed (503), not open. The text fields in responses (`summary`, `quality_note`, `confidence_note`) are written by a language model — treat them as untrusted input in whatever consumes them.
 
 **With Docker Compose** (runs Qdrant + the Streamlit app + the API together):
 
@@ -94,7 +101,15 @@ cp .env.example .env   # add your GEMINI_API_KEY first
 docker compose up
 ```
 
-Streamlit at `http://localhost:8501`, the API at `http://localhost:8000/docs`. First run downloads BioCLIP 2 weights into a shared volume (a real download — this project's dev network measured ~150KB/s, so expect it to take a while the first time; cached for every run after).
+Streamlit at `http://localhost:8501`, the API at `http://localhost:8000` (both bound to the host's loopback only; the containers run as a non-root user with no extra privileges). Set `BLOOMLENS_API_KEYS` in `.env` first or the API answers 503; compose runs it with `BLOOMLENS_ENV=production`, so `/docs` is off unless you set `BLOOMLENS_ENV=development` in `.env`. First run downloads BioCLIP 2 weights into a shared volume (a real download — this project's dev network measured ~150KB/s, so expect it to take a while the first time; cached for every run after).
+
+**Upgrading from an earlier checkout?** The images used to run as root and mount the model cache at `/root/.cache/huggingface`; they now run as uid 1000 with the cache at `/home/user/.cache/huggingface`. Volumes created by the old images are root-owned, so fix them once (this keeps the downloaded weights; the `--cap-add`s are needed because the service drops all capabilities):
+
+```bash
+docker compose run --rm --no-deps --user root --cap-add CHOWN --cap-add DAC_OVERRIDE web sh -c "chown -R 1000:1000 /home/user/.cache/huggingface /app/inventory_data"
+```
+
+Note the Streamlit UI has no login of its own — see [docs/SECURITY.md](docs/SECURITY.md) before exposing it beyond your machine.
 
 ## Important disclaimers
 
