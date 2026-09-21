@@ -124,15 +124,15 @@ def _clean(image: Image.Image) -> Image.Image:
     return clean
 
 
-def validate_upload(stream, limit: int = MAX_UPLOAD_BYTES) -> Image.Image:
+def validate_upload(stream, limit: int | None = None) -> Image.Image:
     """Read (bounded) and decode one uploaded file."""
-    return decode_image(read_limited(stream, limit))
+    return decode_image(read_limited(stream, MAX_UPLOAD_BYTES if limit is None else limit))
 
 
-def validate_lot(
-    streams, per_file_limit: int = MAX_UPLOAD_BYTES, total_limit: int = MAX_LOT_BYTES
-) -> list[Image.Image]:
+def validate_lot(streams, per_file_limit: int | None = None, total_limit: int | None = None) -> list[Image.Image]:
     """Validate every file of a lot; the whole lot has its own, smaller-than-N-times cap."""
+    per_file_limit = MAX_UPLOAD_BYTES if per_file_limit is None else per_file_limit
+    total_limit = MAX_LOT_BYTES if total_limit is None else total_limit
     images, total = [], 0
     for stream in streams:
         data = read_limited(stream, per_file_limit)
