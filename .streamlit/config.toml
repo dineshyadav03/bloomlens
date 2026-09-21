@@ -1,0 +1,18 @@
+# Streamlit's own perimeter. BloomLens' upload rules live in src/guard.py; this is the
+# outer fence, enforced by Streamlit before the app ever sees a file.
+
+[server]
+# Per-file cap in MB. Keep equal to BLOOMLENS_MAX_UPLOAD_MB (default 8) in src/guard.py.
+maxUploadSize = 8
+# Both default to true; written out so nobody switches them off by accident.
+enableXsrfProtection = true
+enableCORS = true
+headless = true
+
+[client]
+# Framework exceptions show no details in the browser; the app logs its own.
+showErrorDetails = "none"
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false
