@@ -1,0 +1,8657 @@
+{
+ "entries": [
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01205",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01205",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01205",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01205",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01205",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01205",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01205",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01205",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01225",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01225",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01225",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01225",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01225",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01225",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01225",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01225",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01233",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01233",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01233",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01233",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01233",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01233",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01233",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01233",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01275",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01275",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01275",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01275",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01275",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01275",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01275",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01275",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01291",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01291",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01291",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01291",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01291",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01291",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01291",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01291",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02193",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02193",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02193",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02193",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02193",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02193",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02193",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02193",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02195",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02195",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02195",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02195",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02195",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02195",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02195",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02195",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02242",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02242",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02242",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02242",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02242",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02242",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02242",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02242",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02298",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02298",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02298",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02298",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02298",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02298",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02298",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02298",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02314",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02314",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02314",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02314",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02314",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02314",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02314",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02314",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02326",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02326",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02326",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02326",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02326",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02326",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02326",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02326",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02341",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02341",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02341",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02341",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02341",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02341",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02341",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02341",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02377",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02377",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02377",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02377",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02377",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02377",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02377",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02377",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02407",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02407",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02407",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02407",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02407",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02407",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02407",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02407",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02429",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02429",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02429",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02429",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02429",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02429",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02429",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02429",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02934",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02934",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02934",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02934",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02934",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02934",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02934",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02934",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02965",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02965",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02965",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02965",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02965",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02965",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02965",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02965",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02987",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02987",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02987",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02987",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02987",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02987",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02987",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02987",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_03027",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_03027",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_03027",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_03027",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_03027",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_03027",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_03027",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_03027",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03103",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03103",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03103",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03103",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03103",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03103",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03103",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03103",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03106",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03106",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03106",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03106",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03106",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03106",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03106",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03106",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03115",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03115",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03115",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03115",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03115",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03115",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03115",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03115",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03166",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03166",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03166",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03166",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03166",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03166",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03166",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03166",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03168",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03168",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03168",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03168",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03168",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03168",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03168",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03168",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03285",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03285",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03285",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03285",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03285",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03285",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03285",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03285",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03313",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03313",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03313",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03313",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03313",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03313",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03313",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03313",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03331",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03331",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03331",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03331",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03331",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03331",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03331",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03331",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03336",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03336",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03336",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03336",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03336",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03336",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03336",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03336",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03367",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03367",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03367",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03367",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03367",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03367",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03367",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03367",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04256",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04256",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04256",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04256",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04256",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04256",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04256",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04256",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04259",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04259",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04259",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04259",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04259",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04259",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04259",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04259",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04265",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04265",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04265",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04265",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04265",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04265",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04265",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04265",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04301",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04301",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04301",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04301",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04301",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04301",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04301",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04301",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04325",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04325",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04325",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04325",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04325",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04325",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04325",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04325",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04838",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04838",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04838",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04838",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04838",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04838",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04838",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04838",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04849",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04849",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04849",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04849",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04849",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04849",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04849",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04849",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04858",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04858",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04858",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04858",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04858",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04858",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04858",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04858",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04860",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04860",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04860",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04860",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04860",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04860",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04860",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04860",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04887",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04887",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04887",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04887",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04887",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04887",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04887",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04887",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04898",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04898",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04898",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04898",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04898",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04898",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04898",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04898",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04904",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04904",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04904",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04904",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04904",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04904",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04904",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04904",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04910",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04910",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04910",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04910",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04910",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04910",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04910",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04910",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04911",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04911",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04911",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04911",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04911",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04911",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04911",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04911",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04912",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04912",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04912",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04912",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04912",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04912",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04912",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04912",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04961",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04961",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04961",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04961",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04961",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04961",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04961",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04961",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04977",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04977",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04977",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04977",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04977",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04977",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04977",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04977",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04991",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04991",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04991",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04991",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04991",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04991",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04991",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04991",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04992",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04992",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04992",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04992",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04992",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04992",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04992",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04992",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05079",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05079",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05079",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05079",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05079",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05079",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05079",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05079",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05176",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05176",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05176",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05176",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05176",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05176",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05176",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05176",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05419",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05419",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05419",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05419",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05419",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05419",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05419",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05419",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05444",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05444",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05444",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05444",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05444",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05444",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05444",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05444",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05449",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05449",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05449",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05449",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05449",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05449",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05449",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05449",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05457",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05457",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05457",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05457",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05457",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05457",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05457",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05457",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05458",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05458",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05458",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05458",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05458",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05458",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05458",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05458",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05636",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05636",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05636",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05636",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05636",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05636",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05636",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05636",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05664",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05664",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05664",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05664",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05664",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05664",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05664",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05664",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05669",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05669",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05669",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05669",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05669",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05669",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05669",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05669",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05671",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05671",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05671",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05671",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05671",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05671",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05671",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05671",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05676",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05676",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05676",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05676",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05676",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05676",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05676",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05676",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05698",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05698",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05698",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05698",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05698",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05698",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05698",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05698",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05712",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05712",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05712",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05712",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05712",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05712",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05712",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05712",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05720",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05720",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05720",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05720",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05720",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05720",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05720",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05720",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05721",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05721",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05721",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05721",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05721",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05721",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05721",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05721",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05741",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05741",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05741",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05741",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05741",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05741",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05741",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05741",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05750",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05750",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05750",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05750",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05750",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05750",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05750",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05750",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05755",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05755",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05755",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05755",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05755",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05755",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05755",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05755",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05772",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05772",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05772",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05772",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05772",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05772",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05772",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05772",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05773",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05773",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05773",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05773",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05773",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05773",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05773",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05773",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05792",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05792",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05792",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05792",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05792",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05792",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05792",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05792",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05908",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05908",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05908",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05908",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05908",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05908",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05908",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05908",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05909",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05909",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05909",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05909",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05909",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05909",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05909",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05909",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05942",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05942",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05942",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05942",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05942",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05942",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05942",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05942",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05944",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05944",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05944",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05944",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05944",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05944",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05944",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05944",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05951",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05951",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05951",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05951",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05951",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05951",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05951",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05951",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06200",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06200",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06200",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06200",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06200",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06200",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06200",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06200",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06201",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06201",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06201",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06201",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06201",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06201",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06201",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06201",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06206",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06206",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06206",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06206",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06206",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06206",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06206",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06206",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06211",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06211",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06211",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06211",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06211",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06211",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06211",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06211",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06226",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06226",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06226",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06226",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06226",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06226",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06226",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06226",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06913",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06913",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06913",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06913",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06913",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06913",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06913",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06913",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06917",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06917",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06917",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06917",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06917",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06917",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06917",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06917",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07210",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07210",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07210",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07210",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07210",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07210",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07210",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07210",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07215",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07215",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07215",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07215",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07215",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07215",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07215",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07215",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07228",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07228",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07228",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07228",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07228",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07228",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07228",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07228",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08067",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08067",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08067",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08067",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08067",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08067",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08067",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08067",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08069",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08069",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08069",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08069",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08069",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08069",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08069",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08069",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08072",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08072",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08072",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08072",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08072",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08072",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08072",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_08072",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08101",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08101",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08101",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08101",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08101",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08101",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08101",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08101",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08103",
+   "split": "dev",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08103",
+   "split": "dev",
+   "variant": "crop"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08103",
+   "split": "dev",
+   "variant": "dark"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08103",
+   "split": "dev",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08103",
+   "split": "dev",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08103",
+   "split": "dev",
+   "variant": "low_res"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08103",
+   "split": "dev",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_08103",
+   "split": "dev",
+   "variant": "rotate"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01144",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01144",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01144",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01144",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01144",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01144",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01144",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01144",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01193",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01193",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01193",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01193",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01193",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01193",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01193",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01193",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01257",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01257",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01257",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01257",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01257",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01257",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01257",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01257",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01270",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01270",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01270",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01270",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01270",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01270",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01270",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01270",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01299",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01299",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01299",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01299",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01299",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01299",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01299",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Rose",
+   "source_id": "oxford102:image_01299",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02197",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02197",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02197",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02197",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02197",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02197",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02197",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02197",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02200",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02200",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02200",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02200",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02200",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02200",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02200",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02200",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02235",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02235",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02235",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02235",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02235",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02235",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02235",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02235",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02240",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02240",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02240",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02240",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02240",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02240",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02240",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02240",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02266",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02266",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02266",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02266",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02266",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02266",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02266",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gerbera daisy",
+   "source_id": "oxford102:image_02266",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02329",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02329",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02329",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02329",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02329",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02329",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02329",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02329",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02348",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02348",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02348",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02348",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02348",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02348",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02348",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02348",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02353",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02353",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02353",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02353",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02353",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02353",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02353",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02353",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02380",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02380",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02380",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02380",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02380",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02380",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02380",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02380",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02431",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02431",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02431",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02431",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02431",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02431",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02431",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Gladiolus",
+   "source_id": "oxford102:image_02431",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02959",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02959",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02959",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02959",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02959",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02959",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02959",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02959",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02983",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02983",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02983",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02983",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02983",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02983",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02983",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02983",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02999",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02999",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02999",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02999",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02999",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02999",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02999",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_02999",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03117",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03117",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03117",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03117",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03117",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03117",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03117",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03117",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03124",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03124",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03124",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03124",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03124",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03124",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03124",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03124",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03127",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03127",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03127",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03127",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03127",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03127",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03127",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03127",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03143",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03143",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03143",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03143",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03143",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03143",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03143",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03143",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03172",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03172",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03172",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03172",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03172",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03172",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03172",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Snapdragon",
+   "source_id": "oxford102:image_03172",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03284",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03284",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03284",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03284",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03284",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03284",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03284",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03284",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03299",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03299",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03299",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03299",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03299",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03299",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03299",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03299",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03315",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03315",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03315",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03315",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03315",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03315",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03315",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03315",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03346",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03346",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03346",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03346",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03346",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03346",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03346",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03346",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03357",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03357",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03357",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03357",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03357",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03357",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03357",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bird of paradise",
+   "source_id": "oxford102:image_03357",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04248",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04248",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04248",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04248",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04248",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04248",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04248",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04248",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04268",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04268",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04268",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04268",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04268",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04268",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04268",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04268",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04289",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04289",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04289",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04289",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04289",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04289",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04289",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04289",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04296",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04296",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04296",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04296",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04296",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04296",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04296",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04296",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04298",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04298",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04298",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04298",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04298",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04298",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04298",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Peruvian lily",
+   "source_id": "oxford102:image_04298",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04832",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04832",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04832",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04832",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04832",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04832",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04832",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04832",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04845",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04845",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04845",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04845",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04845",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04845",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04845",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04845",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04848",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04848",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04848",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04848",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04848",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04848",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04848",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04848",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04883",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04883",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04883",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04883",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04883",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04883",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04883",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04883",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04886",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04886",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04886",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04886",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04886",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04886",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04886",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Amaryllis",
+   "source_id": "oxford102:image_04886",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04929",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04929",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04929",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04929",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04929",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04929",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04929",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04929",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04939",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04939",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04939",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04939",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04939",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04939",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04939",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04939",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04944",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04944",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04944",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04944",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04944",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04944",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04944",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04944",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04945",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04945",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04945",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04945",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04945",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04945",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04945",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04945",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04948",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04948",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04948",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04948",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04948",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04948",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04948",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Calla lily",
+   "source_id": "oxford102:image_04948",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04968",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04968",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04968",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04968",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04968",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04968",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04968",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04968",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04978",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04978",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04978",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04978",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04978",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04978",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04978",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_04978",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05025",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05025",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05025",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05025",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05025",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05025",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05025",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05025",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05066",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05066",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05066",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05066",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05066",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05066",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05066",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Dahlia",
+   "source_id": "oxford102:image_05066",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05156",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05156",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05156",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05156",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05156",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05156",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05156",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05156",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05179",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05179",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05179",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05179",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05179",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05179",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05179",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05179",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05182",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05182",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05182",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05182",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05182",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05182",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05182",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Marigold",
+   "source_id": "oxford102:image_05182",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05400",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05400",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05400",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05400",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05400",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05400",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05400",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05400",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05404",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05404",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05404",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05404",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05404",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05404",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05404",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05404",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05428",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05428",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05428",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05428",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05428",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05428",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05428",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05428",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05446",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05446",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05446",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05446",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05446",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05446",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05446",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05446",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05455",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05455",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05455",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05455",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05455",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05455",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05455",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sunflower",
+   "source_id": "oxford102:image_05455",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05640",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05640",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05640",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05640",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05640",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05640",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05640",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05640",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05642",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05642",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05642",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05642",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05642",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05642",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05642",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05642",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05663",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05663",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05663",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05663",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05663",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05663",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05663",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05663",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05675",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05675",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05675",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05675",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05675",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05675",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05675",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05675",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05684",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05684",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05684",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05684",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05684",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05684",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05684",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Sweet pea",
+   "source_id": "oxford102:image_05684",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05725",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05725",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05725",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05725",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05725",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05725",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05725",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05725",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05730",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05730",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05730",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05730",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05730",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05730",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05730",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05730",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05731",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05731",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05731",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05731",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05731",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05731",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05731",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05731",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05737",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05737",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05737",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05737",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05737",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05737",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05737",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05737",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05739",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05739",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05739",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05739",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05739",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05739",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05739",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Daffodil",
+   "source_id": "oxford102:image_05739",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05753",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05753",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05753",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05753",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05753",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05753",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05753",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05753",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05783",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05783",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05783",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05783",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05783",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05783",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05783",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05783",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05786",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05786",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05786",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05786",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05786",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05786",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05786",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05786",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05787",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05787",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05787",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05787",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05787",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05787",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05787",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05787",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05790",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05790",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05790",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05790",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05790",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05790",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05790",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "King protea",
+   "source_id": "oxford102:image_05790",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05906",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05906",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05906",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05906",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05906",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05906",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05906",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05906",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05913",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05913",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05913",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05913",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05913",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05913",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05913",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05913",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05916",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05916",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05916",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05916",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05916",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05916",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05916",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05916",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05941",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05941",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05941",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05941",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05941",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05941",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05941",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05941",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05948",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05948",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05948",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05948",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05948",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05948",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05948",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Bearded iris",
+   "source_id": "oxford102:image_05948",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06207",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06207",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06207",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06207",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06207",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06207",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06207",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06207",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06213",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06213",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06213",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06213",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06213",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06213",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06213",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06213",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06223",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06223",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06223",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06223",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06223",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06223",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06223",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06223",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06224",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06224",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06224",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06224",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06224",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06224",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06224",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06224",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06239",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06239",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06239",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06239",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06239",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06239",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06239",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Oxeye daisy",
+   "source_id": "oxford102:image_06239",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06894",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06894",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06894",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06894",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06894",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06894",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06894",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06894",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06896",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06896",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06896",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06896",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06896",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06896",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06896",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06896",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06897",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06897",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06897",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06897",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06897",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06897",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06897",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06897",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06903",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06903",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06903",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06903",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06903",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06903",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06903",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06903",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06912",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06912",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06912",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06912",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06912",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06912",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06912",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Carnation",
+   "source_id": "oxford102:image_06912",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07212",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07212",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07212",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07212",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07212",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07212",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07212",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07212",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07224",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07224",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07224",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07224",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07224",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07224",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07224",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07224",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07225",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07225",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07225",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07225",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07225",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07225",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07225",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07225",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07229",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07229",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07229",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07229",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07229",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07229",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07229",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07229",
+   "split": "test",
+   "variant": "rotate"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07230",
+   "split": "test",
+   "variant": "color_shift"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07230",
+   "split": "test",
+   "variant": "crop"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07230",
+   "split": "test",
+   "variant": "dark"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07230",
+   "split": "test",
+   "variant": "gaussian_blur"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07230",
+   "split": "test",
+   "variant": "jpeg"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07230",
+   "split": "test",
+   "variant": "low_res"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07230",
+   "split": "test",
+   "variant": "occlusion"
+  },
+  {
+   "label": "Moth orchid",
+   "source_id": "oxford102:image_07230",
+   "split": "test",
+   "variant": "rotate"
+  }
+ ],
+ "family": "corrupted_id",
+ "protocol": "v1",
+ "salt": "bloomlens-eval-v1",
+ "variants": [
+  "gaussian_blur",
+  "low_res",
+  "dark",
+  "occlusion",
+  "crop",
+  "jpeg",
+  "rotate",
+  "color_shift"
+ ]
+}
