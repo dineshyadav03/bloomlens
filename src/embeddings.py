@@ -48,6 +48,11 @@ def _assert_preprocess_matches_pinned_config(config: dict, preprocess) -> None:
         )
 
 
+def is_loaded() -> bool:
+    """Whether this process has already loaded the model (the first scan pays for that)."""
+    return _state["model"] is not None
+
+
 def load_model():
     """Load (once) and return (model, preprocess, tokenizer). CPU inference."""
     with _lock:

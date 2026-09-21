@@ -23,8 +23,8 @@ from langchain_google_genai.chat_models import GoogleAPIError, GoogleGenerativeA
 from PIL import Image
 from pydantic import BaseModel, Field, ValidationError, field_validator
 
-from src import privacy
-from src.embeddings import embed_image
+from src import privacy, telemetry
+from src.embeddings import embed_image, is_loaded
 from src.pricing import lookup_price
 from src.tools import assess_quality, check_price, lookup_taxonomy
 from src.vector_store import get_client, search
@@ -134,13 +134,22 @@ class IdentifyResult(BaseModel):
 
 class IdentifyError(Exception):
     """The pipeline couldn't produce an answer. The message is fixed wording that is
-    safe to show a user -- never provider output (see _invoke_agent_with_retries)."""
+    safe to show a user -- never provider output (see _invoke_agent_with_retries).
+    `category` is a closed enum (src/telemetry.py FAILURE_CATEGORIES) recorded with the
+    failed scan instead of any text."""
+
+    def __init__(self, message: str, *, category: telemetry.FailureCategory = "other"):
+        super().__init__(message)
+        self.category = category
 
 
 class _MalformedAnswer(Exception):
     """Gemini's final text wasn't a usable answer. Deliberately carries none of that
     text: it can echo the photo's contents, and this is the kind of exception that
     ends up in logs and error bodies."""
+
+
+_EMPTY_INDEX = "The species index is empty — run scripts/build_index.py first."
 
 
 class IdentifyConfigError(IdentifyError):
@@ -153,7 +162,8 @@ def _require_api_key() -> str:
     if not api_key:
         raise IdentifyConfigError(
             "GEMINI_API_KEY is not set. Copy .env.example to .env and add your key "
-            "from https://aistudio.google.com/apikey, then restart the app."
+            "from https://aistudio.google.com/apikey, then restart the app.",
+            category="auth",
         )
     return api_key
 
@@ -280,6 +290,14 @@ def _parse_retry_delay_seconds(exc: Exception, default: float = 30.0) -> float:
     return min(delay, _RATE_LIMIT_MAX_WAIT_SECONDS)
 
 
+def _failure_category(exc: Exception, default: telemetry.FailureCategory) -> telemetry.FailureCategory:
+    """A timeout is a timeout whichever exception class carried it; otherwise `default`."""
+    name = type(exc).__name__
+    if isinstance(exc, TimeoutError) or "Timeout" in name or "Deadline" in name:
+        return "timeout"
+    return default
+
+
 def _invoke_agent_with_retries(message: dict) -> _GeminiAnswer:
     """Run the agent on a pre-built message and parse its final answer, with
     retry/backoff. Shared by identify() (one photo) and identify_lot() (several
@@ -288,10 +306,13 @@ def _invoke_agent_with_retries(message: dict) -> _GeminiAnswer:
     agent = _get_agent()
 
     rate_limit_attempts = 0
+    last_category: telemetry.FailureCategory = "other"
     for attempt in range(1, _MAX_RETRIES + 1):
         try:
+            telemetry.note_attempt()
             with privacy.no_tracing():
                 result = agent.invoke({"messages": [message]})
+            telemetry.note_agent_result(result)  # tokens are spent even if the answer is unusable
             return _parse_answer(_extract_final_text(result))
         except GoogleRateLimitError as exc:
             # The agent can make several Gemini calls per identify() (reasoning +
@@ -305,12 +326,14 @@ def _invoke_agent_with_retries(message: dict) -> _GeminiAnswer:
                 raise IdentifyError(
                     "Gemini's free-tier rate limit was reached for this key and didn't clear in "
                     "time. Wait a minute and try again, or check your quota at "
-                    "https://ai.dev/rate-limit."
+                    "https://ai.dev/rate-limit.",
+                    category="rate_limit",
                 ) from exc
             time.sleep(_parse_retry_delay_seconds(exc))
             continue
         except GoogleAPIError as exc:
             # Server-side (5xx) — transient, worth retrying with backoff.
+            last_category = _failure_category(exc, "server_5xx")
             _log_failed_attempt("server error", exc, attempt)
             if attempt < _MAX_RETRIES:
                 time.sleep(_RETRY_BASE_DELAY_SECONDS * attempt)
@@ -320,19 +343,23 @@ def _invoke_agent_with_retries(message: dict) -> _GeminiAnswer:
             _log_failed_attempt("request rejected", exc, attempt)
             raise IdentifyConfigError(
                 "The identification service rejected the request. Check that GEMINI_API_KEY is valid "
-                "and has access to the model."
+                "and has access to the model.",
+                category="auth",
             ) from exc
         except _MalformedAnswer as exc:
+            last_category = "parse_error"
             _log_failed_attempt("malformed answer", exc, attempt, detail=str(exc))
             if attempt < _MAX_RETRIES:
                 time.sleep(_RETRY_BASE_DELAY_SECONDS * attempt)
         except Exception as exc:  # noqa: BLE001 — timeouts and anything else; all retryable
+            last_category = _failure_category(exc, "other")
             _log_failed_attempt("unexpected error", exc, attempt)
             if attempt < _MAX_RETRIES:
                 time.sleep(_RETRY_BASE_DELAY_SECONDS * attempt)
     raise IdentifyError(
         f"The identification service didn't return a usable answer after {_MAX_RETRIES} attempts — "
-        "please try again in a moment."
+        "please try again in a moment.",
+        category=last_category,
     )
 
 
@@ -350,14 +377,24 @@ def _log_failed_attempt(kind: str, exc: Exception, attempt: int, *, detail: str 
 
 
 def identify(image: Image.Image) -> IdentifyResult:
-    image_embedding = embed_image(image)
+    # One telemetry row per scan, success or failure (src/telemetry.py). `cold_start` is
+    # whether this process still has to load the model, which dominates the first scan.
+    with telemetry.scan("single", 1, cold_start=not is_loaded()):
+        return _identify(image)
 
-    qdrant = get_client()
-    candidates = search(qdrant, image_embedding, top_k=3)
+
+def _identify(image: Image.Image) -> IdentifyResult:
+    with telemetry.timed("embed"):
+        image_embedding = embed_image(image)
+
+    with telemetry.timed("search"):
+        qdrant = get_client()
+        candidates = search(qdrant, image_embedding, top_k=3)
     if not candidates:
-        raise IdentifyConfigError("The species index is empty — run scripts/build_index.py first.")
+        raise IdentifyConfigError(_EMPTY_INDEX, category="empty_index")
 
-    parsed = _invoke_agent_with_retries(_build_candidates_message(image, candidates))
+    with telemetry.timed("agent"):
+        parsed = _invoke_agent_with_retries(_build_candidates_message(image, candidates))
 
     species = _match_candidate(parsed.species, candidates)
     scientific_name = next(
@@ -466,13 +503,20 @@ def identify_lot(images: list[Image.Image]) -> LotResult:
     if len(images) > LOT_MAX_PHOTOS:
         raise IdentifyError(f"A lot can have at most {LOT_MAX_PHOTOS} photos (got {len(images)}).")
 
+    with telemetry.scan("lot", len(images), cold_start=not is_loaded()):
+        return _identify_lot(images)
+
+
+def _identify_lot(images: list[Image.Image]) -> LotResult:
     qdrant = get_client()
     per_photo_candidates = []
     for image in images:
-        embedding = embed_image(image)
-        candidates = search(qdrant, embedding, top_k=3)
+        with telemetry.timed("embed"):
+            embedding = embed_image(image)
+        with telemetry.timed("search"):
+            candidates = search(qdrant, embedding, top_k=3)
         if not candidates:
-            raise IdentifyConfigError("The species index is empty — run scripts/build_index.py first.")
+            raise IdentifyConfigError(_EMPTY_INDEX, category="empty_index")
         per_photo_candidates.append(candidates)
 
     top1_votes = [(c[0]["payload"]["common_name"], c[0]["score"]) for c in per_photo_candidates]
@@ -489,7 +533,8 @@ def identify_lot(images: list[Image.Image]) -> LotResult:
         c for c in per_photo_candidates if c[0]["payload"]["common_name"] == consensus_species
     )
 
-    parsed = _invoke_agent_with_retries(_build_lot_message(images, consensus_candidates))
+    with telemetry.timed("agent"):
+        parsed = _invoke_agent_with_retries(_build_lot_message(images, consensus_candidates))
 
     species = _match_candidate(parsed.species, consensus_candidates)
     scientific_name = next(
