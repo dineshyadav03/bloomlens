@@ -9,7 +9,7 @@ from contextlib import closing
 
 import pytest
 
-from src import inventory
+from src import db, inventory
 
 
 def db_path() -> str:
@@ -90,7 +90,7 @@ class TestStorage:
 
     def test_the_default_path_is_used_when_the_env_var_is_unset(self, monkeypatch):
         monkeypatch.delenv("INVENTORY_DB_PATH")
-        assert inventory._db_path() == inventory.DEFAULT_DB_PATH
+        assert db.db_path() == db.DEFAULT_DB_PATH
 
 
 class TestFailuresNeverBreakAScan:
