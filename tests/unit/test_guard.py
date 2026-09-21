@@ -219,3 +219,20 @@ class TestValidateHelpers:
         files = [io.BytesIO(encode(photo, "PNG")), io.BytesIO(b"nope")]
         with pytest.raises(UploadRejected):
             validate_lot(files)
+
+
+class TestLimitsAreReadAtCallTime:
+    """Defaults bound at definition time would silently ignore a limit changed later."""
+
+    def test_validate_upload_uses_the_current_cap(self, monkeypatch, photo):
+        monkeypatch.setattr(guard, "MAX_UPLOAD_BYTES", 10)
+        with pytest.raises(UploadRejected) as info:
+            validate_upload(io.BytesIO(encode(photo, "PNG")))
+        assert info.value.reason == "too_large"
+
+    def test_validate_lot_uses_the_current_caps(self, monkeypatch, photo):
+        data = encode(photo, "PNG")
+        monkeypatch.setattr(guard, "MAX_LOT_BYTES", len(data) + 1)
+        with pytest.raises(UploadRejected) as info:
+            validate_lot([io.BytesIO(data), io.BytesIO(data)])
+        assert info.value.reason == "lot_too_large"
