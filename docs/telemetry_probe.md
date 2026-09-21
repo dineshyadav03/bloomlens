@@ -56,7 +56,7 @@ first measurement on one machine, one network and one day, not a benchmark.
 What it says, and doesn't:
 
 - Local work is small and steady (embedding + search well under a second). **Nearly all latency is the Gemini
-  agent**, and it has a heavy tail: the fastest scans took 7 s, five took 27–73 s, all with a single attempt.
+  agent**, and it has a heavy tail: the fastest warm scan took 7 s, six took 27–73 s, all with a single attempt.
   With n = 23 the p95 rests on the two or three slowest scans, so treat 66 s as "occasionally over a minute",
   not as a precise number.
 - The four sequential model turns (each waiting on the previous tool result) are why a scan takes seconds,
