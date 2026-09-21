@@ -57,7 +57,7 @@ class Limits:
     global_per_day: int = 500
 
 
-def _positive_int_from_env(name: str, default: int) -> int:
+def positive_int_from_env(name: str, default: int) -> int:
     raw = os.environ.get(name)
     if raw is None or raw.strip() == "":
         return default
@@ -74,9 +74,9 @@ def _positive_int_from_env(name: str, default: int) -> int:
 def limits_from_env() -> Limits:
     defaults = Limits()
     return Limits(
-        per_minute=_positive_int_from_env("BLOOMLENS_RATE_PER_MINUTE", defaults.per_minute),
-        per_day=_positive_int_from_env("BLOOMLENS_QUOTA_PER_DAY", defaults.per_day),
-        global_per_day=_positive_int_from_env("BLOOMLENS_GLOBAL_QUOTA_PER_DAY", defaults.global_per_day),
+        per_minute=positive_int_from_env("BLOOMLENS_RATE_PER_MINUTE", defaults.per_minute),
+        per_day=positive_int_from_env("BLOOMLENS_QUOTA_PER_DAY", defaults.per_day),
+        global_per_day=positive_int_from_env("BLOOMLENS_GLOBAL_QUOTA_PER_DAY", defaults.global_per_day),
     )
 
 
@@ -232,7 +232,7 @@ def gate() -> ConcurrencyGate:
     global _gate
     with _gate_lock:
         if _gate is None:
-            _gate = ConcurrencyGate(_positive_int_from_env("BLOOMLENS_MAX_CONCURRENT", DEFAULT_CONCURRENCY))
+            _gate = ConcurrencyGate(positive_int_from_env("BLOOMLENS_MAX_CONCURRENT", DEFAULT_CONCURRENCY))
         return _gate
 
 

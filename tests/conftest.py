@@ -46,10 +46,13 @@ def hermetic_env(monkeypatch, tmp_path):
         monkeypatch.delenv(name, raising=False)
     monkeypatch.setenv("INVENTORY_DB_PATH", str(tmp_path / "inventory.db"))
 
-    from src import quota
+    from src import quota, retention
 
     quota.reset_gate()
     monkeypatch.setattr(quota, "_last_purge", float("-inf"))
+    monkeypatch.setattr(retention, "_last_purge", float("-inf"))
+    monkeypatch.delenv("BLOOMLENS_METRICS_RETENTION_DAYS", raising=False)
+    monkeypatch.delenv("BLOOMLENS_INVENTORY_RETENTION_DAYS", raising=False)
     yield
     quota.reset_gate()
 

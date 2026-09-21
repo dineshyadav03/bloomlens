@@ -1,4 +1,5 @@
-"""The one SQLite file that the inventory log and the abuse-control counters share.
+"""The one SQLite file that the inventory log, the abuse-control counters and the
+privacy-safe scan telemetry share.
 
 Why SQLite, and why one file: docker-compose runs `web` (Streamlit) and `api` as
 separate processes/containers on one shared volume, so anything that must be shared
@@ -59,6 +60,58 @@ SCHEMA = (
         used INTEGER NOT NULL CHECK (used >= 0),
         PRIMARY KEY (identity, kind, window)
     ) WITHOUT ROWID
+    """,
+    # Per-scan telemetry with a CLOSED set of columns: numbers, enums, versions and a
+    # timestamp. Never an image, a prompt, a model answer, an exception message, an address,
+    # a key or a caller identity (docs/PRIVACY.md). Token/turn/tool columns are nullable:
+    # they exist only when the provider reported them (docs/telemetry_probe.md).
+    """
+    CREATE TABLE IF NOT EXISTS scan_metrics (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        recorded_at TEXT NOT NULL,
+        mode TEXT NOT NULL CHECK (mode IN ('single', 'lot')),
+        photo_count INTEGER NOT NULL CHECK (photo_count >= 1),
+        status TEXT NOT NULL CHECK (status IN ('ok', 'error')),
+        failure_category TEXT CHECK (failure_category IN
+            ('rate_limit', 'server_5xx', 'timeout', 'parse_error', 'auth', 'empty_index', 'other')),
+        cold_start INTEGER NOT NULL CHECK (cold_start IN (0, 1)),
+        embed_ms INTEGER,
+        search_ms INTEGER,
+        agent_ms INTEGER,
+        total_ms INTEGER NOT NULL,
+        attempts INTEGER,
+        model_turns INTEGER,
+        tool_calls INTEGER,
+        input_tokens INTEGER,
+        output_tokens INTEGER,
+        bioclip_revision TEXT NOT NULL,
+        gemini_model TEXT NOT NULL,
+        model_reported TEXT,
+        pricing_version TEXT REFERENCES pricing_versions (version),
+        est_cost_usd REAL,
+        platform TEXT NOT NULL,
+        CHECK ((status = 'ok') = (failure_category IS NULL))
+    )
+    """,
+    # Immutable history of the prices costs were estimated with (src/llm_cost.py).
+    """
+    CREATE TABLE IF NOT EXISTS pricing_versions (
+        version TEXT PRIMARY KEY,
+        model TEXT NOT NULL,
+        effective_from TEXT NOT NULL,
+        input_usd_per_mtok REAL NOT NULL,
+        output_usd_per_mtok REAL NOT NULL,
+        source_url TEXT NOT NULL,
+        retrieved_at TEXT NOT NULL
+    )
+    """,
+    """
+    CREATE TRIGGER IF NOT EXISTS pricing_versions_no_update BEFORE UPDATE ON pricing_versions
+    BEGIN SELECT RAISE(ABORT, 'pricing versions are immutable: add a new version instead'); END
+    """,
+    """
+    CREATE TRIGGER IF NOT EXISTS pricing_versions_no_delete BEFORE DELETE ON pricing_versions
+    BEGIN SELECT RAISE(ABORT, 'pricing versions are immutable: add a new version instead'); END
     """,
 )
 
