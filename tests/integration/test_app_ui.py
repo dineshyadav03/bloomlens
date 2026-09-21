@@ -368,3 +368,43 @@ class TestLotLimits:
         assert calls == [3]  # three photos, one unit
         at = click(at, "🔍 Identify Lot")
         assert calls == [3] and "Too many requests" in text_of(at.warning)
+
+
+# --- the Performance expander: aggregates only ------------------------------------------
+
+from tests.unit.test_telemetry import insert as insert_metric  # noqa: E402
+
+
+def seed_metrics(n, **overrides):
+    stamp = datetime.now(UTC).isoformat()
+    with closing(db.connect()) as conn, db.transaction(conn):
+        for i in range(n):
+            insert_metric(conn, recorded_at=stamp, total_ms=1500 + i * 10, **overrides)
+
+
+class TestPerformanceExpander:
+    def test_with_no_scans_it_says_so(self):
+        at = new_app().run()
+        assert "No scans recorded yet" in text_of(at.caption)
+
+    def test_a_small_sample_explains_why_there_are_no_percentiles(self):
+        seed_metrics(5)
+        at = new_app().run()
+        assert "at least 20 successful warm scans (have 5)" in text_of(at.caption)
+        assert "p50" not in text_of(at.caption)
+
+    def test_enough_scans_show_p50_and_p95_and_the_counts(self):
+        seed_metrics(30)
+        at = new_app().run()
+        assert "p50" in text_of(at.caption) and "p95" in text_of(at.caption)
+        labels = {m.label: m.value for m in at.metric}
+        assert labels["Scans"] == "30" and labels["Failed"] == "0%"
+
+    def test_it_states_the_privacy_rule(self):
+        at = new_app().run()
+        assert "No photo, prompt, answer, address or identity is ever recorded" in text_of(at.caption)
+
+    def test_it_shows_no_row_level_text(self):
+        seed_metrics(30, bioclip_revision="REV-CANARY-ROW")
+        at = new_app().run()
+        assert "REV-CANARY-ROW" not in all_rendered_text(at)
