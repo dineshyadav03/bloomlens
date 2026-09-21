@@ -1,0 +1,35 @@
+{
+  "_comment": "Advisories that pip-audit reports and that have been read and judged not reachable from BloomLens. Anything NOT listed here fails the audit. Re-review when torch is upgraded (the fix for most of these is torch >= 2.7-2.13, blocked today by the pinned CPU build the eval numbers were measured on) and at least every 90 days.",
+  "reviewed": "2026-09-21",
+  "entries": [
+    {
+      "package": "torch",
+      "version": "2.6.0",
+      "ids": [
+        "PYSEC-2025-189",
+        "PYSEC-2025-190",
+        "PYSEC-2025-191",
+        "PYSEC-2025-192",
+        "PYSEC-2025-193",
+        "PYSEC-2025-194",
+        "PYSEC-2025-195",
+        "PYSEC-2025-198",
+        "PYSEC-2025-199",
+        "PYSEC-2025-200",
+        "PYSEC-2025-201",
+        "PYSEC-2025-202",
+        "PYSEC-2025-203",
+        "PYSEC-2025-204",
+        "PYSEC-2025-205",
+        "PYSEC-2025-206",
+        "PYSEC-2025-207",
+        "PYSEC-2025-208",
+        "PYSEC-2025-209",
+        "PYSEC-2026-139",
+        "PYSEC-2026-1970",
+        "PYSEC-2026-2286"
+      ],
+      "reason": "Each advisory names a specific torch API (mkldnn_max_pool2d, ctc_loss, lstm_cell, torch.jit.script, the profiler, pad_packed_sequence/unpack_sequence, torch.compile/Inductor, nan_to_num, rot90, linalg.lu, to_sparse, ...) or the torch.load weights_only unpickler fed an untrusted checkpoint. Checked on 2026-09-21: a search of src/, api/, app.py, eval/ and scripts/ finds none of those APIs; BloomLens runs one open_clip ViT-L/14 image forward pass and a cosine search. The only file torch.load ever opens is the BioCLIP 2 weights, whose SHA-256 is pinned and verified (src/model_pin.py) before open_clip touches it, and open_clip loads with weights_only=True, so an attacker-supplied checkpoint would have to get past the pinned hash first. Upload bytes go to Pillow (patched), never to torch. Not checked: calls made inside open_clip/torch internals, which were not traced."
+    }
+  ]
+}
