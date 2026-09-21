@@ -16,7 +16,7 @@ import secrets
 from contextlib import contextmanager
 
 import streamlit as st
-from src import guard, quota
+from src import guard, quota, telemetry
 from src.identify import (
     LOT_LOW_AGREEMENT_THRESHOLD,
     LOT_MAX_PHOTOS,
@@ -339,4 +339,32 @@ with tab_inventory:
                 for e in entries
             ],
             hide_index=True,
+        )
+
+    with st.expander("⏱️ Performance (aggregate)"):
+        report = telemetry.summary()
+        scans = report["scans"]
+        if scans["total"] == 0:
+            st.caption("No scans recorded yet.")
+        else:
+            col_total, col_failed, col_retries = st.columns(3)
+            col_total.metric("Scans", scans["total"])
+            col_failed.metric("Failed", f"{report['failure_rate']:.0%}")
+            col_retries.metric("Retries / scan", report["retries_per_scan"]["mean"])
+            warm = report["latency_ms"]["warm"]
+            if warm["p50_ms"] is None:
+                st.caption(f"Latency percentiles need at least 20 successful warm scans (have {warm['n']}).")
+            else:
+                st.caption(
+                    f"Warm scan latency: p50 {warm['p50_ms'] / 1000:.1f} s, p95 {warm['p95_ms'] / 1000:.1f} s "
+                    f"(n={warm['n']}). The first scan after a start also loads the model and is reported apart."
+                )
+            cost = report["estimated_cost_usd"]
+            if cost["total"] is not None:
+                st.caption(
+                    f"Estimated cost: ${cost['total']:.4f} over {cost['scans_priced']} scans — {cost['meaning']}."
+                )
+        st.caption(
+            f"Aggregates over the last {report['window_days']} days. No photo, prompt, answer, address or identity "
+            "is ever recorded — see docs/PRIVACY.md."
         )

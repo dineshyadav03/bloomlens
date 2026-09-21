@@ -25,7 +25,7 @@ from fastapi.responses import JSONResponse, Response
 from PIL import Image
 
 from api.security import SecurityMiddleware, current_client, is_production
-from src import guard, quota
+from src import guard, quota, telemetry
 from src.identify import (
     LOT_MAX_PHOTOS,
     IdentifyConfigError,
@@ -178,6 +178,15 @@ def inventory_endpoint(limit: int = Query(100, ge=1, le=INVENTORY_MAX_LIMIT)) ->
 def inventory_species_counts_endpoint() -> dict[str, int]:
     """Running count of logged scans per species."""
     return species_counts()
+
+
+@protected.get("/metrics")
+def metrics_endpoint() -> dict:
+    """Aggregate scan telemetry over the retention window (src/telemetry.py): counts,
+    failure rates by category, p50/p95 latency (withheld below 20 scans; no p99), retries,
+    token means and an *estimated list-price equivalent* cost. Never a per-scan row, a
+    timestamp or an identifier -- none are stored."""
+    return telemetry.summary()
 
 
 async def _validation_error(_request: Request, exc: RequestValidationError) -> JSONResponse:
