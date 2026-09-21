@@ -408,3 +408,56 @@ class TestPerformanceExpander:
         seed_metrics(30, bioclip_revision="REV-CANARY-ROW")
         at = new_app().run()
         assert "REV-CANARY-ROW" not in all_rendered_text(at)
+
+
+# --- the abstention flag drives the UI (not the confidence tier) -------------------------
+
+
+class TestAbstentionInTheUI:
+    @pytest.fixture
+    def fake(self, monkeypatch, fixed_clock):
+        def _set(result):
+            monkeypatch.setattr(ident, "identify", lambda _image: result)
+
+        return _set
+
+    def test_an_abstained_scan_warns_and_hides_the_species_heading(self, camera, fake, make_identify_result):
+        fake(make_identify_result(species="Rose", confidence_tier="high", abstained=True, abstain_source="agent"))
+        camera(photo_variant(1))
+        at = new_app().run()
+        assert "Not confidently any of BloomLens's known species" in text_of(at.warning)
+        assert "closest guess: **Rose**" in text_of(at.warning)
+        assert not any("🌷 Rose" in str(s.value) for s in at.subheader)
+
+    def test_a_confident_scan_shows_the_species_and_no_warning(self, camera, fake, make_identify_result):
+        fake(make_identify_result(species="Rose"))
+        camera(photo_variant(1))
+        at = new_app().run()
+        assert "Not confidently" not in text_of(at.warning)
+        assert any("🌷 Rose" in str(s.value) for s in at.subheader)
+
+    def test_the_low_tier_alone_no_longer_decides_only_the_flag_does(self, camera, fake, make_identify_result):
+        """The UI reads `abstained`; a result whose tier says low but whose flag says no is not warned."""
+        fake(make_identify_result(species="Rose", confidence_tier="low", abstained=False))
+        camera(photo_variant(1))
+        at = new_app().run()
+        assert "Not confidently" not in text_of(at.warning)
+
+    def test_an_ambiguous_confident_scan_still_offers_the_switcher(self, camera, fake, make_identify_result):
+        candidates = [
+            {"common_name": "Rose", "scientific_name": "Rosa", "score": 0.6},
+            {"common_name": "Peony", "scientific_name": "Paeonia", "score": 0.58},
+        ]
+        fake(make_identify_result(species="Rose", confidence_tier="ambiguous", top_candidates=candidates))
+        camera(photo_variant(1))
+        at = new_app().run()
+        assert len(at.radio) == 1 and "Close call" in text_of(at.caption)
+
+    def test_an_abstained_lot_says_so(self, monkeypatch, make_lot_result, fixed_clock):
+        monkeypatch.setattr(
+            ident, "identify_lot", lambda images: make_lot_result(abstained=True, abstain_source="retrieval")
+        )
+        at = new_app()
+        at.session_state["lot_photos"] = lot_photos(2)
+        at = click(at.run(), "🔍 Identify Lot")
+        assert "Not confidently any of BloomLens's known species" in text_of(at.warning)
