@@ -42,6 +42,9 @@ Per scan, one request to the Gemini API carries:
 
 - **Photos: nothing.** They live in memory for the length of one request. They are never
   written to disk, never logged and never put in a database.
+- **Abuse-control counters** (same SQLite file): an API-key *label* or a random browser-session id, a
+  time-window number and a count. No address, no key, no image. Expired windows are purged (minute windows after an
+  hour, day windows after two days).
 - **The inventory log** (`data/inventory.db`): per scan, a UTC timestamp, single/lot, the
   species, scientific name, confidence tier, quality grade, price fields, photo count and lot
   agreement. No image, no free text from the model, no user identifier.
