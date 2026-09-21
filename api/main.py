@@ -3,18 +3,28 @@ not a second implementation. Both this and app.py (Streamlit) call the exact
 same identify()/identify_lot() and render the exact same IdentifyResult/
 LotResult Pydantic models; nothing about the pipeline lives here.
 
-Run: uvicorn api.main:app --reload   (see .claude/launch.json for a preset)
-Then browse http://localhost:8000/docs for interactive Swagger UI.
+Every route except /health needs an `X-API-Key` (api/security.py); uploads go
+through src/guard.py, the same validator the Streamlit app uses. Text fields in
+the responses are written by a language model: treat them as untrusted.
+
+Run: BLOOMLENS_API_KEYS="me:<24+ char secret>" uvicorn api.main:app --reload
+(see .claude/launch.json for a preset). Swagger UI is at /docs unless
+BLOOMLENS_ENV=production.
 """
 
 import io
+import logging
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
-from fastapi.responses import Response
+from fastapi import APIRouter, Depends, FastAPI, File, Form, HTTPException, Query, Request, UploadFile
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse, Response
 from PIL import Image
 
+from api.security import SecurityMiddleware, current_client, is_production
+from src import guard
 from src.identify import (
     LOT_MAX_PHOTOS,
+    IdentifyConfigError,
     IdentifyError,
     IdentifyResult,
     LotResult,
@@ -24,28 +34,44 @@ from src.identify import (
 from src.interpretability import ExplainError, explain_image
 from src.inventory import InventoryEntry, list_recent, log_lot_scan, log_scan, species_counts
 
-app = FastAPI(
-    title="BloomLens API",
-    description="Scan a flower (or a lot of them) and get species, quality, and a simulated price.",
-    version="0.1.0",
-)
+logger = logging.getLogger("bloomlens.api")
+
+INVENTORY_MAX_LIMIT = 500
+SPECIES_FIELD_MAX_LENGTH = 100
+
+public = APIRouter()
+protected = APIRouter(dependencies=[Depends(current_client)])
 
 
 def _read_image(upload: UploadFile) -> Image.Image:
     try:
-        image = Image.open(io.BytesIO(upload.file.read()))
-        image.load()  # force full decode now, so a truncated/corrupt file fails here (400) not mid-pipeline (500)
-        return image
-    except Exception as exc:  # noqa: BLE001 -- any unreadable upload is a client error, not a service error
-        raise HTTPException(status_code=400, detail=f"'{upload.filename}' isn't a readable image: {exc}") from exc
+        return guard.validate_upload(upload.file)
+    except guard.UploadRejected as exc:
+        raise HTTPException(status_code=exc.status, detail=exc.message) from exc
 
 
-@app.get("/health")
+def _read_lot(uploads: list[UploadFile]) -> list[Image.Image]:
+    try:
+        return guard.validate_lot([u.file for u in uploads])
+    except guard.UploadRejected as exc:
+        raise HTTPException(status_code=exc.status, detail=exc.message) from exc
+
+
+def _service_unavailable(exc: IdentifyError) -> HTTPException:
+    """IdentifyError text is fixed wording (src/identify.py), never provider output.
+    Misconfiguration is the operator's business, so callers get a generic line."""
+    logger.warning("identification failed: %s", exc)
+    if isinstance(exc, IdentifyConfigError):
+        return HTTPException(status_code=503, detail="The service is not configured correctly.")
+    return HTTPException(status_code=503, detail=str(exc))
+
+
+@public.get("/health")
 def health() -> dict:
     return {"status": "ok"}
 
 
-@app.post("/identify", response_model=IdentifyResult)
+@protected.post("/identify", response_model=IdentifyResult)
 def identify_endpoint(photo: UploadFile = File(...)) -> IdentifyResult:
     """Identify a single scanned flower photo. Runs synchronously (not `async def`)
     because identify() blocks on CPU inference and Gemini network calls -- FastAPI
@@ -55,12 +81,12 @@ def identify_endpoint(photo: UploadFile = File(...)) -> IdentifyResult:
     try:
         result = identify(image)
     except IdentifyError as exc:
-        raise HTTPException(status_code=503, detail=str(exc)) from exc
+        raise _service_unavailable(exc) from exc
     log_scan(result)
     return result
 
 
-@app.post("/identify-lot", response_model=LotResult)
+@protected.post("/identify-lot", response_model=LotResult)
 def identify_lot_endpoint(photos: list[UploadFile] = File(...)) -> LotResult:
     """Identify a lot of up to LOT_MAX_PHOTOS photos as one consensus result."""
     if not photos:
@@ -70,17 +96,19 @@ def identify_lot_endpoint(photos: list[UploadFile] = File(...)) -> LotResult:
             status_code=400, detail=f"A lot can have at most {LOT_MAX_PHOTOS} photos (got {len(photos)})."
         )
 
-    images = [_read_image(p) for p in photos]
+    images = _read_lot(photos)
     try:
         result = identify_lot(images)
     except IdentifyError as exc:
-        raise HTTPException(status_code=503, detail=str(exc)) from exc
+        raise _service_unavailable(exc) from exc
     log_lot_scan(result)
     return result
 
 
-@app.post("/explain")
-def explain_endpoint(photo: UploadFile = File(...), species: str = Form(...)) -> Response:
+@protected.post("/explain")
+def explain_endpoint(
+    photo: UploadFile = File(...), species: str = Form(..., max_length=SPECIES_FIELD_MAX_LENGTH)
+) -> Response:
     """Returns a PNG of `photo` with a heatmap overlay showing which regions most
     drove its match to `species` (see src/interpretability.py) -- an on-demand
     trust/debug aid, not part of the core /identify result."""
@@ -88,20 +116,48 @@ def explain_endpoint(photo: UploadFile = File(...), species: str = Form(...)) ->
     try:
         overlay = explain_image(image, species)
     except ExplainError as exc:
-        raise HTTPException(status_code=400, detail=str(exc)) from exc
+        raise HTTPException(status_code=400, detail="That species isn't in BloomLens's curated species list.") from exc
 
     buf = io.BytesIO()
     overlay.save(buf, format="PNG")
     return Response(content=buf.getvalue(), media_type="image/png")
 
 
-@app.get("/inventory", response_model=list[InventoryEntry])
-def inventory_endpoint(limit: int = 100) -> list[InventoryEntry]:
+@protected.get("/inventory", response_model=list[InventoryEntry])
+def inventory_endpoint(limit: int = Query(100, ge=1, le=INVENTORY_MAX_LIMIT)) -> list[InventoryEntry]:
     """Most recent logged scans (newest first) -- see src/inventory.py."""
     return list_recent(limit)
 
 
-@app.get("/inventory/species-counts")
+@protected.get("/inventory/species-counts")
 def inventory_species_counts_endpoint() -> dict[str, int]:
     """Running count of logged scans per species."""
     return species_counts()
+
+
+async def _validation_error(_request: Request, exc: RequestValidationError) -> JSONResponse:
+    """FastAPI's default 422 echoes the offending input back; say where and why, not what."""
+    detail = [{"loc": list(e.get("loc", ())), "msg": e.get("msg", "invalid")} for e in exc.errors()]
+    return JSONResponse({"detail": detail}, status_code=422)
+
+
+def create_app(*, production: bool | None = None) -> FastAPI:
+    """`production` (default: BLOOMLENS_ENV=production) turns off the interactive docs
+    and the OpenAPI document, which describe every route to whoever asks."""
+    production = is_production() if production is None else production
+    app = FastAPI(
+        title="BloomLens API",
+        description="Scan a flower (or a lot of them) and get species, quality, and a simulated price.",
+        version="0.1.0",
+        docs_url=None if production else "/docs",
+        redoc_url=None,
+        openapi_url=None if production else "/openapi.json",
+    )
+    app.include_router(public)
+    app.include_router(protected)
+    app.add_exception_handler(RequestValidationError, _validation_error)
+    app.add_middleware(SecurityMiddleware, docs_enabled=not production)
+    return app
+
+
+app = create_app()

@@ -104,13 +104,19 @@ class IdentifyResult(BaseModel):
 
 
 class IdentifyError(Exception):
-    pass
+    """The pipeline couldn't produce an answer. The message is fixed wording that is
+    safe to show a user -- never provider output (see _invoke_agent_with_retries)."""
+
+
+class IdentifyConfigError(IdentifyError):
+    """The server is misconfigured (no Gemini key, empty index): the operator's problem,
+    so the API shows callers a generic line rather than the setup instructions."""
 
 
 def _require_api_key() -> str:
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        raise IdentifyError(
+        raise IdentifyConfigError(
             "GEMINI_API_KEY is not set. Copy .env.example to .env and add your key "
             "from https://aistudio.google.com/apikey, then restart the app."
         )
@@ -278,7 +284,7 @@ def identify(image: Image.Image) -> IdentifyResult:
     qdrant = get_client()
     candidates = search(qdrant, image_embedding, top_k=3)
     if not candidates:
-        raise IdentifyError("The species index is empty — run scripts/build_index.py first.")
+        raise IdentifyConfigError("The species index is empty — run scripts/build_index.py first.")
 
     parsed = _invoke_agent_with_retries(_build_candidates_message(image, candidates))
 
@@ -395,7 +401,7 @@ def identify_lot(images: list[Image.Image]) -> LotResult:
         embedding = embed_image(image)
         candidates = search(qdrant, embedding, top_k=3)
         if not candidates:
-            raise IdentifyError("The species index is empty — run scripts/build_index.py first.")
+            raise IdentifyConfigError("The species index is empty — run scripts/build_index.py first.")
         per_photo_candidates.append(candidates)
 
     top1_votes = [(c[0]["payload"]["common_name"], c[0]["score"]) for c in per_photo_candidates]
