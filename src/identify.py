@@ -23,6 +23,7 @@ from langchain_google_genai.chat_models import GoogleAPIError, GoogleGenerativeA
 from PIL import Image
 from pydantic import BaseModel, Field, ValidationError, field_validator
 
+from src import privacy
 from src.embeddings import embed_image
 from src.pricing import lookup_price
 from src.tools import assess_quality, check_price, lookup_taxonomy
@@ -34,6 +35,7 @@ LOT_MAX_PHOTOS = 10
 logger = logging.getLogger("bloomlens.identify")
 
 load_dotenv()
+privacy.disable_tracing()  # after load_dotenv, so a LANGSMITH_TRACING=true in .env can't win
 
 # Gemini's constrained-decoding structured-output feature (response_json_schema /
 # response_schema) returned intermittent 503s in testing — a known, currently-open
@@ -163,6 +165,7 @@ def _get_agent():
     global _agent_singleton
     with _agent_lock:
         if _agent_singleton is None:
+            privacy.disable_tracing()
             model = ChatGoogleGenerativeAI(model=GEMINI_MODEL, google_api_key=_require_api_key(), timeout=45)
             _agent_singleton = create_agent(
                 model=model,
@@ -287,7 +290,8 @@ def _invoke_agent_with_retries(message: dict) -> _GeminiAnswer:
     rate_limit_attempts = 0
     for attempt in range(1, _MAX_RETRIES + 1):
         try:
-            result = agent.invoke({"messages": [message]})
+            with privacy.no_tracing():
+                result = agent.invoke({"messages": [message]})
             return _parse_answer(_extract_final_text(result))
         except GoogleRateLimitError as exc:
             # The agent can make several Gemini calls per identify() (reasoning +
