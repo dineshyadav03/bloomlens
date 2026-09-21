@@ -130,7 +130,7 @@ with tab_single:
         display_price = result.price_per_stem
         display_trend = result.price_trend
 
-        if result.confidence_tier == "low":
+        if result.abstained:
             st.warning(
                 f"⚠️ Not confidently any of BloomLens's known species — closest guess: **{result.species}**"
             )
@@ -146,7 +146,7 @@ with tab_single:
                 display_price = resolved["price_per_stem"]
                 display_trend = resolved["price_trend"]
 
-        if result.confidence_tier != "low":
+        if not result.abstained:
             st.subheader(f"🌷 {display_species}")
         if display_scientific:
             st.caption(f"*{display_scientific}*")
@@ -268,6 +268,8 @@ with tab_lot:
 
             log_lot_scan(lot_result)
 
+            if lot_result.abstained:
+                st.warning("⚠️ Not confidently any of BloomLens's known species — below is only the closest guess.")
             st.subheader(f"🌷 {lot_result.consensus_species}")
             if lot_result.scientific_name:
                 st.caption(f"*{lot_result.scientific_name}*")
