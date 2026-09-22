@@ -176,6 +176,15 @@ class TestCorrupted:
             source = by_id[e["source_id"]]
             assert (source["split"], source["label"]) == (e["split"], e["label"])
 
+    def test_every_entry_carries_the_original_uncorrupted_files_path_and_hash(self, docs):
+        """Regression: the corruption is applied at LOAD time from the original file, so the
+        manifest must still point at that original -- a first version omitted `path` entirely,
+        which only broke (KeyError) when eval/run_open_world.py actually tried to load an image."""
+        by_id = {e["source_id"]: e for e in entries(docs, "id")}
+        for e in entries(docs, "corrupted"):
+            source = by_id[e["source_id"]]
+            assert e["path"] == source["path"] and e["sha256"] == source["sha256"]
+
     def test_only_dev_and_test_sources_are_used_and_never_the_pilot(self, docs):
         assert {e["split"] for e in entries(docs, "corrupted")} == {"dev", "test"}
 
