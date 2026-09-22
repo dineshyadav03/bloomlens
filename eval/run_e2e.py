@@ -235,11 +235,14 @@ def render(summary: dict, sample_size: int) -> str:
         lines.append(f"| {family} | {stats['n']} | {stats['n_ok']} | {abstained} | {agreement} |")
 
     latency = summary["latency_ms"]
+    mean_attempts_line = (
+        f"Mean attempts per call: {summary['mean_attempts']:.2f}" if summary["mean_attempts"] is not None else None
+    )
     lines += [
         "",
         f"Latency (successful calls, n={latency['n']}): "
         + (f"p50 {latency['p50']:.0f} ms, p95 {latency['p95']:.0f} ms" if latency["n"] else "not enough data"),
-        f"Mean attempts per call: {summary['mean_attempts']:.2f}" if summary["mean_attempts"] is not None else "",
+        mean_attempts_line,
         f"Tokens (n={summary['tokens']['n_with_counts']} reported): "
         + (
             f"mean {summary['tokens']['mean_input']:.0f} in / {summary['tokens']['mean_output']:.0f} out"
@@ -251,7 +254,7 @@ def render(summary: dict, sample_size: int) -> str:
         "Failures by category: "
         + (", ".join(f"{k}={v}" for k, v in summary["failures_by_category"].items()) or "none"),
     ]
-    return "\n".join(line for line in lines if line != "") + "\n"
+    return "\n".join(line for line in lines if line is not None) + "\n"
 
 
 def sample_cache_key(entry: dict, model: str, code_revision: str) -> str:
