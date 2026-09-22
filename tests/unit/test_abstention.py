@@ -1,8 +1,8 @@
 """The machine-readable abstention signal: `abstained` and `abstain_source` on the results.
 
-Two explicit signals only -- the retrieval policy (tier `low`) and the agent's own
-`matches_a_candidate == false` flag. What the model *wrote* (its notes, its summary) is never
-searched for words: eval/PROTOCOL.md section 7."""
+Two explicit signals only -- the frozen retrieval threshold (eval/PROTOCOL.md sections 4-5,
+adopted per eval/frozen/v1.json) and the agent's own `matches_a_candidate == false` flag. What
+the model *wrote* (its notes, its summary) is never searched for words: section 7."""
 
 import json
 
@@ -12,7 +12,7 @@ from PIL import Image
 from pydantic import ValidationError
 
 from src import identify as ident
-from src.identify import _abstention, _GeminiAnswer
+from src.identify import _ABSTENTION_TAU, _abstention, _GeminiAnswer
 
 GOOD = {
     "species": "Rose",
@@ -22,6 +22,9 @@ GOOD = {
     "summary": "A fine rose.",
 }
 
+ABOVE_TAU = _ABSTENTION_TAU + 0.05
+BELOW_TAU = _ABSTENTION_TAU - 0.05
+
 
 def answer(**overrides) -> _GeminiAnswer:
     return _GeminiAnswer(**{**GOOD, **overrides})
@@ -29,25 +32,23 @@ def answer(**overrides) -> _GeminiAnswer:
 
 class TestPolicy:
     @pytest.mark.parametrize(
-        "tier, agent, expected",
+        "top_score, agent, expected",
         [
-            ("high", True, (False, None)),
-            ("high", None, (False, None)),
-            ("ambiguous", True, (False, None)),
-            ("ambiguous", None, (False, None)),
-            ("low", True, (True, "retrieval")),
-            ("low", None, (True, "retrieval")),
-            ("high", False, (True, "agent")),
-            ("ambiguous", False, (True, "agent")),
-            ("low", False, (True, "both")),
+            (ABOVE_TAU, True, (False, None)),
+            (ABOVE_TAU, None, (False, None)),
+            (_ABSTENTION_TAU, True, (False, None)),  # the boundary itself is not an abstention
+            (BELOW_TAU, True, (True, "retrieval")),
+            (BELOW_TAU, None, (True, "retrieval")),
+            (ABOVE_TAU, False, (True, "agent")),
+            (BELOW_TAU, False, (True, "both")),
         ],
     )
-    def test_the_truth_table(self, tier, agent, expected):
-        assert _abstention(tier, agent) == expected
+    def test_the_truth_table(self, top_score, agent, expected):
+        assert _abstention(top_score, agent) == expected
 
     def test_a_missing_opinion_from_the_agent_is_not_a_no(self):
         """None means 'gave no opinion' -- only an explicit false counts."""
-        assert _abstention("high", None) == (False, None)
+        assert _abstention(ABOVE_TAU, None) == (False, None)
 
 
 class TestAgentAnswerSchema:
@@ -149,3 +150,15 @@ class TestResults:
     def test_a_source_outside_the_enum_is_refused(self, make_identify_result):
         with pytest.raises(ValidationError):
             make_identify_result(abstain_source="the summary said so")
+
+
+def test_the_frozen_tau_matches_the_committed_evaluation_record():
+    """The constant in src/identify.py must be the exact value eval/select_threshold.py froze
+    and eval/run_open_world.py evaluated (and adopted) -- not a rounded-off copy."""
+    import json
+    from pathlib import Path
+
+    frozen = json.loads((Path(__file__).resolve().parents[2] / "eval" / "frozen" / "v1.json").read_text())
+    assert frozen["candidate"] == "max_cosine"  # == the raw top-1 similarity _abstention compares
+    assert frozen["adopted"] is True
+    assert _ABSTENTION_TAU == frozen["tau"]
