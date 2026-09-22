@@ -68,7 +68,7 @@ uv run python scripts/build_index.py             # builds the local Qdrant speci
 uv run streamlit run app.py
 ```
 
-Prefer plain pip? `uv export --no-dev --no-hashes -o requirements.txt` writes a pip-compatible file from the same lock (it is generated, not committed, so it can't drift). Only rebuilding the evaluation test set needs the extra `scipy` dependency: `uv sync --extra eval-data`.
+Prefer plain pip? `uv export --no-dev --no-hashes -o requirements.txt` writes a pip-compatible file from the same lock (it is generated, not committed, so it can't drift). Only rebuilding the evaluation test set needs the extra `scipy` dependency: `uv sync --extra eval-data`. The quality-label agreement metrics (`eval/quality_agreement.py`, [docs/quality/PROTOCOL.md](docs/quality/PROTOCOL.md)) need `uv sync --extra eval-quality` (krippendorff, scikit-learn, statsmodels) — CI installs this extra automatically when running the test suite.
 
 **Supported environments** — stated from what [CI](.github/workflows/ci.yml) actually runs, not from what should work:
 

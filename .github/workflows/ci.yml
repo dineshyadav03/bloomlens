@@ -130,7 +130,12 @@ jobs:
           "
 
       - name: Unit tests
-        run: uv run --frozen pytest -m "not integration" -q
+        # --extra eval-quality: tests/unit/test_eval_quality_agreement.py exercises the real
+        # krippendorff/scikit-learn/statsmodels/scipy wrappers (eval/quality_agreement.py), not
+        # fakes -- so those (small, pure-numeric, no GPU/weights) packages need to actually be
+        # installed here, unlike eval-data's scipy which eval/build_datasets.py only imports
+        # lazily inside a function nothing here calls.
+        run: uv run --frozen --extra eval-quality pytest -m "not integration" -q
 
   # Once, on one platform: the expensive part. Real BioCLIP 2 weights and a real
   # Qdrant index: the full test suite (unit + integration) with a coverage floor,
@@ -171,7 +176,8 @@ jobs:
       - name: Full test suite (unit + integration) with coverage
         # After build_index, so the pinned weights are already on disk; pytest-socket
         # still blocks every non-loopback connection, so nothing can reach Gemini.
-        run: uv run --frozen pytest -q --cov --cov-report=term-missing:skip-covered --cov-fail-under=95
+        # --extra eval-quality: see the same flag's comment in the unit-tests job above.
+        run: uv run --frozen --extra eval-quality pytest -q --cov --cov-report=term-missing:skip-covered --cov-fail-under=95
 
       - name: Run evaluation harness
         # eval/test_images/ is committed (small, ~15MB) specifically so this
