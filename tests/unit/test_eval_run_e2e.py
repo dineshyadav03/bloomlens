@@ -242,6 +242,14 @@ class TestRender:
         text = run_e2e.render(run_e2e.summarize([outcome(), outcome()]), 2)
         assert "p99" not in text.lower()
 
+    def test_blank_line_separators_survive_even_when_a_conditional_line_is_omitted(self):
+        """Regression: the final join used to filter out EVERY blank string, including the
+        intentional paragraph breaks, not just the one conditionally-omitted line (mean attempts
+        when there is no data) -- so the whole report ran together with no spacing at all."""
+        text = run_e2e.render(run_e2e.summarize([]), sample_size=0)  # mean_attempts is None here
+        assert "\n\n" in text  # at least one real blank line survived
+        assert text.count("\n\n") >= 3  # title, summary and disclaimer are each followed by one
+
 
 class TestMainResumability:
     @pytest.fixture(autouse=True)
