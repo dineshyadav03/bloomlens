@@ -33,6 +33,10 @@ data/inventory.db-shm
 # CI can run the evaluation harness without a slow external dependency.
 eval/raw/
 
+# eval/open_world_data.py's similarity cache: cached deterministic model outputs, not source data
+# (see that module's docstring) -- not committed, and unrelated to the committed eval/manifest/.
+eval/cache/
+
 # IDE / OS
 .vscode/
 .idea/
