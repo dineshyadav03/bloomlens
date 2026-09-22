@@ -1,0 +1,24 @@
+{
+  "adopted": true,
+  "bioclip_revision": "2957b322090f9cb17ae72c71981c7218a28d81e0",
+  "candidate": "max_cosine",
+  "candidate_auroc": {
+    "margin": 0.8031848004373975,
+    "max_cosine": 0.9356444778567523,
+    "max_softmax@0.01": 0.8172088572990706,
+    "max_softmax@0.02": 0.8336898578458174,
+    "max_softmax@0.05": 0.8496890377255331,
+    "max_softmax@0.1": 0.857545106615637
+  },
+  "code_revision": "d8a8cc740a3c80b4ca06692dbf3f133f7ea69e64",
+  "created_at": "2026-09-22T05:13:56.226159+00:00",
+  "dev_id_abstention": 0.048728813559322036,
+  "dev_near_ood_gain_pp": 0.7096774193548387,
+  "manifest_hashes": {
+    "id": "97bcf53d363ce0f9925a9473d6e104514167d4da39f69b8d153c7cc9764fa13b",
+    "near_ood": "8a56048786e72fa105b7a55d7224550579d1eecaea43e6a6b2286a624214eb30"
+  },
+  "protocol": "v1",
+  "self_sha256": "9d85285aa44f8772523b9aba63c55384b46e4adaf0916b64ad01d7627b817110",
+  "tau": 0.6070938329262233
+}
