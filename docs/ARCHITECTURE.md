@@ -271,6 +271,25 @@ The retrieval evaluation (87.2 % top-1 on 360 images) is closed-world: every ima
 - **A real bug, found only by actually running the script.** `corrupted.json` recorded a source id, label, split and variant for each entry but never the original file's *path* — every one of 600+ unit tests had faked the embedding step, so nothing ever tried to load an image from it. The first real run of `eval/run_open_world.py` hit `KeyError: 'path'` immediately. Fixed by carrying the source entry's path/hash into each corrupted entry and rebuilding just that one manifest (the other four are byte-identical, so the already-frozen tuning config didn't need to change).
 - **A second stray-process incident.** A background mutation-testing script from earlier in this milestone's own verification kept running, unnoticed, against a since-fixed test file; because that older test version didn't yet isolate its manifest directory or model calls, the stuck process quietly ran real BioCLIP embeddings against the actual committed manifests and grew the local development cache by several megabytes. No product code or data was affected (the cache is git-ignored and holds only re-derivable model outputs), but it is why every guard-clause test for `run_open_world.py` now explicitly points at empty manifests and fakes the model rather than relying on some other test's isolation.
 
+## Capped end-to-end pilot — Milestone 15c
+
+The evaluations above are retrieval-only (no Gemini call). 15c asks the same open-world question of the *whole* pipeline — retrieval, the agent, the frozen abstention rule together — on a small, fixed, capped sample. **Reported as a pilot, not a benchmark: no confidence intervals, no headline claim**, and the results file says so on its own first line.
+
+- **`eval/pilot_sample.py`** picks a fixed ~90 ID (5 per covered species, or fewer if a species' `pilot` pool is smaller — Moth orchid has only 4) + ~30 OOD (15 near-OOD + 15 far-OOD, spread across as many categories as possible before repeating one) sample, entirely from the **`pilot`** split — the one split never touched by tuning or the once-only test evaluation. Deterministic, via the same SHA-256 buckets as everything else in the protocol.
+- **`eval/run_e2e.py`** calls the real `identify()` — BioCLIP 2 + Qdrant + the live Gemini agent, using the M15b-adopted retrieval threshold — capped by `--max-calls` and resumable across invocations through a JSONL cache. Per-call fields (species, agreement with retrieval top-1, `abstained`/`abstain_source`, schema-valid) come from `IdentifyResult` itself; timing, attempts, tokens and estimated cost are read back from the very `scan_metrics` row `identify()` already wrote via M14's telemetry — no separate instrumentation.
+- **The cache is keyed by the pilot entry's own identity, not image content** — a content hash was the first design and had to be dropped before it shipped: this dataset already contains two byte-identical Oxford photos filed under different names (M15a's leakage finding), so keying on content would have silently merged two distinct pilot entries into one cache slot and skipped a real call for one of them.
+- **A real run, not a projection**, over three invocations (`--max-calls 20`, `40`, `60`) to stay within a session's reasonable free-tier pace: **all 119 of 119 pilot images completed, 0 failures.**
+
+  | family | n | abstained | agrees with retrieval top-1 |
+  |---|---:|---|---|
+  | ID | 89 | 10.1% | 92.1% |
+  | near-OOD | 15 | 93.3% | 66.7% |
+  | far-OOD | 15 | 100.0% | 86.7% |
+
+  Latency (whole pipeline, not retrieval alone): **p50 11.5 s, p95 30.9 s** — faster than M14's earlier 24-scan measurement (p50 15.1 s / p95 66.5 s), consistent with a warmer cache and no cold-start scans this time. Tokens: mean 6 973 in / 226 out. **Estimated cost: $0.2477 over 119 calls (≈$0.0021/call) — estimated list-price equivalent; actual billed cost unknown** (free tier: real bill $0). Full table in `eval/e2e_pilot_results.md`.
+- **A rendering bug, found by reading the actual output.** The report renderer filtered every blank line out of its own markdown, not just the one line meant to disappear when there was no data for it — so the first real report ran every section together with no paragraph breaks. Fixed (a `None` sentinel marks "omit this line"; a plain `""` is a real blank line) and a test now asserts blank-line separators survive even when a conditional line is omitted.
+- **Limits.** 119 calls is a small, capped sample — the abstention-rate and agreement figures above have no computed uncertainty and must not be read as precise. The pipeline's *final* species can differ from retrieval's top-1 (the agent may override it), so "agrees with retrieval" on the OOD rows is a consistency check between two stages, not a correctness claim — there is no ground truth for what an OOD image's "right" covered species would be. Quality and price remain out of scope.
+
 ## Future work (not in this build, noted for later)
 
 - **Explain-on-demand for lot mode**: `identify_lot`'s per-photo embeddings are discarded after the consensus vote; wiring the same overlay into lot mode is a smaller, separate follow-up.
@@ -317,6 +336,12 @@ src/retention.py           retention schedule and purge (scripts/purge_data.py)
 eval/PROTOCOL.md           the pre-registered open-world evaluation protocol (v1)
 eval/manifest/             evaluation manifests (ids, splits, hashes; no images)
 eval/{splits,corruptions,build_datasets}.py  deterministic splits, corruptions, the manifest builder
+eval/{scores,metrics,frozen_config,open_world_data}.py  candidate scores, open-world metrics, the
+                           self-verifying frozen config + lock, the cached embedding step
+eval/select_threshold.py  tune on dev only, freeze (eval/frozen/v1.json)
+eval/run_open_world.py    evaluate test exactly once (locked by eval/frozen/v1.lock)
+eval/pilot_sample.py      the fixed ~90 ID + ~30 OOD pilot sample (pilot split only)
+eval/run_e2e.py           the capped, resumable end-to-end pilot (eval/e2e_pilot_results.md)
 Dockerfile                 container image for app.py / api/main.py
 docker-compose.yml         app + local Qdrant, one-command spin-up
 Dockerfile.hf              Hugging Face Space image (weights+index baked in)
