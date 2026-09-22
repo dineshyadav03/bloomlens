@@ -84,10 +84,22 @@ _agent_singleton = None
 # Confidence tiers, from Qdrant's top-1/top-2 cosine-similarity gap. These are a
 # heuristic starting point from Milestone 1's handful of real test photos (correct
 # matches scored 0.64-0.69 with 0.06-0.14 gaps) — not yet tuned against a labeled
-# dataset. Revisit once Milestone 5's evaluation harness exists.
+# dataset. Drives only the "which is it?" UI switcher; the open-world evaluation
+# below (M15) never touched these, and neither should tuning it.
 _HIGH_CONFIDENCE_MIN_SCORE = 0.55
 _HIGH_CONFIDENCE_MIN_GAP = 0.05
 _LOW_CONFIDENCE_MAX_SCORE = 0.45
+
+# The retrieval-stage abstention threshold (eval/PROTOCOL.md sections 4-5): tuned on
+# dev-only data (eval/select_threshold.py), evaluated once on `test`
+# (eval/run_open_world.py, eval/open_world_results.md), and ADOPTED per the
+# pre-registered criteria — so it, not the tier-`low` gate above, now decides
+# `abstained` (eval/frozen/v1.json is the record of that decision; self_sha256
+# 9d85285aa44f...). The frozen candidate is `max_cosine`, i.e. exactly the top-1
+# similarity `_classify_confidence` already reads — no new computation, a different
+# threshold on the same number. A pinned constant, not a runtime file read: eval/
+# is not shipped in the Docker images this loads inside.
+_ABSTENTION_TAU = 0.6070938329262233
 
 ConfidenceTier = Literal["high", "ambiguous", "low"]
 AbstainSource = Literal["retrieval", "agent", "both"]
@@ -287,11 +299,11 @@ def _classify_confidence(candidates: list[dict]) -> ConfidenceTier:
     return "ambiguous"
 
 
-def _abstention(tier: ConfidenceTier, agent_matches: bool | None) -> tuple[bool, AbstainSource | None]:
+def _abstention(top_score: float, agent_matches: bool | None) -> tuple[bool, AbstainSource | None]:
     """Whether to abstain, and which signal said so. Two machine-readable signals, no text search:
-    the retrieval policy (tier `low`: eval/PROTOCOL.md section 7 -- until a frozen rule is adopted this is
-    the policy) and the agent's explicit `matches_a_candidate == false`."""
-    retrieval, agent = tier == "low", agent_matches is False
+    the frozen retrieval policy (top-1 similarity < _ABSTENTION_TAU; eval/PROTOCOL.md section 7)
+    and the agent's explicit `matches_a_candidate == false`."""
+    retrieval, agent = top_score < _ABSTENTION_TAU, agent_matches is False
     if retrieval and agent:
         return True, "both"
     if retrieval:
@@ -427,7 +439,7 @@ def _identify(image: Image.Image) -> IdentifyResult:
 
     price = lookup_price(species, grade=parsed.quality_grade)
     tier = _classify_confidence(candidates)
-    abstained, abstain_source = _abstention(tier, parsed.matches_a_candidate)
+    abstained, abstain_source = _abstention(candidates[0]["score"], parsed.matches_a_candidate)
 
     return IdentifyResult(
         species=species,
@@ -572,7 +584,7 @@ def _identify_lot(images: list[Image.Image]) -> LotResult:
     )
 
     price = lookup_price(species, grade=parsed.quality_grade)
-    abstained, abstain_source = _abstention(_classify_confidence(consensus_candidates), parsed.matches_a_candidate)
+    abstained, abstain_source = _abstention(consensus_candidates[0]["score"], parsed.matches_a_candidate)
 
     return LotResult(
         consensus_species=species,
