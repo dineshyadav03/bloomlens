@@ -10,4 +10,4 @@ these images to produce this file. See `eval/PROTOCOL.md`. `groups` = distinct l
 | id | id | 472 | 475 | 234 | 0 | 1181 | 18 | `97bcf53d363ce0f9…` |
 | near_ood | near_ood | 620 | 620 | 300 | 0 | 1540 | 77 | `8a56048786e72fa1…` |
 | far_ood | far_ood | 760 | 780 | 380 | 0 | 1920 | 96 | `788fd0beb3786e4b…` |
-| corrupted | corrupted_id | 720 | 720 | 0 | 0 | 1440 | 18 | `df7a6b668530b963…` |
+| corrupted | corrupted_id | 720 | 720 | 0 | 0 | 1440 | 18 | `a910546345d112ea…` |

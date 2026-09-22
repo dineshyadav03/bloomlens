@@ -192,7 +192,14 @@ def assemble(oxford: list[dict], caltech: list[dict], legacy: list[dict]) -> dic
         if entry["split"] in ("dev", "test"):
             grouped[(entry["label"], entry["split"])].append(entry["source_id"])
     corrupted = [
-        {"source_id": sid, "label": species, "split": split, "variant": variant}
+        {
+            "source_id": sid,
+            "label": species,
+            "split": split,
+            "variant": variant,
+            "path": by_id[sid]["path"],  # the ORIGINAL image; the corruption is applied at load time
+            "sha256": by_id[sid]["sha256"],  # of the original, uncorrupted file
+        }
         for (species, split), ids in splits.corruption_sources(grouped).items()
         for sid in ids
         for variant in corruptions.CORRUPTIONS
