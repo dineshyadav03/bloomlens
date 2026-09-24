@@ -45,6 +45,7 @@ def hermetic_env(monkeypatch, tmp_path):
     ):
         monkeypatch.delenv(name, raising=False)
     monkeypatch.setenv("INVENTORY_DB_PATH", str(tmp_path / "inventory.db"))
+    monkeypatch.setenv("QUALITY_LABELS_DB_PATH", str(tmp_path / "quality_labels.db"))
 
     from src import quota, retention
 
