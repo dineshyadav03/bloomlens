@@ -57,6 +57,14 @@ class TestGetAgent:
         assert {t.name for t in agent_kwargs["tools"]} == {"lookup_taxonomy", "assess_quality", "check_price"}
         assert agent_kwargs["system_prompt"] == ident._SYSTEM_PROMPT
 
+    def test_the_client_is_told_how_many_times_to_retry_rather_than_using_its_default_of_six(self, factories):
+        # langchain-google-genai retries each model call 6 times with exponential backoff by
+        # default, invisibly to our own loop and to telemetry: a real outage held one scan for
+        # 286 s. Two tries absorb a blip; everything past that belongs to the counted loop.
+        ident._get_agent()
+        (model_kwargs,) = factories["models"]
+        assert model_kwargs["max_retries"] == ident._MODEL_MAX_RETRIES == 2
+
     def test_a_missing_key_fails_before_any_model_is_built(self, factories, monkeypatch):
         monkeypatch.delenv("GEMINI_API_KEY")
         with pytest.raises(IdentifyError, match="GEMINI_API_KEY"):
