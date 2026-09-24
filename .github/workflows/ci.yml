@@ -82,6 +82,12 @@ jobs:
       - name: Lint
         run: uv run --frozen ruff check .
 
+      - name: Check documentation links
+        # Runs here, not with the tests: documentation-only PRs skip the unit-test jobs, and
+        # a moved file or renamed heading is exactly what such a PR can break. Standard library
+        # only, no network -- external URLs are not fetched.
+        run: uv run --frozen python scripts/check_doc_links.py
+
   # Cheap and broad: does the locked environment install and import on every
   # supported Python/OS combination, and do the unit tests pass? No model weights,
   # no real network (pytest-socket allows loopback only), no inference -- so what
