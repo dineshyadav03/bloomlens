@@ -45,6 +45,13 @@ privacy.disable_tracing()  # after load_dotenv, so a LANGSMITH_TRACING=true in .
 _MAX_RETRIES = 4
 _RETRY_BASE_DELAY_SECONDS = 2
 
+# HTTP tries per model call inside the LangChain client, UNDER the loop above. Its default is 6,
+# with exponential backoff, and none of those tries are visible to `_invoke_agent_with_retries`
+# or to telemetry: during a real Gemini 503 outage (2026-09-24) one scan sat for 286 s -- four
+# attempts of ~66 s each -- before the UI reported an error, and telemetry said "4 attempts".
+# Two tries still absorb a one-off blip; the loop above then owns the rest, where it is counted.
+_MODEL_MAX_RETRIES = 2
+
 _SYSTEM_PROMPT = """\
 You are helping a flower-auction buyer identify a flower from a photo. You will be shown one \
 photo, or several photos of the same "lot" (a batch of stems presumed to be the same or similar \
@@ -197,7 +204,12 @@ def _get_agent():
     with _agent_lock:
         if _agent_singleton is None:
             privacy.disable_tracing()
-            model = ChatGoogleGenerativeAI(model=GEMINI_MODEL, google_api_key=_require_api_key(), timeout=45)
+            model = ChatGoogleGenerativeAI(
+                model=GEMINI_MODEL,
+                google_api_key=_require_api_key(),
+                timeout=45,
+                max_retries=_MODEL_MAX_RETRIES,
+            )
             _agent_singleton = create_agent(
                 model=model,
                 tools=[lookup_taxonomy, assess_quality, check_price],
