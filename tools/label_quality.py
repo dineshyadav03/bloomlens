@@ -5,8 +5,9 @@ Run with `uv run --extra eval-quality streamlit run tools/label_quality.py`.
 Blinding (PROTOCOL.md section 3): a rater sees ONLY the current photo -- never BloomLens's own
 species guess or quality grade, never another rater's label for the same item, and never their
 own previous grade pre-filled for a new item (each item's grade/note widget is keyed by item id
-for exactly that reason). Submissions are append-only (eval/quality_labels_db.py) -- resubmitting
-an item records a new row rather than overwriting the old one.
+for exactly that reason). Nor are they told which items are the practice round (section 3): every
+item gets the same progress line. Submissions are append-only (eval/quality_labels_db.py) --
+resubmitting an item records a new row rather than overwriting the old one.
 
 **Building this tool is not validation.** It produces raw labels for `eval/quality_agreement.py`
 to measure agreement on; it says nothing by itself about whether BloomLens's own `quality_grade`
@@ -57,27 +58,17 @@ if not remaining:
 
 item = remaining[0]
 position = next(i for i, entry in enumerate(sample) if entry["id"] == item["id"])
-calibration_items = [entry for entry in sample if entry["calibration"]]
-
-if item["calibration"]:
-    st.warning(
-        f"Practice item {position + 1} of {len(calibration_items)} — discussed as a group "
-        "afterward, never included in the measured results."
-    )
-else:
-    study_start = len(calibration_items)
-    st.caption(f"Item {position - study_start + 1} of {len(sample) - study_start}")
+# One uniform progress line for every item: PROTOCOL.md section 3 says raters are NOT told which
+# items are the practice round while they label it (the coordinator runs the group discussion
+# afterward), so nothing here may distinguish them. The `calibration` flag only goes to storage.
+st.caption(f"Item {position + 1} of {len(sample)}")
 
 st.caption(f"Item ID: {item['id']}")
 st.image(item["path"], width="stretch")
 
-grade_label = st.radio(
-    "Visual condition class", list(GRADE_OPTIONS), index=None, key=f"grade-{item['id']}"
-)
+grade_label = st.radio("Visual condition class", list(GRADE_OPTIONS), index=None, key=f"grade-{item['id']}")
 note = st.text_area("Optional note (what you saw)", key=f"note-{item['id']}")
 
 if st.button("Submit", disabled=grade_label is None):
-    db.submit_label(
-        rater_id, item["id"], calibration=item["calibration"], grade=GRADE_OPTIONS[grade_label], note=note
-    )
+    db.submit_label(rater_id, item["id"], calibration=item["calibration"], grade=GRADE_OPTIONS[grade_label], note=note)
     st.rerun()

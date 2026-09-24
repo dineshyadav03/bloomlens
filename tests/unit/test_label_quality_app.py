@@ -50,9 +50,7 @@ def pool(monkeypatch, tmp_path):
             }
         )
     monkeypatch.setattr(labeling_sample, "default_sample_source", lambda: items)
-    monkeypatch.setattr(labeling_sample, "DEFAULT_CALIBRATION_COUNT", 2)
-    real_build = labeling_sample.build_sample
-    monkeypatch.setattr(labeling_sample, "build_sample", lambda its, **kw: real_build(its, calibration_count=2))
+    monkeypatch.setattr(labeling_sample, "DEFAULT_CALIBRATION_COUNT", 2)  # read at call time, so this holds
     return items
 
 
@@ -156,16 +154,34 @@ class TestLabeling:
         at = submit(registered(), A)
         assert "Item ID: synthetic-1" in text_of(at.caption)
 
-    def test_a_calibration_item_is_marked_as_practice(self, pool):
+    def test_the_practice_round_is_never_announced_to_the_rater(self, pool):
+        # PROTOCOL.md section 3: raters are not told which items are practice while labeling them.
         at = registered()
-        assert "Practice item 1 of 2" in text_of(at.warning)
-        assert "never included in the measured results" in text_of(at.warning)
+        for _ in range(4):  # both practice items and the first two measured ones
+            shown = everything_shown(at).lower()
+            assert "practice" not in shown and "calibration" not in shown
+            assert not at.warning
+            at = submit(at, A)
 
-    def test_after_the_practice_round_items_are_counted_as_the_study(self, pool):
-        at = submit(submit(registered(), A), B)  # both practice items
-        assert "Item ID: synthetic-2" in text_of(at.caption)
-        assert "Item 1 of 3" in text_of(at.caption)
-        assert not at.warning
+    def test_every_item_gets_the_same_progress_line(self, pool):
+        at = registered()
+        seen = []
+        for _ in range(4):
+            seen.append(
+                next(c.value for c in at.caption if str(c.value).startswith("Item ") and " of " in str(c.value))
+            )
+            at = submit(at, A)
+        assert seen == ["Item 1 of 5", "Item 2 of 5", "Item 3 of 5", "Item 4 of 5"]
+
+    def test_the_practice_flag_is_still_stored_for_the_first_items_only(self, pool):
+        import contextlib
+
+        at = registered()
+        for _ in range(3):
+            at = submit(at, A)
+        with contextlib.closing(db.connect()) as conn:
+            flags = conn.execute("SELECT item_id, calibration FROM quality_labels ORDER BY id").fetchall()
+        assert flags == [("synthetic-0", 1), ("synthetic-1", 1), ("synthetic-2", 0)]
 
     def test_calibration_labels_are_stored_but_excluded_from_the_measured_labels(self, pool):
         at = submit(submit(registered(), A), B)
