@@ -12,9 +12,10 @@ not perform.
 
 ## 1. What is being labeled
 
-Each item is one flower photo (or, for a lot, the full set of photos of that lot) drawn from the
-existing `eval/manifest/id.json` `pilot`/`dev`/`test` pool, or an equivalent held-out set. Raters
-never see the model's output, the retrieval candidates, or each other's labels (see §5, blinding).
+Each item is one flower photo (or, for a lot, the full set of photos of that lot). The photos
+must show a real spread of condition, or there is nothing for raters to agree or disagree about
+(see §6). Raters never see the model's output, the retrieval candidates, or each other's labels
+(see §3, blinding).
 
 Raters assign one of:
 
@@ -31,7 +32,7 @@ own invented scale**, not a market grade.
 
 ## 2. Rater qualifications and training
 
-- At least 2 raters per item (§6 adjudication needs a 3rd on disagreement); raters should have
+- At least 2 raters per item (§5 adjudication needs a 3rd on disagreement); raters should have
   practical experience with cut flowers (florists, growers, flower-shop staff, horticulture
   students) — not necessarily professional graders, since BloomLens's grade is explicitly *not*
   a market grade.
@@ -49,7 +50,7 @@ own invented scale**, not a market grade.
 - Raters see only the photo(s) — never BloomLens's predicted species, quality grade, quality
   note, retrieval candidates, or confidence tier.
 - Raters never see another rater's label for the same item until all raters have submitted all
-  their labels (enforced by the labeler tool, §7 — it never displays another rater's grade, and
+  their labels (enforced by the labeler tool, §9 — it never displays another rater's grade, and
   submissions are append-only).
 - Raters are not told which images are "calibration" vs "real" during the calibration round
   itself, only afterward when calibration labels are discarded — this keeps the calibration round
@@ -85,19 +86,23 @@ is:
 
 ## 6. Sample size and what it can and cannot support
 
-- Target: the existing dataset scale referenced elsewhere in this project (~150 images spanning
-  the 30 curated species) — i.e., **no new photo collection is assumed by this protocol**; it
-  labels a sample drawn from data already gathered for the retrieval evaluation, at roughly 5
-  images per species. This scale is intentionally treated as supporting **pooled analysis only,
-  not per-species** analysis (justification below).
-- **Explicit statement, not a caveat buried in a footnote: with ~150 images across 30 species
-  (~5 per species), this study cannot and will not report per-species agreement or per-species
-  validation.** Any per-species breakdown shown is descriptive only (e.g., "3 of 5 Rose photos had
-  full agreement"), explicitly labeled as too small to generalize, and never presented as a
-  per-species accuracy or reliability claim.
+- Target: on the order of **150 items**, at roughly 5 per species the photos cover (at most the 30
+  curated species). This scale is intentionally treated as supporting **pooled analysis only, not
+  per-species** analysis (justification below).
+- **The photos must come from cut-flower stock that actually varies in condition.** The Oxford 102
+  photos already in this repo (garden and wild flowers, and covering only 18 of the 30 species)
+  are a **stand-in pool** for exercising the tools, not a suitable study set: nearly every garden
+  bloom is in fine condition, so raters would give near-unanimous "A" and agreement would be
+  undefined or meaningless. A real study needs suitable photos first (plan item M18); this
+  protocol does not assume them and does not pretend the stand-in pool would do.
+- **Explicit statement, not a caveat buried in a footnote: with ~150 images spread over up to 30
+  species (~5 per species), this study cannot and will not report per-species agreement or
+  per-species validation.** Any per-species breakdown shown is descriptive only (e.g., "3 of 5 Rose
+  photos had full agreement"), explicitly labeled as too small to generalize, and never presented
+  as a per-species accuracy or reliability claim.
 - All primary agreement statistics (Krippendorff's α, weighted κ) are computed **pooled across all
   species** — this is what the sample size can actually support.
-- Confidence intervals (bootstrap, §8) are reported alongside every pooled statistic so the
+- Confidence intervals (bootstrap, §7) are reported alongside every pooled statistic so the
   reader can see the real uncertainty from this sample size, rather than a bare point estimate.
 
 ## 7. Metrics
@@ -130,3 +135,9 @@ against another synthetic case built with the same possible misunderstanding.
 - It makes no claim beyond the pooled, ~150-image, 30-species sample it is run on. It is not
   a benchmark and does not produce a number suitable for a marketing claim about accuracy on any
   individual species.
+
+## 9. Operating it (added before any label was collected; changes no rule above)
+
+- **Label**: `uv run --extra eval-quality streamlit run tools/label_quality.py`. Each rater registers once (a free-text experience note, section 2), then labels the fixed sequence — the first 15 items are the practice round, which raters are not told about (§3) (drawn from the Oxford `dev` split, disjoint from the measured items, as section 2 requires), marked as such and stored with a `calibration` flag so they never reach the statistics. The measured items in the tool as shipped are the Oxford `pilot` split — the **stand-in pool** of section 6, there to exercise the tools; a real study replaces `eval/labeling_sample.py`'s source with suitable photos. Both orders are a fixed, hash-based shuffle, so a rater does not see one species in a run. Submissions are append-only in `data/quality_labels.db` (gitignored: rater ids and notes are personal data); a correction is a new row and the latest per (rater, item) counts.
+- **Report**: `uv run --extra eval-quality python eval/quality_agreement.py`, adding `--adjudicator RATER_ID` for each third rater of section 5 — their labels resolve items but are kept out of every statistic, so adjudication cannot inflate agreement. The report prints its own limits (pooled only; does not validate the model's grade).
+- **Tested only on synthetic data.** The labeler and the report are exercised solely on generated images and made-up rater ids; the agreement wrappers additionally against the published worked examples of section 7. No real label exists yet, and none of this is evidence about BloomLens's grade.
