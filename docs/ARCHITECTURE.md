@@ -1,6 +1,6 @@
-# Architecture (planned)
+# Architecture
 
-Status: all 7 originally-planned milestones implemented (core pipeline, confidence gating, agentic layer, lot mode, evaluation harness, FastAPI endpoint, Docker Compose + CI), plus Milestone 8 (Hugging Face Spaces deployment), Milestone 9 (Grad-ECLIP interpretability overlay), and Milestone 10 (persistent inventory log) — see each section below for details. See [RESEARCH.md](RESEARCH.md) for the sources behind each design choice; this document is kept current as decisions change, not just written once.
+Status: built through Milestone 17 (the first ten milestones, then a hardening and evidence pass, Milestones 11-17) -- the milestone-by-milestone record, and what each shipped, is in [DEVELOPMENT.md](DEVELOPMENT.md); each section below gives the design and the reasoning. See [RESEARCH.md](RESEARCH.md) for the sources behind each design choice; this document is kept current as decisions change, not just written once.
 
 ## Pipeline
 
@@ -302,6 +302,16 @@ The quality grade is still an **unvalidated heuristic**. This milestone builds e
 - **CI.** The new tests exercise the real krippendorff / scikit-learn / statsmodels code, so the `eval-quality` extra is installed where pytest runs (small pure-numeric wheels — no weights, no network).
 - **Limits.** The report has been run only on synthetic labels. The only photos in this repo (Oxford 102: garden and wild flowers, 18 of the 30 species) are a **stand-in pool** for exercising the tools — nearly all are in fine condition, so real raters would give near-unanimous "A" and agreement would be undefined; a real study needs suitable cut-flower photos with genuine variation in condition first (M18). The protocol originally said ~150 images across all 30 species; that was wrong about the data on hand and was corrected before any label existed. When real labels exist (M18, blocked on qualified raters) it will show whether *people* agree on the scale; comparing the *model* to them is a further step this milestone does not take.
 
+## Evidence-based README and documentation — Milestone 17
+
+The README used to open with a paragraph of hedged numbers and carry ten milestones of history. It now leads with a **"What is measured (and what isn't)" table** — component, the artifact that proves it, n, what it shows and where it stops, and one status word (*measured*, *pilot*, *unvalidated*, *simulated*, *not evaluated*, *not done*) — followed by a real sample result, quick start, supported environments (still derived only from what CI runs), performance, security and privacy, and limitations. The milestone-by-milestone history moved to [DEVELOPMENT.md](DEVELOPMENT.md). Nothing in the README is new evidence; every figure is quoted from a results file or measured here.
+
+- **Measured for this milestone:** `scripts/measure_startup.py` times a fresh process's import, model load, first and warm embedding and Qdrant search — six separate runs, reported as a range because this laptop varies a lot (cold start to first retrieval result 21.7–43.2 s, median 24.4 s; the slowest run coincided with Docker Desktop starting). Hardware comes from Windows CIM (Intel Core Ultra 7 155H, 15.7 GB RAM), the weights' size from the cache on disk (1,631 MB), and the stage breakdown of a whole scan (embed 0.92 s, search 1 ms, agent 10.0 s at p50, over 116 warm scans) from the closed-schema telemetry the M15c pilot wrote.
+- **Disclosed as stale or absent, not papered over:** the Docker image sizes are from images built 8–13 days earlier (rebuilding on this machine's ~150 KB/s link was not worth hours), so the README says when they were built; the Hugging Face Space does not exist, so its cold start is "not measured" and the live-demo row says "not done"; and the demo recording is described in the README as pending unless a real scan could be recorded (see below).
+- **A real bug, found by trying to record a demo.** During a genuine Gemini outage (`gemini-3.1-flash-lite` answering every request with HTTP 503, 2026-09-24) a scan sat for **286 s** before the UI reported an error — the agent stage alone took 265.8 s over four *counted* attempts. Cause: `langchain-google-genai` retries each model call six times with exponential backoff by default, underneath `_invoke_agent_with_retries`, invisibly to it and to telemetry. The client is now built with `max_retries=2`; the same outage, same machine, afterwards: failed scans in 56–69 s (agent stage 50–55 s), still categorised `server_5xx` with four attempts. A test pins the value so the library default cannot silently return.
+- **Broken citation links, found by a checker, not by eye.** `docs/RESEARCH.md` marked six sections with kramdown's `{#id}` syntax, which GitHub does not honour, so the README's [1] [2] [3] and Grad-ECLIP links landed at the top of the page. They are now explicit `<a id>` anchors, and `scripts/check_doc_links.py` — every relative link and `#anchor` in the README and `docs/`, under GitHub's slug rules — runs in the lint job, which always runs (documentation-only PRs skip the unit-test jobs and are exactly the PRs that break links). 26 tests; 11 mutations caught.
+- **Limits.** One machine, six timing runs and no idle-machine control; the timing script measures loading the model and running retrieval, not downloading it; the pilot's telemetry records no model-written text, so the README's sample result shows structured fields only.
+
 ## Future work (not in this build, noted for later)
 
 - **Explain-on-demand for lot mode**: `identify_lot`'s per-photo embeddings are discarded after the consensus vote; wiring the same overlay into lot mode is a smaller, separate follow-up.
@@ -363,6 +373,9 @@ docker-compose.yml         app + local Qdrant, one-command spin-up
 Dockerfile.hf              Hugging Face Space image (weights+index baked in)
 README.hf.md               the Space's own README (frontmatter), not GitHub's
 scripts/deploy_hf_space.py assembles + commits the Space's file set
+scripts/measure_startup.py times import, model load and first/warm retrieval in a fresh process
+scripts/check_doc_links.py checks every relative link and #anchor in README.md and docs/ (runs in CI lint)
+docs/DEVELOPMENT.md        the milestone-by-milestone history (moved out of the README)
 .github/workflows/ci.yml   lint + run eval/run_eval.py on push
 .env.example               GEMINI_API_KEY=
 ```
